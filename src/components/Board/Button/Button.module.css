@@ -1,0 +1,20 @@
+.button {
+  --border-width: 2px;
+
+  min-height: 3rem;
+  min-width: 3rem;
+  padding: 0;
+  border: var(--border-width) solid;
+  border-radius: 8px;
+  outline-offset: calc(var(--border-width));
+  color: var(--color, inherit);
+  background-color: var(--background-color, transparent);
+  border-color: var(--border-color, transparent);
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button:disabled {
+  cursor: default;
+}

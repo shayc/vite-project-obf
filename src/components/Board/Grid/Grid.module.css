@@ -1,0 +1,24 @@
+.grid {
+  width: 100%;
+  height: 100%;
+  padding: var(--gap);
+  display: flex;
+  gap: var(--gap);
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  gap: var(--gap);
+}
+
+.cell {
+  flex: 1;
+  background-color: #f0f0f0;
+}
+
+.cell:not(:empty) {
+  background-color: transparent;
+}
