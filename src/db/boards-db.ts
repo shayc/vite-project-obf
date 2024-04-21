@@ -105,15 +105,23 @@ export async function getBoardByPath(path: string): Promise<OBF.Board | null> {
   const tx = db.transaction(["boards", "images", "sounds"]);
   const boardsStore = tx.objectStore("boards");
   const imagesStore = tx.objectStore("images");
+  const soundsStore = tx.objectStore("sounds");
 
   const rootBoard = await boardsStore.index("by-path").get(path);
   const images = rootBoard?.data.images ?? [];
+  const sounds = rootBoard?.data.sounds ?? [];
 
   for (const image of images) {
     const imageData = await imagesStore.get(image.id);
     if (imageData) {
-      const objectURL = URL.createObjectURL(imageData.data);
-      image.url = objectURL;
+      image.url = URL.createObjectURL(imageData.data);
+    }
+  }
+
+  for (const sound of sounds) {
+    const soundData = await soundsStore.get(sound.id);
+    if (soundData) {
+      sound.url = URL.createObjectURL(soundData.data);
     }
   }
 

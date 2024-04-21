@@ -109,6 +109,7 @@ interface Board {
   buttons?: Button[]; // Array of buttons
   grid?: Grid; // Grid layout
   images?: Image[]; // Array of images
+  sounds?: Sound[]; // Array of sounds
   license?: License; // Licensing information
 }
 
@@ -134,6 +135,5 @@ export {
   LoadBoard,
   Manifest,
   Sound,
-  SymbolSet
+  SymbolSet,
 };
-
