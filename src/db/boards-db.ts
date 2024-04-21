@@ -90,29 +90,34 @@ export async function storeOBZFiles(obzFiles: OBZFiles): Promise<void> {
 }
 
 export async function getRootBoard(): Promise<OBF.Board | null> {
-  const tx = db.transaction(["manifest", "boards", "images", "sounds"]);
+  const tx = db.transaction(["manifest"]);
   const manifestStore = tx.objectStore("manifest");
-  const boardsStore = tx.objectStore("boards");
-  const imagesStore = tx.objectStore("images");
-
   const manifest = await manifestStore.get("manifest");
 
-  if (manifest) {
-    const rootBoard = await boardsStore.index("by-path").get(manifest.root);
-    const images = rootBoard?.data.images ?? [];
-
-    for (const image of images) {
-      const imageData = await imagesStore.get(image.id);
-      if (imageData) {
-        const objectURL = URL.createObjectURL(imageData.data);
-        image.data = objectURL;
-      }
-    }
-
-    return rootBoard?.data ?? null;
+  if (manifest?.root) {
+    return getBoardByPath(manifest.root);
   }
 
   return null;
+}
+
+export async function getBoardByPath(path: string): Promise<OBF.Board | null> {
+  const tx = db.transaction(["boards", "images", "sounds"]);
+  const boardsStore = tx.objectStore("boards");
+  const imagesStore = tx.objectStore("images");
+
+  const rootBoard = await boardsStore.index("by-path").get(path);
+  const images = rootBoard?.data.images ?? [];
+
+  for (const image of images) {
+    const imageData = await imagesStore.get(image.id);
+    if (imageData) {
+      const objectURL = URL.createObjectURL(imageData.data);
+      image.url = objectURL;
+    }
+  }
+
+  return rootBoard?.data ?? null;
 }
 
 async function initDB(): Promise<IDBPDatabase<BoardsDB>> {
