@@ -1,6 +1,7 @@
 .button {
   --border-width: 2px;
 
+  position: relative;
   min-height: 3rem;
   min-width: 3rem;
   padding: 0;
@@ -11,7 +12,6 @@
   border-color: var(--border-color, transparent);
   outline-offset: calc(var(--border-width));
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
-  position: relative;
   overflow: hidden;
   cursor: pointer;
 }
