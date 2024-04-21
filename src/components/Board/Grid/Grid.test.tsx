@@ -3,7 +3,7 @@ import { Grid } from "./Grid";
 
 it("Should return posts when clicking fetch button", async () => {
   const handleClick = vi.fn();
-  render(<Grid />);
+  render(<Grid rows={3} columns={3} />);
 
   const button = screen.getByRole("button", { name: "Hello world" });
   await userEvent.click(button);
