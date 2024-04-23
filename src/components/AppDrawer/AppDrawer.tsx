@@ -7,6 +7,7 @@ import {
 } from "@fluentui/react-components";
 import { Dismiss24Regular } from "@fluentui/react-icons";
 import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
+import { ThemeSettings } from "./ThemeSettings/ThemeSettings";
 
 interface AppDrawerProps {
   isOpen: boolean;
@@ -40,6 +41,7 @@ export function AppDrawer(props: AppDrawerProps) {
       </DrawerHeader>
 
       <DrawerBody>
+        <ThemeSettings />
         <SpeechSettings />
       </DrawerBody>
     </Drawer>

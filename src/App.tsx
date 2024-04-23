@@ -16,13 +16,13 @@ function App() {
     });
   }, []);
 
-  function handleSettingsClick() {
-    setIsDrawerOpen(true);
-  }
-
   return (
     <div className={classes.app}>
-      <AppBar title={board?.name} onSettingsClick={handleSettingsClick} />
+      <AppBar
+        title={board?.name}
+        onSettingsClick={() => setIsDrawerOpen(true)}
+      />
+
       <AppDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
 
       <Board

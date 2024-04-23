@@ -1,11 +1,10 @@
 import {
   Button,
-  Dropdown,
   Label,
-  Option,
+  Select,
   Slider,
   Subtitle2,
-  useId,
+  useId
 } from "@fluentui/react-components";
 import {
   MAX_PITCH,
@@ -32,11 +31,11 @@ export function SpeechSettings() {
 
       <div className={classes.setting}>
         <Label htmlFor={voiceId}>Voice</Label>
-        <Dropdown aria-labelledby={voiceId} placeholder="Select a voice">
+        <Select id={voiceId}>
           {voices.map((voice) => (
-            <Option key={voice.voiceURI}>{voice.name}</Option>
+            <option key={voice.voiceURI}>{voice.name}</option>
           ))}
-        </Dropdown>
+        </Select>
       </div>
 
       <div className={classes.setting}>
