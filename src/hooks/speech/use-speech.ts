@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  DEFAULT_PITCH,
+  DEFAULT_RATE,
+  DEFAULT_VOLUME,
+  asyncSpeechSynthesis,
+} from "./async-speech-synth";
 
 export const useSpeech = () => {
-  const [volume, setVolume] = useState(1);
-  const [rate, setRate] = useState(1);
-  const [pitch, setPitch] = useState(1);
+  const [volume, setVolume] = useState(DEFAULT_VOLUME);
+  const [rate, setRate] = useState(DEFAULT_RATE);
+  const [pitch, setPitch] = useState(DEFAULT_PITCH);
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
 
-  const speak = (text: string) => {
-    const utterance = new SpeechSynthesisUtterance(text);
+  async function speak(text: string) {
+    await asyncSpeechSynthesis.speak(text, { volume, rate, pitch });
+  }
 
-    utterance.volume = volume;
-    utterance.rate = rate;
-    utterance.pitch = pitch;
+  useEffect(() => {
+    async function initSpeech() {
+      const voices = await asyncSpeechSynthesis.getVoices();
+      setVoices(voices);
+    }
 
-    speechSynthesis.speak(utterance);
-  };
+    void initSpeech();
+  }, []);
 
-  return { speak, setVolume, setRate, setPitch, volume, rate, pitch };
+  return { speak, voices, setVolume, setRate, setPitch, volume, rate, pitch };
 };
