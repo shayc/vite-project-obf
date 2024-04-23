@@ -20,8 +20,6 @@ function App() {
           buttons: obf.buttons?.map((button) => ({
             id: button.id,
             label: button.label,
-            imageSrc: obf.images?.[button.image_id],
-            soundSrc: obf.sounds?.[button.sound_id],
             loadBoardId: button.load_board?.id,
             backgroundColor: button.background_color,
             borderColor: button.border_color,
@@ -47,7 +45,11 @@ function App() {
 
       <AppDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
 
-      <BoardViewer className={classes.board} board={board} />
+      <BoardViewer
+        className={classes.board}
+        buttons={board?.buttons}
+        grid={board?.grid}
+      />
     </div>
   );
 }

@@ -2,31 +2,22 @@ import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
 import { Pictogram } from "./Pictogram/Pictogram";
-import type { Board, BoardButton } from "./types";
-import { useBoard } from "./useBoard";
+import type { BoardButton, BoardGrid } from "./types";
 
-const initialBoard: Board = {
-  id: "",
-  buttons: [],
-  grid: {
-    rows: 3,
-    columns: 3,
-  },
-};
-
-export interface BoardProps {
-  board: Board;
+export interface BoardViewerProps {
+  buttons?: BoardButton[];
+  grid?: BoardGrid;
   className?: string;
 }
 
-export const BoardViewer = ({
-  board = initialBoard,
-  className: classNameProp,
-}: BoardProps) => {
-  const { buttons, grid = { rows: 3, columns: 3 } } = board;
+export const BoardViewer = (props: BoardViewerProps) => {
+  const {
+    buttons,
+    grid = { rows: 3, columns: 3 },
+    className: classNameProp,
+  } = props;
 
   const className = `${classes.board} ${classNameProp}`;
-  const { onButtonClick } = useBoard();
 
   function renderButton(button: BoardButton) {
     const { backgroundColor, borderColor, label, imageSrc } = button;
