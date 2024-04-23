@@ -20,6 +20,7 @@ function App() {
           buttons: obf.buttons?.map((button) => ({
             id: button.id,
             label: button.label,
+            vocalization: button.vocalization,
             loadBoardId: button.load_board?.id,
             backgroundColor: button.background_color,
             borderColor: button.border_color,
@@ -27,6 +28,7 @@ function App() {
           grid: {
             rows: obf.grid?.rows ?? 3,
             columns: obf.grid?.columns ?? 3,
+            order: obf.grid?.order ?? [],
           },
         };
       }
