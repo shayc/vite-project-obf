@@ -10,11 +10,11 @@ import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
 
 interface AppDrawerProps {
   isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => void;
+  onClose: () => void;
 }
 
 export function AppDrawer(props: AppDrawerProps) {
-  const { isOpen, setIsOpen } = props;
+  const { isOpen, onClose } = props;
 
   return (
     <Drawer
@@ -22,7 +22,7 @@ export function AppDrawer(props: AppDrawerProps) {
       type="overlay"
       open={isOpen}
       position="end"
-      onOpenChange={(_, { open }) => setIsOpen(open)}
+      onOpenChange={onClose}
     >
       <DrawerHeader>
         <DrawerHeaderTitle
@@ -31,7 +31,7 @@ export function AppDrawer(props: AppDrawerProps) {
               appearance="subtle"
               aria-label="Close"
               icon={<Dismiss24Regular />}
-              onClick={() => setIsOpen(false)}
+              onClick={onClose}
             />
           }
         >

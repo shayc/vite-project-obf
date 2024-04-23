@@ -7,6 +7,7 @@ import { getRootBoard } from "./db/boards-db";
 import * as OBF from "./open-board-format/obf";
 
 function App() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [board, setBoard] = useState<OBF.Board | null>(null);
 
   useEffect(() => {
@@ -15,16 +16,15 @@ function App() {
     });
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
-
   function handleSettingsClick() {
-    setIsOpen(true);
+    setIsDrawerOpen(true);
   }
 
   return (
     <div className={classes.app}>
-      <AppBar title={board?.name ?? ""} onSettingsClick={handleSettingsClick} />
-      <AppDrawer isOpen={isOpen} setIsOpen={setIsOpen} />
+      <AppBar title={board?.name} onSettingsClick={handleSettingsClick} />
+      <AppDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+
       <Board
         className={classes.board}
         buttons={board?.buttons}

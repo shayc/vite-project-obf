@@ -3,7 +3,7 @@ import { SettingsRegular } from "@fluentui/react-icons";
 import classes from "./AppBar.module.css";
 
 interface AppBarProps {
-  title: string;
+  title?: string;
   onSettingsClick: () => void;
 }
 
