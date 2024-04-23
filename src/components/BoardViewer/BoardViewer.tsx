@@ -7,12 +7,14 @@ import type { BoardButton, BoardGrid } from "./types";
 export interface BoardViewerProps {
   buttons?: BoardButton[];
   grid?: BoardGrid;
+  onButtonClick?: (button: BoardButton) => void;
   className?: string;
 }
 
 export const BoardViewer = (props: BoardViewerProps) => {
   const {
     buttons,
+    onButtonClick,
     grid = { rows: 3, columns: 3 },
     className: classNameProp,
   } = props;
@@ -27,7 +29,7 @@ export const BoardViewer = (props: BoardViewerProps) => {
         className={classes.button}
         backgroundColor={backgroundColor}
         borderColor={borderColor}
-        onClick={() => onButtonClick(button)}
+        onClick={() => onButtonClick?.(button)}
       >
         <Pictogram className={classes.pictogram} label={label} src={imageSrc} />
       </Button>

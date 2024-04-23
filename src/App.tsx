@@ -7,32 +7,32 @@ import type { Board } from "./components/BoardViewer/types";
 import { getRootBoard } from "./db/boards-db";
 import type * as OBF from "./open-board-format/obf.d.ts";
 
+function mapOBFToBoard(obf: OBF.Board): Board {
+  return {
+    id: obf.id,
+    name: obf.name,
+    buttons: obf.buttons?.map((button) => ({
+      id: button.id,
+      label: button.label,
+      vocalization: button.vocalization,
+      loadBoardId: button.load_board?.id,
+      backgroundColor: button.background_color,
+      borderColor: button.border_color,
+    })),
+    grid: {
+      rows: obf.grid?.rows ?? 3,
+      columns: obf.grid?.columns ?? 3,
+      order: obf.grid?.order ?? [],
+    },
+  };
+}
+
 function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [board, setBoard] = useState<Board | null>(null);
 
   useEffect(() => {
     void getRootBoard().then((obf) => {
-      function mapOBFToBoard(obf: OBF.Board): Board {
-        return {
-          id: obf.id,
-          name: obf.name,
-          buttons: obf.buttons?.map((button) => ({
-            id: button.id,
-            label: button.label,
-            vocalization: button.vocalization,
-            loadBoardId: button.load_board?.id,
-            backgroundColor: button.background_color,
-            borderColor: button.border_color,
-          })),
-          grid: {
-            rows: obf.grid?.rows ?? 3,
-            columns: obf.grid?.columns ?? 3,
-            order: obf.grid?.order ?? [],
-          },
-        };
-      }
-
       const board = obf ? mapOBFToBoard(obf) : null;
       setBoard(board);
     });
