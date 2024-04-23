@@ -3,11 +3,9 @@ import * as OBF from "../../open-board-format/obf";
 import classes from "./Board.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
-import { Output } from "./Output/Output";
 import { Pictogram } from "./Pictogram/Pictogram";
 
 export interface BoardProps {
-  name?: string;
   buttons?: OBF.Button[];
   grid?: OBF.Grid;
   images?: OBF.Image[];
@@ -15,7 +13,7 @@ export interface BoardProps {
 }
 
 export const Board = (props: BoardProps) => {
-  const { name, buttons, grid = { rows: 3, columns: 3 }, images } = props;
+  const { buttons, grid = { rows: 3, columns: 3 }, images } = props;
 
   // const {} = useOutput();
   const { speak } = useSpeech();
@@ -51,10 +49,6 @@ export const Board = (props: BoardProps) => {
 
   return (
     <div className={classes.board}>
-      <Output value={[]} />
-
-      <div className={classes.bar}>{name}</div>
-
       <Grid
         className={classes.grid}
         rows={grid.rows}

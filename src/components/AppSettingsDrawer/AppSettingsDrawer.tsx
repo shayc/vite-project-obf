@@ -21,6 +21,7 @@ export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
       separator
       type="overlay"
       open={isOpen}
+      position="end"
       onOpenChange={(_, { open }) => setIsOpen(open)}
     >
       <DrawerHeader>
