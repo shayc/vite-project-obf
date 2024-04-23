@@ -4,23 +4,22 @@ import {
   DEFAULT_RATE,
   DEFAULT_VOLUME,
   asyncSpeechSynthesis,
-} from "./async-speech-synth";
+} from "./async-speech";
 
 interface SpeechProviderProps {
   children: React.ReactNode;
 }
 
-export const SpeechContext = createContext<
-  | {
-      options: Pick<SpeechSynthesisUtterance, "volume" | "rate" | "pitch">;
-      voices: SpeechSynthesisVoice[];
-      speak: (text: string) => void;
-      setVolume: (volume: number) => void;
-      setRate: (rate: number) => void;
-      setPitch: (pitch: number) => void;
-    }
-  | undefined
->(undefined);
+interface ContextValue {
+  options: Pick<SpeechSynthesisUtterance, "volume" | "rate" | "pitch">;
+  voices: SpeechSynthesisVoice[];
+  speak: (text: string) => Promise<void>;
+  setVolume: (volume: number) => void;
+  setRate: (rate: number) => void;
+  setPitch: (pitch: number) => void;
+}
+
+export const SpeechContext = createContext<ContextValue | undefined>(undefined);
 
 export function SpeechProvider({ children }: SpeechProviderProps) {
   const [volume, setVolume] = useState(DEFAULT_VOLUME);
@@ -29,10 +28,10 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
 
   async function speak(text: string) {
-    await asyncSpeechSynthesis.speak(text, { volume, rate, pitch });
+    return asyncSpeechSynthesis.speak(text, { volume, rate, pitch });
   }
 
-  const value = {
+  const value: ContextValue = {
     options: { volume, rate, pitch },
     voices,
     speak,

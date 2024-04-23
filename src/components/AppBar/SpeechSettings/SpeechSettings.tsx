@@ -1,4 +1,11 @@
-import { Button, Label, Slider, useId } from "@fluentui/react-components";
+import {
+  Button,
+  Dropdown,
+  Label,
+  Slider,
+  useId,
+  Option,
+} from "@fluentui/react-components";
 import {
   MAX_PITCH,
   MAX_RATE,
@@ -6,18 +13,28 @@ import {
   MIN_PITCH,
   MIN_RATE,
   MIN_VOLUME,
-} from "../../../hooks/speech/async-speech-synth";
+} from "../../../hooks/speech/async-speech";
 import { useSpeech } from "../../../hooks/speech/use-speech";
 
 export function SpeechSettings() {
-  const { options, setVolume, setRate, setPitch, speak } = useSpeech();
+  const { options, voices, setVolume, setRate, setPitch, speak } = useSpeech();
 
   const volumeId = useId();
   const rateId = useId();
   const pitchId = useId();
+  const voiceId = useId();
 
   return (
     <div>
+      <div>
+        <Label htmlFor={voiceId}>Voice</Label>
+        <Dropdown aria-labelledby={voiceId} placeholder="Select a voice">
+          {voices.map((voice) => (
+            <Option key={voice.voiceURI}>{voice.name}</Option>
+          ))}
+        </Dropdown>
+      </div>
+
       <div>
         <Label htmlFor={volumeId}>Volume</Label>
         <Slider
@@ -54,7 +71,9 @@ export function SpeechSettings() {
         />
       </div>
 
-      <Button onClick={() => speak("Hi, this is my voice")}>Preview</Button>
+      <Button onClick={() => void speak("Hi, this is my voice")}>
+        Preview
+      </Button>
     </div>
   );
 }

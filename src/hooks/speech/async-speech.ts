@@ -3,8 +3,8 @@ export const MIN_VOLUME = 0;
 export const MAX_VOLUME = 1;
 export const DEFAULT_VOLUME = 1;
 
-// Rate ranges from 0.1 to 2, default is 1
-export const MIN_RATE = 0.1;
+// Rate ranges from 0 to 2, default is 1
+export const MIN_RATE = 0;
 export const MAX_RATE = 2;
 export const DEFAULT_RATE = 1;
 
