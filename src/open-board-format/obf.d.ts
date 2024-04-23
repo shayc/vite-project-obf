@@ -78,6 +78,7 @@ interface LoadBoard {
 interface Button {
   id: string; // Unique ID within the board
   image_id?: string; // ID of the associated image
+  sound_id?: string;
   label?: string; // Text label for the button
   border_color?: string; // CSS color value for border
   background_color?: string; // CSS color value for background
@@ -135,5 +136,6 @@ export {
   LoadBoard,
   Manifest,
   Sound,
-  SymbolSet,
+  SymbolSet
 };
+

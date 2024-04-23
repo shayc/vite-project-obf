@@ -1,40 +1,35 @@
-import * as OBF from "../../open-board-format/obf";
-import classes from "./Board.module.css";
+import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
 import { Pictogram } from "./Pictogram/Pictogram";
+import type { Board, BoardButton } from "./types";
 import { useBoard } from "./useBoard";
 
+const initialBoard: Board = {
+  id: "",
+  buttons: [],
+  grid: {
+    rows: 3,
+    columns: 3,
+  },
+};
+
 export interface BoardProps {
-  buttons?: OBF.Button[];
-  grid?: OBF.Grid;
-  images?: OBF.Image[];
-  sounds?: OBF.Sound[];
+  board: Board;
   className?: string;
 }
 
-export const Board = (props: BoardProps) => {
-  const {
-    buttons,
-    images,
-    grid = { rows: 3, columns: 3 },
-    className: classNameProp,
-  } = props;
-
-  const { onButtonClick } = useBoard();
+export const BoardViewer = ({
+  board = initialBoard,
+  className: classNameProp,
+}: BoardProps) => {
+  const { buttons, grid = { rows: 3, columns: 3 } } = board;
 
   const className = `${classes.board} ${classNameProp}`;
+  const { onButtonClick } = useBoard();
 
-  function renderButton(button: OBF.Button) {
-    const {
-      background_color: backgroundColor,
-      border_color: borderColor,
-      image_id: imageId,
-      label,
-    } = button;
-
-    const image = images?.find((image) => image.id === imageId);
-    const imageSrc = image?.data ?? image?.url;
+  function renderButton(button: BoardButton) {
+    const { backgroundColor, borderColor, label, imageSrc } = button;
 
     return (
       <Button

@@ -114,14 +114,14 @@ export async function getBoardByPath(path: string): Promise<OBF.Board | null> {
   for (const image of images) {
     const imageData = await imagesStore.get(image.id);
     if (imageData) {
-      image.url = URL.createObjectURL(imageData.data);
+      image.blob = imageData.data;
     }
   }
 
   for (const sound of sounds) {
     const soundData = await soundsStore.get(sound.id);
     if (soundData) {
-      sound.url = URL.createObjectURL(soundData.data);
+      sound.blob = soundData.data;
     }
   }
 

@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Board } from "./Board";
+import { BoardViewer } from "./BoardViewer";
 
 const meta = {
   title: "Design System/Components/Board",
-  component: Board,
+  component: BoardViewer,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Board>;
+} satisfies Meta<typeof BoardViewer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

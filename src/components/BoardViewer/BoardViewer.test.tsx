@@ -1,8 +1,8 @@
 import { render, screen } from "../../utils/test-utils";
-import { Board } from "./Board";
+import { BoardViewer } from "./BoardViewer";
 
 it("Should return posts when clicking fetch button", () => {
-  render(<Board name="Hello world" />);
+  render(<BoardViewer board={{ id: "" }} />);
 
   const name = screen.getByText("Hello world");
 
