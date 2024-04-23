@@ -1,4 +1,4 @@
-import { Label, Slider, useId } from "@fluentui/react-components";
+import { Button, Label, Slider, useId } from "@fluentui/react-components";
 import {
   MAX_PITCH,
   MAX_RATE,
@@ -10,7 +10,7 @@ import {
 import { useSpeech } from "../../../hooks/speech/use-speech";
 
 export function SpeechSettings() {
-  const { options, setVolume, setRate, setPitch } = useSpeech();
+  const { options, setVolume, setRate, setPitch, speak } = useSpeech();
 
   const volumeId = useId();
   const rateId = useId();
@@ -53,6 +53,8 @@ export function SpeechSettings() {
           onChange={(_ev, data) => setPitch(data.value)}
         />
       </div>
+
+      <Button onClick={() => speak("Hi, this is my voice")}>Preview</Button>
     </div>
   );
 }
