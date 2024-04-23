@@ -34,32 +34,28 @@ interface SymbolSet {
   filename: string; // Filename within the symbol set
 }
 
+interface Media {
+  id: string; // Unique ID within the board
+  url?: string; // External URL of the media
+  data?: string; // Embedded media data (base64)
+  path?: string; // Path within .obz package
+  content_type: string; // MIME type of the media
+  license?: License; // Licensing information
+}
+
 /**
  * Image entity within a board.
  */
-interface Image {
-  id: string; // Unique ID within the board
-  url?: string; // External URL of the image
-  data?: string; // Embedded image data (base64)
-  path?: string; // Path within .obz package
+interface Image extends Media {
   width: number; // Image width in pixels
   height: number; // Image height in pixels
-  content_type: string; // MIME type of the image
-  license?: License; // Licensing information
   symbol?: SymbolSet; // Reference to a proprietary symbol set
 }
 
 /**
  * Sound entity within a board.
  */
-interface Sound {
-  id: string; // Unique ID within the board
-  url?: string; // External URL of the sound
-  data?: string; // Embedded sound data (base64)
-  path?: string; // Path within .obz package
-  content_type: string; // MIME type of the sound
-  license?: License; // Licensing information
-}
+type Sound = Media;
 
 /**
  * Configuration for linking to other boards.
@@ -136,6 +132,5 @@ export {
   LoadBoard,
   Manifest,
   Sound,
-  SymbolSet
+  SymbolSet,
 };
-
