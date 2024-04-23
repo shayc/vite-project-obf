@@ -33,7 +33,7 @@ export const Board = (props: BoardProps) => {
 
     function handleButtonClick() {
       if (button.label) {
-        speak(button.label);
+        void speak(button.label);
       }
     }
 
