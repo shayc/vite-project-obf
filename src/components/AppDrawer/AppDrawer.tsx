@@ -8,12 +8,12 @@ import {
 import { Dismiss24Regular } from "@fluentui/react-icons";
 import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
 
-interface AppSettingsDrawerProps {
+interface AppDrawerProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }
 
-export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
+export function AppDrawer(props: AppDrawerProps) {
   const { isOpen, setIsOpen } = props;
 
   return (

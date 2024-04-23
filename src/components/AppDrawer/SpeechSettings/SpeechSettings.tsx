@@ -2,9 +2,10 @@ import {
   Button,
   Dropdown,
   Label,
-  Slider,
-  useId,
   Option,
+  Slider,
+  Subtitle2,
+  useId,
 } from "@fluentui/react-components";
 import {
   MAX_PITCH,
@@ -15,6 +16,7 @@ import {
   MIN_VOLUME,
 } from "../../../hooks/speech/async-speech";
 import { useSpeech } from "../../../hooks/speech/use-speech";
+import classes from "./SpeechSettings.module.css";
 
 export function SpeechSettings() {
   const { options, voices, setVolume, setRate, setPitch, speak } = useSpeech();
@@ -26,7 +28,9 @@ export function SpeechSettings() {
 
   return (
     <div>
-      <div>
+      <Subtitle2>Speech</Subtitle2>
+
+      <div className={classes.setting}>
         <Label htmlFor={voiceId}>Voice</Label>
         <Dropdown aria-labelledby={voiceId} placeholder="Select a voice">
           {voices.map((voice) => (
@@ -35,7 +39,7 @@ export function SpeechSettings() {
         </Dropdown>
       </div>
 
-      <div>
+      <div className={classes.setting}>
         <Label htmlFor={volumeId}>Volume</Label>
         <Slider
           value={options.volume}
@@ -47,25 +51,25 @@ export function SpeechSettings() {
         />
       </div>
 
-      <div>
+      <div className={classes.setting}>
         <Label htmlFor={rateId}>Rate</Label>
         <Slider
           value={options.rate}
           min={MIN_RATE}
           max={MAX_RATE}
-          step={0.1}
+          step={0.2}
           id={rateId}
           onChange={(_ev, data) => setRate(data.value)}
         />
       </div>
 
-      <div>
+      <div className={classes.setting}>
         <Label htmlFor={pitchId}>Pitch</Label>
         <Slider
           value={options.pitch}
           min={MIN_PITCH}
           max={MAX_PITCH}
-          step={0.1}
+          step={0.2}
           id={pitchId}
           onChange={(_ev, data) => setPitch(data.value)}
         />
