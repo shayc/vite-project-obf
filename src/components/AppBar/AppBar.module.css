@@ -1,5 +1,6 @@
 .appBar {
-  height: 3rem;
+  height: 5rem;
+  padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;

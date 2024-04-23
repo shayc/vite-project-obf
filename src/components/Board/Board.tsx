@@ -1,22 +1,29 @@
-import { useSpeech } from "../../hooks/speech/use-speech";
 import * as OBF from "../../open-board-format/obf";
 import classes from "./Board.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
 import { Pictogram } from "./Pictogram/Pictogram";
+import { useBoard } from "./useBoard";
 
 export interface BoardProps {
   buttons?: OBF.Button[];
   grid?: OBF.Grid;
   images?: OBF.Image[];
   sounds?: OBF.Sound[];
+  className?: string;
 }
 
 export const Board = (props: BoardProps) => {
-  const { buttons, grid = { rows: 3, columns: 3 }, images } = props;
+  const {
+    buttons,
+    images,
+    grid = { rows: 3, columns: 3 },
+    className: classNameProp,
+  } = props;
 
-  // const {} = useOutput();
-  const { speak } = useSpeech();
+  const { onButtonClick } = useBoard();
+
+  const className = `${classes.board} ${classNameProp}`;
 
   function renderButton(button: OBF.Button) {
     const {
@@ -29,18 +36,12 @@ export const Board = (props: BoardProps) => {
     const image = images?.find((image) => image.id === imageId);
     const imageSrc = image?.data ?? image?.url;
 
-    function handleButtonClick() {
-      if (button.label) {
-        void speak(button.label);
-      }
-    }
-
     return (
       <Button
         className={classes.button}
         backgroundColor={backgroundColor}
         borderColor={borderColor}
-        onClick={handleButtonClick}
+        onClick={() => onButtonClick(button)}
       >
         <Pictogram className={classes.pictogram} label={label} src={imageSrc} />
       </Button>
@@ -48,7 +49,7 @@ export const Board = (props: BoardProps) => {
   }
 
   return (
-    <div className={classes.board}>
+    <div className={className}>
       <Grid
         className={classes.grid}
         rows={grid.rows}

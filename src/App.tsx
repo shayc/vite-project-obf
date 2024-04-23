@@ -25,7 +25,7 @@ function App() {
     <div className={classes.app}>
       <AppBar title={board?.name ?? ""} onSettingsClick={handleSettingsClick} />
       <AppSettingsDrawer isOpen={isOpen} setIsOpen={setIsOpen} />
-      <Board {...board} />
+      <Board className={classes.board} {...board} />
     </div>
   );
 }
