@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import classes from "./App.module.css";
 import { Board, Button } from "./components/Board";
+import { SpeechSettings } from "./components/Settings/SpeechSettings/SpeechSettings";
 import { getRootBoard, importOBZFile } from "./db/boards-db";
 import * as OBF from "./open-board-format/obf";
 
@@ -55,7 +56,7 @@ function App() {
       >
         Fetch Posts
       </Button>
-
+      <SpeechSettings />
       <Board {...board} />
     </div>
   );
