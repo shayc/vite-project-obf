@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { BoardViewer } from "./BoardViewer";
 
 const meta = {
-  title: "Design System/Components/Board",
+  title: "Design System/Components/BoardViewer",
   component: BoardViewer,
   parameters: {
     layout: "centered",
