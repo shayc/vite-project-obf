@@ -16,11 +16,11 @@
   },
   "dependencies": {
     "@fluentui/react-components": "^9.49.0",
-    "@fluentui/react-tabster": "^9.20.0",
+    "@fluentui/react-tabster": "^9.20.1",
     "colorjs.io": "^0.5.0",
     "fflate": "^0.8.2",
     "idb": "^8.0.0",
-    "mime": "^4.0.1",
+    "mime": "^4.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -34,15 +34,15 @@
     "@storybook/react": "^8.0.9",
     "@storybook/react-vite": "^8.0.9",
     "@storybook/test": "^8.0.9",
-    "@testing-library/react": "^15.0.3",
+    "@testing-library/react": "^15.0.4",
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
     "@vitejs/plugin-react-swc": "^3.6.0",
-    "@vitest/coverage-v8": "^1.5.0",
-    "@vitest/ui": "^1.5.0",
+    "@vitest/coverage-v8": "^1.5.2",
+    "@vitest/ui": "^1.5.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.1",
@@ -55,7 +55,7 @@
     "storybook": "^8.0.9",
     "typescript": "^5.4.5",
     "vite": "^5.2.10",
-    "vitest": "^1.5.0"
+    "vitest": "^1.5.2"
   },
   "msw": {
     "workerDirectory": [
