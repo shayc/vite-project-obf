@@ -29,8 +29,9 @@ export function AppDrawer(props: AppDrawerProps) {
         <DrawerHeaderTitle
           action={
             <Button
-              appearance="subtle"
+              title="Close"
               aria-label="Close"
+              appearance="subtle"
               icon={<Dismiss24Regular />}
               onClick={onClose}
             />

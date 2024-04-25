@@ -1,3 +1,5 @@
 .navBar {
+  display: inline-flex;
+  gap: 8px;
   padding-inline: 16px;
 }

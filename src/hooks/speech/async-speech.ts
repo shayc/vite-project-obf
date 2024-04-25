@@ -14,6 +14,7 @@ interface SpeakOptions {
   volume: number;
   rate: number;
   pitch: number;
+  voice?: SpeechSynthesisVoice;
 }
 
 async function speak(

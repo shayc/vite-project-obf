@@ -1,3 +1,5 @@
+import { Button } from "@fluentui/react-components";
+import { SettingsRegular } from "@fluentui/react-icons";
 import { useEffect, useState } from "react";
 import classes from "./App.module.css";
 import { AppBar } from "./components/AppBar/AppBar";
@@ -39,13 +41,19 @@ function App() {
     });
   }, []);
 
+  const actions = (
+    <Button
+      appearance="subtle"
+      title="Settings"
+      aria-label="Settings"
+      icon={<SettingsRegular />}
+      onClick={() => setIsDrawerOpen(true)}
+    />
+  );
+
   return (
     <div className={classes.app}>
-      <AppBar
-        title={board?.name}
-        onSettingsClick={() => setIsDrawerOpen(true)}
-      />
-
+      <AppBar title={board?.name} actions={actions} />
       <AppDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
 
       <NavBar />

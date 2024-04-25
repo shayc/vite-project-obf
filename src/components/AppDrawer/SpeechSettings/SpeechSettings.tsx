@@ -4,7 +4,7 @@ import {
   Select,
   Slider,
   Subtitle2,
-  useId
+  useId,
 } from "@fluentui/react-components";
 import {
   MAX_PITCH,
@@ -18,7 +18,15 @@ import { useSpeech } from "../../../hooks/speech/use-speech";
 import classes from "./SpeechSettings.module.css";
 
 export function SpeechSettings() {
-  const { options, voices, setVolume, setRate, setPitch, speak } = useSpeech();
+  const {
+    options,
+    voices,
+    setSelectedVoiceURI,
+    setVolume,
+    setRate,
+    setPitch,
+    speak,
+  } = useSpeech();
 
   const volumeId = useId();
   const rateId = useId();
@@ -31,7 +39,12 @@ export function SpeechSettings() {
 
       <div className={classes.setting}>
         <Label htmlFor={voiceId}>Voice</Label>
-        <Select id={voiceId}>
+        <Select
+          id={voiceId}
+          onChange={(_ev, data) => {
+            setSelectedVoiceURI(data.value);
+          }}
+        >
           {voices.map((voice) => (
             <option key={voice.voiceURI}>{voice.name}</option>
           ))}

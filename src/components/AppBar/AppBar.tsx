@@ -1,25 +1,17 @@
-import { Button, Title3 } from "@fluentui/react-components";
-import { SettingsRegular } from "@fluentui/react-icons";
+import { Title3 } from "@fluentui/react-components";
 import classes from "./AppBar.module.css";
 
 interface AppBarProps {
   title?: string;
-  onSettingsClick: () => void;
+  actions?: React.ReactNode;
 }
 
-export function AppBar({ onSettingsClick, title }: AppBarProps) {
+export function AppBar({ title, actions }: AppBarProps) {
   return (
     <div className={classes.appBar}>
       <Title3 as="h2">{title}</Title3>
 
-      <div>
-        <Button
-          appearance="subtle"
-          aria-label="Settings"
-          icon={<SettingsRegular />}
-          onClick={onSettingsClick}
-        />
-      </div>
+      <div>{actions}</div>
     </div>
   );
 }
