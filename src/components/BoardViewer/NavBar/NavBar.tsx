@@ -17,9 +17,9 @@ export const NavBar = (props: NavBarProps) => {
 
   return (
     <div className={className}>
-      <Button icon={<ArrowLeftFilled />}></Button>
-      <Button icon={<ArrowRightFilled />}></Button>
-      <Button icon={<HomeFilled />}></Button>
+      <Button appearance="transparent" size="large" icon={<ArrowLeftFilled />} title="Back" />
+      <Button appearance="transparent" size="large" icon={<ArrowRightFilled />} title="Forward" />
+      <Button appearance="transparent" size="large" icon={<HomeFilled />} title="Home" />
     </div>
   );
 };

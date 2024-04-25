@@ -3,6 +3,7 @@ import classes from "./App.module.css";
 import { AppBar } from "./components/AppBar/AppBar";
 import { AppDrawer } from "./components/AppDrawer/AppDrawer";
 import { BoardViewer } from "./components/BoardViewer/BoardViewer";
+import { NavBar } from "./components/BoardViewer/NavBar/NavBar.tsx";
 import type { Board } from "./components/BoardViewer/types";
 import { getRootBoard } from "./db/boards-db";
 import type * as OBF from "./open-board-format/obf.d.ts";
@@ -47,6 +48,7 @@ function App() {
 
       <AppDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
 
+      <NavBar />
       <BoardViewer
         className={classes.board}
         buttons={board?.buttons}
