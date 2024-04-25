@@ -20,7 +20,7 @@
   cursor: default;
 }
 
-.button:active::after {
+.button:not(:disabled):active::after {
   content: "";
   position: absolute;
   top: 0;
