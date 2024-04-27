@@ -41,9 +41,7 @@ export function SpeechSettings() {
         <Label htmlFor={voiceId}>Voice</Label>
         <Select
           id={voiceId}
-          onChange={(_ev, data) => {
-            setSelectedVoiceURI(data.value);
-          }}
+          onChange={(_ev, data) => setSelectedVoiceURI(data.value)}
         >
           {voices.map((voice) => (
             <option key={voice.voiceURI}>{voice.name}</option>
