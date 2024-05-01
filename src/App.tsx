@@ -41,7 +41,7 @@ function App() {
     });
   }, []);
 
-  const actions = (
+  const appActions = (
     <Button
       title="Settings"
       aria-label="Settings"
@@ -53,13 +53,15 @@ function App() {
 
   return (
     <div className={classes.app}>
-      <AppBar title={board?.name} actions={actions} />
+      <AppBar title={board?.name} actions={appActions} />
+
       <AppSettingsDrawer
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
       />
 
       <NavBar />
+
       <BoardViewer
         className={classes.board}
         buttons={board?.buttons}
