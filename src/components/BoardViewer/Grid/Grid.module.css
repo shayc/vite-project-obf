@@ -16,7 +16,8 @@
 
 .cell {
   flex: 1;
-  background-color: #f0f0f0;
+  border-radius: 16px;
+  background-color: rgba(128, 128, 128, 0.1);
 }
 
 .cell:not(:empty) {

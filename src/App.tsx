@@ -3,7 +3,7 @@ import { SettingsRegular } from "@fluentui/react-icons";
 import { useEffect, useState } from "react";
 import classes from "./App.module.css";
 import { AppBar } from "./components/AppBar/AppBar";
-import { AppDrawer } from "./components/AppDrawer/AppDrawer";
+import { AppSettingsDrawer } from "./components/AppSettingsDrawer/AppSettingsDrawer.tsx";
 import { BoardViewer } from "./components/BoardViewer/BoardViewer";
 import { NavBar } from "./components/BoardViewer/NavBar/NavBar.tsx";
 import type { Board } from "./components/BoardViewer/types";
@@ -31,7 +31,7 @@ function mapOBFToBoard(obf: OBF.Board): Board {
 }
 
 function App() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [board, setBoard] = useState<Board | null>(null);
 
   useEffect(() => {
@@ -43,18 +43,21 @@ function App() {
 
   const actions = (
     <Button
-      appearance="subtle"
       title="Settings"
       aria-label="Settings"
+      appearance="subtle"
       icon={<SettingsRegular />}
-      onClick={() => setIsDrawerOpen(true)}
+      onClick={() => setIsSettingsOpen(true)}
     />
   );
 
   return (
     <div className={classes.app}>
       <AppBar title={board?.name} actions={actions} />
-      <AppDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+      <AppSettingsDrawer
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+      />
 
       <NavBar />
       <BoardViewer

@@ -14,7 +14,7 @@ interface AppDrawerProps {
   onClose: () => void;
 }
 
-export function AppDrawer(props: AppDrawerProps) {
+export function AppSettingsDrawer(props: AppDrawerProps) {
   const { isOpen, onClose } = props;
 
   return (
