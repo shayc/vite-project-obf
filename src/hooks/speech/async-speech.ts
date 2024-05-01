@@ -15,10 +15,7 @@ const synth = window.speechSynthesis;
 async function speak(
   text: string,
   options: Partial<
-    Omit<
-      SpeechSynthesisUtterance,
-      "addEventListener" | "removeEventListener" | "onend" | "onerror"
-    >
+    Omit<SpeechSynthesisUtterance, "addEventListener" | "removeEventListener">
   > = {
     volume: DEFAULT_VOLUME,
     rate: DEFAULT_RATE,

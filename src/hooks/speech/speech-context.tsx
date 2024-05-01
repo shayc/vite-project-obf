@@ -11,7 +11,10 @@ interface SpeechProviderProps {
 }
 
 interface ContextValue {
-  options: Pick<SpeechSynthesisUtterance, "volume" | "rate" | "pitch">;
+  isSpeaking: boolean;
+  volume: number;
+  rate: number;
+  pitch: number;
   voices: SpeechSynthesisVoice[];
   selectedVoiceURI: string;
   speak: (text: string) => Promise<void>;
@@ -29,6 +32,7 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   const [pitch, setPitch] = useState(DEFAULT_PITCH);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>("");
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   async function speak(text: string) {
     const voice = voices.filter((v) => v.voiceURI === selectedVoiceURI)[0];
@@ -38,11 +42,17 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
       rate,
       pitch,
       voice,
+      onstart: () => setIsSpeaking(true),
+      onpause: () => setIsSpeaking(false),
+      onresume: () => setIsSpeaking(true),
     });
   }
 
   const value: ContextValue = {
-    options: { volume, rate, pitch },
+    isSpeaking,
+    volume,
+    rate,
+    pitch,
     voices,
     selectedVoiceURI,
     speak,

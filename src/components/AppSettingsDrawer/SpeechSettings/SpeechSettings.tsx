@@ -19,7 +19,9 @@ import classes from "./SpeechSettings.module.css";
 
 export function SpeechSettings() {
   const {
-    options,
+    volume,
+    rate,
+    pitch,
     voices,
     setSelectedVoiceURI,
     setVolume,
@@ -52,7 +54,7 @@ export function SpeechSettings() {
       <div className={classes.setting}>
         <Label htmlFor={volumeId}>Volume</Label>
         <Slider
-          value={options.volume}
+          value={volume}
           min={MIN_VOLUME}
           max={MAX_VOLUME}
           step={0.1}
@@ -64,7 +66,7 @@ export function SpeechSettings() {
       <div className={classes.setting}>
         <Label htmlFor={rateId}>Rate</Label>
         <Slider
-          value={options.rate}
+          value={rate}
           min={MIN_RATE}
           max={MAX_RATE}
           step={0.2}
@@ -76,7 +78,7 @@ export function SpeechSettings() {
       <div className={classes.setting}>
         <Label htmlFor={pitchId}>Pitch</Label>
         <Slider
-          value={options.pitch}
+          value={pitch}
           min={MIN_PITCH}
           max={MAX_PITCH}
           step={0.2}
