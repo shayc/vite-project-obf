@@ -26,7 +26,7 @@ export const NavBar = (props: NavBarProps) => {
   return (
     <div className={className}>
       <Button
-        title="Back"
+        title="Go Back"
         aria-label="Back"
         size="large"
         appearance="subtle"
@@ -35,7 +35,7 @@ export const NavBar = (props: NavBarProps) => {
       />
 
       <Button
-        title="Forward"
+        title="Go Forward"
         aria-label="Forward"
         size="large"
         appearance="subtle"
