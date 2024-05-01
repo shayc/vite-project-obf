@@ -45,6 +45,8 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
       onstart: () => setIsSpeaking(true),
       onpause: () => setIsSpeaking(false),
       onresume: () => setIsSpeaking(true),
+      onend: () => setIsSpeaking(false),
+      onerror: () => setIsSpeaking(false),
     });
   }
 

@@ -10,8 +10,6 @@ export const MIN_PITCH = 0;
 export const MAX_PITCH = 2;
 export const DEFAULT_PITCH = 1;
 
-const synth = window.speechSynthesis;
-
 async function speak(
   text: string,
   options: Partial<
@@ -25,19 +23,24 @@ async function speak(
   return new Promise<void>((resolve, reject) => {
     const utterance = new SpeechSynthesisUtterance(text);
 
-    Object.assign(utterance, options, {
-      onend: resolve,
-      onerror: reject,
+    Object.assign(utterance, options);
+
+    utterance.addEventListener("end", () => {
+      resolve();
     });
 
-    synth.speak(utterance);
+    utterance.addEventListener("error", (error) => {
+      reject(error);
+    });
+
+    window.speechSynthesis.speak(utterance);
   });
 }
 
 async function getVoices() {
   return new Promise<SpeechSynthesisVoice[]>((resolve) => {
-    synth.onvoiceschanged = () => {
-      resolve(synth.getVoices());
+    window.speechSynthesis.onvoiceschanged = () => {
+      resolve(window.speechSynthesis.getVoices());
     };
   });
 }
