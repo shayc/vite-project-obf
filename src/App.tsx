@@ -23,8 +23,8 @@ function mapOBFToBoard(obf: OBF.Board): Board {
       borderColor: button.border_color,
     })),
     grid: {
-      rows: obf.grid?.rows ?? 3,
-      columns: obf.grid?.columns ?? 3,
+      rows: obf.grid?.rows ?? 0,
+      columns: obf.grid?.columns ?? 0,
       order: obf.grid?.order ?? [],
     },
   };
