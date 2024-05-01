@@ -7,11 +7,19 @@ import {
 import classes from "./NavBar.module.css";
 
 export interface NavBarProps {
+  backDisabled?: boolean;
   className?: string;
+  forwardDisabled?: boolean;
+  homeDisabled?: boolean;
 }
 
 export const NavBar = (props: NavBarProps) => {
-  const { className: classNameProp } = props;
+  const {
+    backDisabled,
+    forwardDisabled,
+    homeDisabled,
+    className: classNameProp,
+  } = props;
 
   const className = `${classes.navBar} ${classNameProp ?? ""}`;
 
@@ -22,6 +30,7 @@ export const NavBar = (props: NavBarProps) => {
         aria-label="Back"
         size="large"
         appearance="subtle"
+        disabled={backDisabled}
         icon={<ArrowLeftFilled />}
       />
 
@@ -30,6 +39,7 @@ export const NavBar = (props: NavBarProps) => {
         aria-label="Forward"
         size="large"
         appearance="subtle"
+        disabled={forwardDisabled}
         icon={<ArrowRightFilled />}
       />
 
@@ -38,6 +48,7 @@ export const NavBar = (props: NavBarProps) => {
         aria-label="Home"
         size="large"
         appearance="subtle"
+        disabled={homeDisabled}
         icon={<HomeFilled />}
       />
     </div>
