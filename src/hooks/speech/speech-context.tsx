@@ -32,7 +32,13 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
 
   async function speak(text: string) {
     const voice = voices.filter((v) => v.voiceURI === selectedVoiceURI)[0];
-    return asyncSpeechSynthesis.speak(text, { volume, rate, pitch, voice });
+
+    return asyncSpeechSynthesis.speak(text, {
+      volume,
+      rate,
+      pitch,
+      voice,
+    });
   }
 
   const value: ContextValue = {

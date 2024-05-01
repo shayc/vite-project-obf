@@ -10,16 +10,16 @@ export const MIN_PITCH = 0;
 export const MAX_PITCH = 2;
 export const DEFAULT_PITCH = 1;
 
-interface SpeakOptions {
-  volume: number;
-  rate: number;
-  pitch: number;
-  voice?: SpeechSynthesisVoice;
-}
+const synth = window.speechSynthesis;
 
 async function speak(
   text: string,
-  options: SpeakOptions = {
+  options: Partial<
+    Omit<
+      SpeechSynthesisUtterance,
+      "addEventListener" | "removeEventListener" | "onend" | "onerror"
+    >
+  > = {
     volume: DEFAULT_VOLUME,
     rate: DEFAULT_RATE,
     pitch: DEFAULT_PITCH,
@@ -28,19 +28,19 @@ async function speak(
   return new Promise<void>((resolve, reject) => {
     const utterance = new SpeechSynthesisUtterance(text);
 
-    Object.assign(utterance, options);
+    Object.assign(utterance, options, {
+      onend: resolve,
+      onerror: reject,
+    });
 
-    utterance.onend = () => resolve();
-    utterance.onerror = (error) => reject(error);
-
-    window.speechSynthesis.speak(utterance);
+    synth.speak(utterance);
   });
 }
 
 async function getVoices() {
   return new Promise<SpeechSynthesisVoice[]>((resolve) => {
-    window.speechSynthesis.onvoiceschanged = () => {
-      resolve(window.speechSynthesis.getVoices());
+    synth.onvoiceschanged = () => {
+      resolve(synth.getVoices());
     };
   });
 }
