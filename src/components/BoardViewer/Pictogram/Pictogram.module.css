@@ -1,13 +1,14 @@
 .pictogram {
   display: flex;
   flex-direction: var(--flex-direction);
+  gap: 0.5rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }
 
 .imgContainer {
   flex: 1;
   position: relative;
-  margin: 0.5rem 0.5rem 0 0.5rem;
-  box-sizing: border-box;
 }
 
 .img {
@@ -20,7 +21,6 @@
 }
 
 .label {
-  padding: 0.5rem;
   text-align: center;
   text-overflow: ellipsis;
   overflow: hidden;
