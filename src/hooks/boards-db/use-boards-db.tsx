@@ -21,14 +21,21 @@ function mapOBFToBoard(obf: OBF.Board): Board {
   return {
     id: obf.id,
     name: obf.name,
-    buttons: obf.buttons?.map((button) => ({
-      id: button.id,
-      label: button.label,
-      vocalization: button.vocalization,
-      loadBoardId: button.load_board?.id,
-      backgroundColor: button.background_color,
-      borderColor: button.border_color,
-    })),
+    buttons: obf.buttons?.map((button) => {
+      const image = obf.images?.find(({ id }) => id === button.image_id);
+      const sound = obf.sounds?.find(({ id }) => id === button.sound_id);
+
+      return {
+        id: button.id,
+        label: button.label,
+        vocalization: button.vocalization,
+        loadBoardId: button.load_board?.id,
+        backgroundColor: button.background_color,
+        borderColor: button.border_color,
+        imageSrc: image?.data ?? image?.url,
+        soundSrc: sound?.data ?? sound?.url,
+      };
+    }),
     grid: {
       rows: obf.grid?.rows ?? 0,
       columns: obf.grid?.columns ?? 0,
