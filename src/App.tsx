@@ -10,7 +10,7 @@ import { useBoardsDB } from "./hooks/boards-db/use-boards-db.tsx";
 function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const { board } = useBoardsDB();
-  
+
   const appActions = (
     <Button
       title="Settings"
