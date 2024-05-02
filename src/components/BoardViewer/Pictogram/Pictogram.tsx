@@ -23,17 +23,34 @@ interface PictogramProps {
    * The source URL of the pictogram image.
    */
   src?: string;
+
+  /**
+   * The style of the button.
+   */
+  style?: React.CSSProperties;
 }
 
 export const Pictogram = (props: PictogramProps) => {
-  const { src, label, className: classNameProp } = props;
+  const {
+    src,
+    label,
+    labelPosition = "bottom",
+    className: classNameProp,
+    style: styleProp,
+  } = props;
 
   const className = [classes.pictogram, classNameProp]
     .filter(Boolean)
     .join(" ");
 
+  const style = {
+    ...styleProp,
+    "--flex-direction":
+      labelPosition === "bottom" ? "column" : "column-reverse",
+  } as React.CSSProperties;
+
   return (
-    <div className={className}>
+    <div className={className} style={style}>
       <div className={classes.imgContainer}>
         {src && <img className={classes.img} src={src} alt="" />}
       </div>
