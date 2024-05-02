@@ -33,7 +33,7 @@ export const BoardViewer = (props: BoardViewerProps) => {
 
   return (
     <div className={className}>
-      <NavBar />
+      <NavBar backDisabled={true} forwardDisabled={true} homeDisabled={false} />
 
       <Grid
         className={classes.grid}
