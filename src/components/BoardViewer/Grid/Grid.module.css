@@ -16,6 +16,7 @@
 
 .cell {
   flex: 1;
+  min-width: 0;
   border-radius: 16px;
   background-color: rgba(128, 128, 128, 0.1);
 }
