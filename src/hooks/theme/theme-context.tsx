@@ -3,50 +3,34 @@ import {
   webDarkTheme,
   webLightTheme,
 } from "@fluentui/react-components";
-import { ReactNode, createContext, useContext, useReducer } from "react";
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react";
 import useUserPreferences from "../user-preferences/use-user-preferences";
-
-type Theme = "light" | "dark";
-
-interface Action {
-  type: "changeTheme";
-  theme: Theme;
-}
-
-type Dispatch = (action: Action) => void;
-
-interface State {
-  theme: Theme;
-}
 
 interface ThemeProviderProps {
   children: ReactNode;
 }
 
 const ThemeContext = createContext<
-  { state: State; dispatch: Dispatch } | undefined
+  | {
+      isDarkMode: boolean;
+      setIsDarkMode: Dispatch<SetStateAction<boolean>>;
+    }
+  | undefined
 >(undefined);
-
-function countReducer(state: State, action: Action) {
-  switch (action.type) {
-    case "changeTheme": {
-      return { ...state, theme: action.theme };
-    }
-    default: {
-      throw new Error(`Unhandled action type: ${action.type}`);
-    }
-  }
-}
 
 function ThemeProvider({ children }: ThemeProviderProps) {
   const { prefersDarkColorScheme } = useUserPreferences();
+  const [isDarkMode, setIsDarkMode] = useState(prefersDarkColorScheme);
 
-  const [state, dispatch] = useReducer(countReducer, {
-    theme: prefersDarkColorScheme ? "dark" : "light",
-  });
-
-  const theme = state.theme === "dark" ? webDarkTheme : webLightTheme;
-  const value = { state, dispatch };
+  const theme = isDarkMode ? webDarkTheme : webLightTheme;
+  const value = { isDarkMode, setIsDarkMode };
 
   return (
     <ThemeContext.Provider value={value}>

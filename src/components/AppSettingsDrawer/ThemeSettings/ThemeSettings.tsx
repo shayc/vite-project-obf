@@ -10,15 +10,13 @@ import classes from "./ThemeSettings.module.css";
 
 export function ThemeSettings() {
   const themeId = useId();
-  const { state, dispatch } = useTheme();
-
-  const isDarkTheme = state.theme === "dark";
+  const { isDarkMode, setIsDarkMode } = useTheme();
 
   function handleThemeChange(
     _ev: React.ChangeEvent<HTMLInputElement>,
     data: SwitchOnChangeData,
   ) {
-    dispatch({ type: "changeTheme", theme: data.checked ? "dark" : "light" });
+    setIsDarkMode(data.checked);
   }
 
   return (
@@ -26,10 +24,10 @@ export function ThemeSettings() {
       <Subtitle2>Appearance</Subtitle2>
 
       <div className={classes.setting}>
-        <Label htmlFor={themeId}>Dark theme</Label>
+        <Label htmlFor={themeId}>Dark mode</Label>
         <Switch
           id={themeId}
-          checked={isDarkTheme}
+          checked={isDarkMode}
           onChange={handleThemeChange}
         />
       </div>
