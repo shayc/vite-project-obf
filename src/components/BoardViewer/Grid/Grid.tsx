@@ -14,7 +14,7 @@ interface GridProps<T extends GridItem> {
   /**
    * The number of columns in the grid.
    */
-  columns: number;
+  columns?: number;
 
   /**
    * The gap between grid items.
@@ -39,7 +39,7 @@ interface GridProps<T extends GridItem> {
   /**
    * The number of rows in the grid.
    */
-  rows: number;
+  rows?: number;
 
   /**
    * The style of the grid.

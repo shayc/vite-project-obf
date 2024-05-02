@@ -5,7 +5,6 @@ import classes from "./App.module.css";
 import { AppBar } from "./components/AppBar/AppBar";
 import { AppSettingsDrawer } from "./components/AppSettingsDrawer/AppSettingsDrawer.tsx";
 import { BoardViewer } from "./components/BoardViewer/BoardViewer";
-import { NavBar } from "./components/BoardViewer/NavBar/NavBar.tsx";
 import type { Board } from "./components/BoardViewer/types";
 import { getRootBoard } from "./db/boards-db";
 import type * as OBF from "./open-board-format/obf.d.ts";
@@ -60,13 +59,7 @@ function App() {
         onClose={() => setIsSettingsOpen(false)}
       />
 
-      <NavBar />
-
-      <BoardViewer
-        className={classes.board}
-        buttons={board?.buttons}
-        grid={board?.grid}
-      />
+      <BoardViewer className={classes.board} board={board} />
     </div>
   );
 }

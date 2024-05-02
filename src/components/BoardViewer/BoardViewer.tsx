@@ -1,23 +1,18 @@
 import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
+import { NavBar } from "./NavBar/NavBar";
 import { Pictogram } from "./Pictogram/Pictogram";
-import type { BoardButton, BoardGrid } from "./types";
+import type { Board, BoardButton } from "./types";
 
 export interface BoardViewerProps {
-  buttons?: BoardButton[];
-  grid?: BoardGrid;
+  board: Board | null;
   onButtonClick?: (button: BoardButton) => void;
   className?: string;
 }
 
 export const BoardViewer = (props: BoardViewerProps) => {
-  const {
-    buttons,
-    onButtonClick,
-    grid = { rows: 3, columns: 3 },
-    className: classNameProp,
-  } = props;
+  const { board, onButtonClick, className: classNameProp } = props;
 
   const className = `${classes.board} ${classNameProp}`;
 
@@ -38,11 +33,13 @@ export const BoardViewer = (props: BoardViewerProps) => {
 
   return (
     <div className={className}>
+      <NavBar />
+
       <Grid
         className={classes.grid}
-        rows={grid.rows}
-        columns={grid.columns}
-        items={buttons}
+        rows={board?.grid?.rows}
+        columns={board?.grid?.columns}
+        items={board?.buttons}
         renderItem={renderButton}
       />
     </div>

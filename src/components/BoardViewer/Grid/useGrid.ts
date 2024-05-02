@@ -6,13 +6,13 @@ export type Grid<T> = T[][];
 export type GridOrder = (string | null)[][];
 
 export interface GridOptions {
-  columns: number;
-  rows: number;
+  columns?: number;
+  rows?: number;
   order?: GridOrder;
 }
 
 export function useGrid<T extends GridItem>(items: T[], options: GridOptions) {
-  const { columns, rows } = options;
+  const { columns = 0, rows = 0 } = options;
   const grid: Grid<T> = [];
 
   for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
