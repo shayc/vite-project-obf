@@ -6,8 +6,9 @@ import { AppBar } from "./components/AppBar/AppBar";
 import { AppSettingsDrawer } from "./components/AppSettingsDrawer/AppSettingsDrawer.tsx";
 import { BoardViewer } from "./components/BoardViewer/BoardViewer";
 import type { Board } from "./components/BoardViewer/types";
-import { getRootBoard } from "./db/boards-db";
+import * as boardsDB from "./db/boards-db";
 import type * as OBF from "./open-board-format/obf.d.ts";
+import lotsOfStuffBoard from "./open-board-format/examples/lots_of_stuff.json";
 
 function mapOBFToBoard(obf: OBF.Board): Board {
   return {
@@ -34,8 +35,8 @@ function App() {
   const [board, setBoard] = useState<Board | null>(null);
 
   useEffect(() => {
-    void getRootBoard().then((obf) => {
-      const board = obf ? mapOBFToBoard(obf) : null;
+    void boardsDB.getRootBoard().then((obf) => {
+      const board = mapOBFToBoard(obf ?? lotsOfStuffBoard);
       setBoard(board);
     });
   }, []);
