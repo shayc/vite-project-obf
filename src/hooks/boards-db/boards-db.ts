@@ -1,6 +1,6 @@
 import { DBSchema, IDBPDatabase, openDB } from "idb";
-import * as OBF from "../open-board-format/obf";
-import { OBZFiles, unzipOBZ } from "../utils/zip-utils";
+import * as OBF from "../../open-board-format/obf";
+import { OBZFiles, unzipOBZ } from "../../utils/zip-utils";
 
 interface BoardsDB extends DBSchema {
   manifest: {

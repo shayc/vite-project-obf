@@ -1,46 +1,16 @@
 import { Button } from "@fluentui/react-components";
 import { SettingsRegular } from "@fluentui/react-icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classes from "./App.module.css";
 import { AppBar } from "./components/AppBar/AppBar";
 import { AppSettingsDrawer } from "./components/AppSettingsDrawer/AppSettingsDrawer.tsx";
 import { BoardViewer } from "./components/BoardViewer/BoardViewer";
-import type { Board } from "./components/BoardViewer/types";
-import * as boardsDB from "./db/boards-db";
-import type * as OBF from "./open-board-format/obf.d.ts";
-import lotsOfStuffBoard from "./open-board-format/examples/lots_of_stuff.json";
-
-function mapOBFToBoard(obf: OBF.Board): Board {
-  return {
-    id: obf.id,
-    name: obf.name,
-    buttons: obf.buttons?.map((button) => ({
-      id: button.id,
-      label: button.label,
-      vocalization: button.vocalization,
-      loadBoardId: button.load_board?.id,
-      backgroundColor: button.background_color,
-      borderColor: button.border_color,
-    })),
-    grid: {
-      rows: obf.grid?.rows ?? 0,
-      columns: obf.grid?.columns ?? 0,
-      order: obf.grid?.order ?? [],
-    },
-  };
-}
+import { useBoardsDB } from "./hooks/boards-db/use-boards-db.tsx";
 
 function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [board, setBoard] = useState<Board | null>(null);
-
-  useEffect(() => {
-    void boardsDB.getRootBoard().then((obf) => {
-      const board = mapOBFToBoard(obf ?? lotsOfStuffBoard);
-      setBoard(board);
-    });
-  }, []);
-
+  const { board } = useBoardsDB();
+  
   const appActions = (
     <Button
       title="Settings"
