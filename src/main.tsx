@@ -1,8 +1,8 @@
-import { FluentProvider, webDarkTheme } from "@fluentui/react-components";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { SpeechProvider } from "./hooks/speech/speech-context.tsx";
+import { ThemeProvider } from "./hooks/theme/theme-context.tsx";
 import "./index.css";
 
 async function enableMocking() {
@@ -20,11 +20,11 @@ async function enableMocking() {
 void enableMocking().then(() => {
   ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-      <FluentProvider theme={webDarkTheme}>
-        <SpeechProvider>
+      <SpeechProvider>
+        <ThemeProvider>
           <App />
-        </SpeechProvider>
-      </FluentProvider>
+        </ThemeProvider>
+      </SpeechProvider>
     </React.StrictMode>,
   );
 });
