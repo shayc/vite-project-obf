@@ -1,4 +1,4 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { SpeechProvider } from "./hooks/speech/speech-context.tsx";
@@ -19,12 +19,12 @@ async function enableMocking() {
 
 void enableMocking().then(() => {
   ReactDOM.createRoot(document.getElementById("root")!).render(
-    <React.StrictMode>
+    <StrictMode>
       <SpeechProvider>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </SpeechProvider>
-    </React.StrictMode>,
+    </StrictMode>,
   );
 });
