@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Board } from "../../components/BoardViewer/types";
+import { Board, BoardButton } from "../../components/BoardViewer/types";
 import lotsOfStuffOBF from "../../open-board-format/examples/lots_of_stuff.json";
 import * as OBF from "../../open-board-format/obf";
 import * as boardsDB from "./boards-db";
@@ -21,21 +21,34 @@ function mapOBFToBoard(obf: OBF.Board): Board {
   return {
     id: obf.id,
     name: obf.name,
-    buttons: obf.buttons?.map((button) => {
-      const image = obf.images?.find(({ id }) => id === button.image_id);
-      const sound = obf.sounds?.find(({ id }) => id === button.sound_id);
+    buttons: obf.buttons?.map(
+      ({
+        id,
+        label,
+        vocalization,
+        load_board,
+        background_color,
+        border_color,
+        image_id,
+        sound_id,
+      }) => {
+        const image = obf.images?.find(({ id }) => id === image_id);
+        const sound = obf.sounds?.find(({ id }) => id === sound_id);
 
-      return {
-        id: button.id,
-        label: button.label,
-        vocalization: button.vocalization,
-        loadBoardId: button.load_board?.id,
-        backgroundColor: button.background_color,
-        borderColor: button.border_color,
-        imageSrc: image?.data ?? image?.url,
-        soundSrc: sound?.data ?? sound?.url,
-      };
-    }),
+        const button: BoardButton = {
+          id: id,
+          label: label,
+          vocalization: vocalization,
+          loadBoardId: load_board?.id,
+          backgroundColor: background_color,
+          borderColor: border_color,
+          imageSrc: image?.data ?? image?.url,
+          soundSrc: sound?.data ?? sound?.url,
+        };
+
+        return button;
+      },
+    ),
     grid: {
       rows: obf.grid?.rows ?? 0,
       columns: obf.grid?.columns ?? 0,
