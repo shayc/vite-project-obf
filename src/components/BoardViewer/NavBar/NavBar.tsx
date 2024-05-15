@@ -24,7 +24,7 @@ export const NavBar = (props: NavBarProps) => {
   const className = `${classes.navBar} ${classNameProp ?? ""}`;
 
   return (
-    <div className={className}>
+    <nav className={className} aria-label="Board navigation">
       <Button
         title="Go Back"
         aria-label="Back"
@@ -51,6 +51,6 @@ export const NavBar = (props: NavBarProps) => {
         disabled={homeDisabled}
         icon={<HomeFilled />}
       />
-    </div>
+    </nav>
   );
 };
