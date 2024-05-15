@@ -9,7 +9,7 @@ export const Output = (props: OutputProps) => {
   const { value } = props;
 
   return (
-    <div className={classes.output}>
+    <div className={classes.output} aria-label="Board output">
       {value?.map((item, index) => (
         <div className={classes.value} key={index}>
           <Pictogram label={item.label} src={item.src} />

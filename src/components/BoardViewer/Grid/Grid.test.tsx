@@ -1,13 +1,10 @@
-import { render, screen, userEvent } from "../../../utils/test-utils";
+import { render, screen } from "../../../utils/test-utils";
 import { Grid } from "./Grid";
 
-it("Should return posts when clicking fetch button", async () => {
-  const handleClick = vi.fn();
+it("Should render", () => {
   render(<Grid rows={3} columns={3} />);
 
-  const button = screen.getByRole("button", { name: "Hello world" });
-  await userEvent.click(button);
+  const grid = screen.getByRole("grid", { name: "Board grid" });
 
-  expect(button).toBeDefined();
-  expect(handleClick).toHaveBeenCalledTimes(1);
+  expect(grid).toBeDefined();
 });

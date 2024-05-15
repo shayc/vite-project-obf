@@ -70,7 +70,13 @@ export function Grid<T extends GridItem>(props: GridProps<T>) {
   const className = [classes.grid, classNameProp].filter(Boolean).join(" ");
 
   return (
-    <div className={className} style={style} {...attrs}>
+    <div
+      className={className}
+      style={style}
+      role="grid"
+      aria-label="Board grid"
+      {...attrs}
+    >
       {grid.map((row, rowIndex) => (
         <div className={classes.row} key={rowIndex}>
           {row.map((item, cellIndex) => (

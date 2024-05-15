@@ -14,7 +14,7 @@ export interface BoardViewerProps {
 export const BoardViewer = (props: BoardViewerProps) => {
   const { board, onButtonClick, className: classNameProp } = props;
 
-  const className = `${classes.board} ${classNameProp}`;
+  const className = `${classes.board} ${classNameProp ?? ""}`;
 
   function renderButton(button: BoardButton) {
     const { backgroundColor, borderColor, label, imageSrc } = button;

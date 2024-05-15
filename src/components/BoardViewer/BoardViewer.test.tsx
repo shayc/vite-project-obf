@@ -1,10 +1,12 @@
 import { render, screen } from "../../utils/test-utils";
 import { BoardViewer } from "./BoardViewer";
 
-it("Should return posts when clicking fetch button", () => {
-  render(<BoardViewer board={{ id: "" }} />);
+it("Should render", () => {
+  render(<BoardViewer board={{ id: "", name: "Board" }} />);
 
-  const name = screen.getByText("Hello world");
+  const nav = screen.getByRole("navigation", { name: "Board navigation" });
+  const grid = screen.getByRole("grid", { name: "Board grid" });
 
-  expect(name).toBeDefined();
+  expect(nav).toBeDefined();
+  expect(grid).toBeDefined();
 });
