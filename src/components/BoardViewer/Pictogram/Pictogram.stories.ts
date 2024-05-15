@@ -9,8 +9,8 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    src: { control: "string" },
-    label: { control: "string" },
+    src: { control: "text" },
+    label: { control: "text" },
   },
 } satisfies Meta<typeof Pictogram>;
 

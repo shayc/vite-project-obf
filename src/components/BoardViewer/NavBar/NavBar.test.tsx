@@ -1,13 +1,10 @@
-import { render, screen, userEvent } from "../../../utils/test-utils";
-import { Button } from "./NavBar";
+import { render, screen } from "../../../utils/test-utils";
+import { NavBar } from "./NavBar";
 
-it("Should return posts when clicking fetch button", async () => {
-  const handleClick = vi.fn();
-  render(<Button onClick={handleClick}>Hello world</Button>);
+it("Should not throw", () => {
+  render(<NavBar />);
 
-  const button = screen.getByRole("button", { name: "Hello world" });
-  await userEvent.click(button);
+  const nav = screen.getByRole("nav", { name: "Board navigation" });
 
-  expect(button).toBeDefined();
-  expect(handleClick).toHaveBeenCalledTimes(1);
+  expect(nav).toBeDefined();
 });

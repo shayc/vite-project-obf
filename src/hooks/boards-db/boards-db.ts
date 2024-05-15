@@ -102,30 +102,11 @@ export async function getRootBoard(): Promise<OBF.Board | null> {
 }
 
 export async function getBoardByPath(path: string): Promise<OBF.Board | null> {
-  const tx = db.transaction(["boards", "images", "sounds"]);
+  const tx = db.transaction(["boards"]);
   const boardsStore = tx.objectStore("boards");
-  const imagesStore = tx.objectStore("images");
-  const soundsStore = tx.objectStore("sounds");
+  const board = await boardsStore.index("by-path").get(path);
 
-  const rootBoard = await boardsStore.index("by-path").get(path);
-  const images = rootBoard?.data.images ?? [];
-  const sounds = rootBoard?.data.sounds ?? [];
-
-  for (const image of images) {
-    const imageData = await imagesStore.get(image.id);
-    if (imageData) {
-      image.blob = imageData.data;
-    }
-  }
-
-  for (const sound of sounds) {
-    const soundData = await soundsStore.get(sound.id);
-    if (soundData) {
-      sound.blob = soundData.data;
-    }
-  }
-
-  return rootBoard?.data ?? null;
+  return board?.data ?? null;
 }
 
 async function initDB(): Promise<IDBPDatabase<BoardsDB>> {
