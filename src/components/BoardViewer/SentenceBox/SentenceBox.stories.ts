@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Output } from "./Output";
+import { SentenceBox } from "./SentenceBox";
 
 const meta = {
-  title: "Design System/Components/Output",
-  component: Output,
+  title: "Design System/Components/SentenceBox",
+  component: SentenceBox,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Output>;
+} satisfies Meta<typeof SentenceBox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
