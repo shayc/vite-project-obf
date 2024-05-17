@@ -95,7 +95,7 @@ interface Button extends Extendable {
   sound_id?: ID; // ID of the associated sound
   label?: string; // Text label for the button
   border_color?: string; // Color value for border represented as rgb or rgba
-  background_color?: string; // Color value for border represented as rgb or rgba
+  background_color?: string; // Color value for background represented as rgb or rgba
   load_board?: LoadBoard; // Linking to another board
   vocalization?: string; // Custom vocalization text
   action?: ButtonAction; // Associated action (e.g., ":speak", ":clear")
