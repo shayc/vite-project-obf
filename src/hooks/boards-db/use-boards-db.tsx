@@ -9,7 +9,7 @@ export function useBoardsDB() {
 
   useEffect(() => {
     void boardsDB.getRootBoard().then((obf) => {
-      const board = mapOBFToBoard(obf ?? lotsOfStuffOBF);
+      const board = mapOBFToBoard(obf ?? (lotsOfStuffOBF as OBF.Board));
       setBoard(board);
     });
   }, []);

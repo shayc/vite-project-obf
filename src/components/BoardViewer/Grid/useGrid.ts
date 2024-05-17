@@ -1,6 +1,7 @@
 export interface GridItem {
   id: string;
 }
+
 export type Grid<T> = T[][];
 
 export type GridOrder = (string | null)[][];

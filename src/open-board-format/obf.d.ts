@@ -15,7 +15,6 @@
  */
 
 type ID = string;
-type Extendable = Record<`ext_${string}`, unknown>;
 
 /**
  * License information for boards, images, and sounds.
@@ -37,13 +36,14 @@ interface SymbolSet {
   filename: string; // Filename within the symbol set
 }
 
-interface Media extends Extendable {
+interface Media {
   id: ID; // Unique ID within the board
   url?: string; // External URL of the media
   data?: string; // Embedded media data (base64)
   path?: string; // Path within .obz package
   content_type: string; // MIME type of the media
   license?: License; // Licensing information
+  [`ext_${string}`]: unknown;
 }
 
 /**
@@ -89,7 +89,7 @@ type ButtonAction = SpecialtyAction | SpellingAction | CustomAction;
 /**
  * Button entity on a board.
  */
-interface Button extends Extendable {
+interface Button {
   id: ID; // Unique ID within the board
   image_id?: ID; // ID of the associated image
   sound_id?: ID; // ID of the associated sound
@@ -104,6 +104,7 @@ interface Button extends Extendable {
   left?: number; // For absolute positioning (0.0 to 1.0)
   width?: number; // For absolute positioning (0.0 to 1.0)
   height?: number; // For absolute positioning (0.0 to 1.0)
+  [`ext_${string}`]: unknown;
 }
 
 /**
@@ -118,7 +119,7 @@ interface Grid {
 /**
  * Main structure of a board in .obf format.
  */
-interface Board extends Extendable {
+interface Board {
   format?: string; // Format version (e.g., "open-board-0.1")
   id: ID; // Board's unique identifier
   locale?: string; // IETF language tag (e.g., "en")
@@ -131,6 +132,7 @@ interface Board extends Extendable {
   sounds?: Sound[]; // Array of sounds
   strings?: Record<string, Record<string, string>>; // String lists for different locales (e.g., "en": {"hello": "Hello"}, "es": {"hello": "Hola"})
   license?: License; // Licensing information
+  [`ext_${string}`]: unknown;
 }
 
 /**
