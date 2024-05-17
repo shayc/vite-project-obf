@@ -78,10 +78,12 @@ enum SpecialtyAction {
   Clear = ":clear", // Clear the sentence box
   Home = ":home", // Return to the user’s home board
   Backspace = ":backspace", // Remove the last entry in the sentence box
-  Append = "+", // Append letter(s) to a currently-spelled word (e.g., "+a", "+oo")
   Space = ":space", // Finish spelling and start a new word
-  Custom = ":ext_", // Custom action prefix for app-specific extensions
 }
+
+type SpellingAction = `+${string}`; // Append letter(s) to a currently-spelled word (e.g., "+a", "+oo")
+type CustomAction = `:ext_${string}`; // Custom action prefix for app-specific extensions (e.g., ":ext_someaction")
+type ButtonAction = SpecialtyAction | SpellingAction | CustomAction;
 
 /**
  * Button entity on a board.
@@ -91,12 +93,12 @@ interface Button extends Extendable {
   image_id?: string; // ID of the associated image
   sound_id?: string; // ID of the associated sound
   label?: string; // Text label for the button
-  border_color?: string; // CSS color value for border
-  background_color?: string; // CSS color value for background
+  border_color?: string; // Color value for border represented as rgb or rgba
+  background_color?: string; // Color value for border represented as rgb or rgba
   load_board?: LoadBoard; // Linking to another board
   vocalization?: string; // Custom vocalization text
-  action?: SpecialtyAction; // Associated action (e.g., ":speak", ":clear")
-  actions?: SpecialtyAction[]; // Array of actions for multi-action buttons
+  action?: ButtonAction; // Associated action (e.g., ":speak", ":clear")
+  actions?: ButtonAction[]; // Array of actions for multi-action buttons
   top?: number; // For absolute positioning (0.0 to 1.0)
   left?: number; // For absolute positioning (0.0 to 1.0)
   width?: number; // For absolute positioning (0.0 to 1.0)
@@ -146,11 +148,13 @@ interface Manifest {
 export {
   Board,
   Button,
+  ButtonAction,
   Grid,
   Image,
   License,
   LoadBoard,
   Manifest,
   Sound,
+  SpecialtyAction,
   SymbolSet,
 };
