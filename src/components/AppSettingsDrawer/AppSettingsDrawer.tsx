@@ -20,8 +20,8 @@ export function AppSettingsDrawer(props: AppDrawerProps) {
   return (
     <Drawer
       separator
-      type="overlay"
       open={isOpen}
+      type="overlay"
       position="end"
       onOpenChange={onClose}
     >
