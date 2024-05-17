@@ -14,6 +14,7 @@
  * TypeScript projects, enhancing interoperability and ease of use across AAC applications.
  */
 
+type ID = string;
 type Extendable = Record<`ext_${string}`, unknown>;
 
 /**
@@ -37,7 +38,7 @@ interface SymbolSet {
 }
 
 interface Media extends Extendable {
-  id: string; // Unique ID within the board
+  id: ID; // Unique ID within the board
   url?: string; // External URL of the media
   data?: string; // Embedded media data (base64)
   path?: string; // Path within .obz package
@@ -63,7 +64,7 @@ type Sound = Media;
  * Configuration for linking to other boards.
  */
 interface LoadBoard {
-  id?: string; // ID of the board to load
+  id?: ID; // ID of the board to load
   name?: string; // Name of the board to load
   data_url?: string; // Endpoint providing data about the board
   url?: string; // URL to the board's web page
@@ -89,9 +90,9 @@ type ButtonAction = SpecialtyAction | SpellingAction | CustomAction;
  * Button entity on a board.
  */
 interface Button extends Extendable {
-  id: string; // Unique ID within the board
-  image_id?: string; // ID of the associated image
-  sound_id?: string; // ID of the associated sound
+  id: ID; // Unique ID within the board
+  image_id?: ID; // ID of the associated image
+  sound_id?: ID; // ID of the associated sound
   label?: string; // Text label for the button
   border_color?: string; // Color value for border represented as rgb or rgba
   background_color?: string; // Color value for border represented as rgb or rgba
@@ -111,7 +112,7 @@ interface Button extends Extendable {
 interface Grid {
   rows: number; // Number of rows in the grid
   columns: number; // Number of columns in the grid
-  order?: (string | null)[][]; // Button order, row by row
+  order?: (ID | null)[][]; // Button order, row by row
 }
 
 /**
@@ -119,7 +120,7 @@ interface Grid {
  */
 interface Board extends Extendable {
   format?: string; // Format version (e.g., "open-board-0.1")
-  id: string; // Board's unique identifier
+  id: ID; // Board's unique identifier
   locale?: string; // IETF language tag (e.g., "en")
   url?: string; // URL to board's online location
   name?: string; // Board name
@@ -139,9 +140,9 @@ interface Manifest {
   format: string; // Format version for .obz files
   root: string; // Path to the primary .obf file
   paths: {
-    boards: Record<string, string>; // Board ID to path mappings
-    images: Record<string, string>; // Image ID to path mappings
-    sounds: Record<string, string>; // Sound ID to path mappings
+    boards: Record<ID, string>; // Board ID to path mappings
+    images: Record<ID, string>; // Image ID to path mappings
+    sounds: Record<ID, string>; // Sound ID to path mappings
   };
 }
 
@@ -154,6 +155,7 @@ export {
   License,
   LoadBoard,
   Manifest,
+  Media,
   Sound,
   SpecialtyAction,
   SymbolSet,
