@@ -9,12 +9,12 @@ import { Dismiss24Regular } from "@fluentui/react-icons";
 import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
 import { ThemeSettings } from "./ThemeSettings/ThemeSettings";
 
-interface AppDrawerProps {
+interface AppSettingsDrawerProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function AppSettingsDrawer(props: AppDrawerProps) {
+export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
   const { isOpen, onClose } = props;
 
   return (
