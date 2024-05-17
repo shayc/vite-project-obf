@@ -1,6 +1,6 @@
 # Open Board Player
 
-A web application for playing [Open Board Format](https://www.openboardformat.org/) files.
+A web application for playing [Open Board Format](https://www.openboardformat.org/) files (`.obf`, `.obz`).
 
 ## Table of Contents
 
