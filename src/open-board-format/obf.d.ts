@@ -14,6 +14,8 @@
  * TypeScript projects, enhancing interoperability and ease of use across AAC applications.
  */
 
+type Extendable = Record<`ext_${string}`, unknown>;
+
 /**
  * License information for boards, images, and sounds.
  */
@@ -34,7 +36,7 @@ interface SymbolSet {
   filename: string; // Filename within the symbol set
 }
 
-interface Media {
+interface Media extends Extendable {
   id: string; // Unique ID within the board
   url?: string; // External URL of the media
   data?: string; // Embedded media data (base64)
@@ -84,7 +86,7 @@ enum SpecialtyAction {
 /**
  * Button entity on a board.
  */
-interface Button {
+interface Button extends Extendable {
   id: string; // Unique ID within the board
   image_id?: string; // ID of the associated image
   sound_id?: string; // ID of the associated sound
@@ -113,7 +115,7 @@ interface Grid {
 /**
  * Main structure of a board in .obf format.
  */
-interface Board {
+interface Board extends Extendable {
   format?: string; // Format version (e.g., "open-board-0.1")
   id: string; // Board's unique identifier
   locale?: string; // IETF language tag (e.g., "en")
