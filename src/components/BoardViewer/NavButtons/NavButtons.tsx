@@ -4,16 +4,16 @@ import {
   ArrowRightFilled,
   HomeFilled,
 } from "@fluentui/react-icons";
-import classes from "./NavBar.module.css";
+import classes from "./NavButtons.module.css";
 
-export interface NavBarProps {
+export interface NavButtonsProps {
   backDisabled?: boolean;
   className?: string;
   forwardDisabled?: boolean;
   homeDisabled?: boolean;
 }
 
-export const NavBar = (props: NavBarProps) => {
+export const NavButtons = (props: NavButtonsProps) => {
   const {
     backDisabled,
     forwardDisabled,
@@ -21,7 +21,7 @@ export const NavBar = (props: NavBarProps) => {
     className: classNameProp,
   } = props;
 
-  const className = `${classes.navBar} ${classNameProp ?? ""}`;
+  const className = `${classes.navButtons} ${classNameProp ?? ""}`;
 
   return (
     <nav className={className} aria-label="Board navigation">

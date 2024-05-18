@@ -1,8 +1,8 @@
 import { render, screen } from "../../../utils/test-utils";
-import { NavBar } from "./NavBar";
+import { NavButtons } from "./NavButtons";
 
 it("Should render", () => {
-  render(<NavBar />);
+  render(<NavButtons />);
 
   const nav = screen.getByRole("navigation", { name: "Board navigation" });
 

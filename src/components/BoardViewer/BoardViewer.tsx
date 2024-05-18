@@ -1,7 +1,7 @@
 import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
-import { NavBar } from "./NavBar/NavBar";
+import { NavButtons } from "./NavButtons/NavButtons";
 import { Pictogram } from "./Pictogram/Pictogram";
 import type { Board, BoardButton } from "./types";
 
@@ -33,7 +33,11 @@ export const BoardViewer = (props: BoardViewerProps) => {
 
   return (
     <div className={className}>
-      <NavBar backDisabled={true} forwardDisabled={true} homeDisabled={false} />
+      <NavButtons
+        backDisabled={true}
+        forwardDisabled={true}
+        homeDisabled={false}
+      />
 
       <Grid
         className={classes.grid}
