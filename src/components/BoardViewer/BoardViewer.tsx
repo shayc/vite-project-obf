@@ -2,9 +2,9 @@ import clsx from "clsx";
 import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
-import { BackButton, ForwardButton, HomeButton } from "./NavButtons";
 import { Pictogram } from "./Pictogram/Pictogram";
 import { SentenceBox } from "./SentenceBox/SentenceBox";
+import { TitleBar } from "./TitleBar/TitleBar";
 import type { Board, BoardButton } from "./types";
 
 export interface BoardViewerProps {
@@ -37,11 +37,7 @@ export const BoardViewer = (props: BoardViewerProps) => {
     <div className={className}>
       <SentenceBox value={[]} />
 
-      <div>
-        <BackButton disabled={true} />
-        <ForwardButton disabled={true} />
-        <HomeButton disabled={true} />
-      </div>
+      <TitleBar />
 
       <Grid
         rows={board?.grid?.rows}
