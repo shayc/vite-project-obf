@@ -44,7 +44,6 @@ export const BoardViewer = (props: BoardViewerProps) => {
       </div>
 
       <Grid
-        className={classes.grid}
         rows={board?.grid?.rows}
         columns={board?.grid?.columns}
         items={board?.buttons}
