@@ -15,7 +15,13 @@ import useUserPreferences from "../user-preferences/use-user-preferences";
 
 interface ThemeProviderProps {
   children: ReactNode;
+  theme?: unknown;
 }
+
+const Themes = {
+  light: webLightTheme,
+  dark: webDarkTheme,
+};
 
 const ThemeContext = createContext<
   | {
@@ -25,11 +31,11 @@ const ThemeContext = createContext<
   | undefined
 >(undefined);
 
-function ThemeProvider({ children }: ThemeProviderProps) {
+function ThemeProvider({ children, theme: themeProp }: ThemeProviderProps) {
   const { prefersDarkColorScheme } = useUserPreferences();
   const [isDarkMode, setIsDarkMode] = useState(prefersDarkColorScheme);
 
-  const theme = isDarkMode ? webDarkTheme : webLightTheme;
+  const theme = themeProp ?? (isDarkMode ? webDarkTheme : webLightTheme);
   const value = { isDarkMode, setIsDarkMode };
 
   return (
@@ -49,4 +55,5 @@ function useTheme() {
   return context;
 }
 
-export { ThemeProvider, useTheme };
+export { ThemeProvider, Themes, useTheme };
+
