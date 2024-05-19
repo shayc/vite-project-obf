@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import classes from "./Pictogram.module.css";
 
 /**
@@ -39,15 +40,13 @@ export const Pictogram = (props: PictogramProps) => {
     style: styleProp,
   } = props;
 
-  const className = [classes.pictogram, classNameProp]
-    .filter(Boolean)
-    .join(" ");
-
   const style = {
     ...styleProp,
     "--flex-direction":
       labelPosition === "bottom" ? "column" : "column-reverse",
   } as React.CSSProperties;
+
+  const className = clsx(classes.pictogram, classNameProp);
 
   return (
     <div className={className} style={style}>

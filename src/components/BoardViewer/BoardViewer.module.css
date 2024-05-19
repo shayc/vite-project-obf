@@ -1,4 +1,4 @@
-.board {
+.boardViewer {
   display: flex;
   flex-direction: column;
 }

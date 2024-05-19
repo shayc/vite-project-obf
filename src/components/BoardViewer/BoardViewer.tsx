@@ -1,7 +1,8 @@
+import clsx from "clsx";
 import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
-import { NavButtons } from "./NavButtons/NavButtons";
+import { BackButton, ForwardButton, HomeButton } from "./NavButtons";
 import { Pictogram } from "./Pictogram/Pictogram";
 import { SentenceBox } from "./SentenceBox/SentenceBox";
 import type { Board, BoardButton } from "./types";
@@ -15,7 +16,7 @@ export interface BoardViewerProps {
 export const BoardViewer = (props: BoardViewerProps) => {
   const { board, onButtonClick, className: classNameProp } = props;
 
-  const className = `${classes.board} ${classNameProp ?? ""}`;
+  const className = clsx(classes.boardViewer, classNameProp);
 
   function renderButton(button: BoardButton) {
     const { backgroundColor, borderColor, label, imageSrc } = button;
@@ -35,12 +36,12 @@ export const BoardViewer = (props: BoardViewerProps) => {
   return (
     <div className={className}>
       <SentenceBox value={[]} />
-      
-      <NavButtons
-        backDisabled={true}
-        forwardDisabled={true}
-        homeDisabled={false}
-      />
+
+      <div>
+        <BackButton disabled={true} />
+        <ForwardButton disabled={true} />
+        <HomeButton disabled={true} />
+      </div>
 
       <Grid
         className={classes.grid}

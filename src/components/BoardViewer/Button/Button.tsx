@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { getAccessibleTextColor } from "../../../utils/color-utils";
 import classes from "./Button.module.css";
 
@@ -59,7 +60,7 @@ export const Button = (props: ButtonProps) => {
     ...(borderColor && { "--border-color": borderColor }),
   } as React.CSSProperties;
 
-  const className = `${classes.button} ${classNameProp ?? ""}`;
+  const className = clsx(classes.button, classNameProp);
 
   return (
     <button

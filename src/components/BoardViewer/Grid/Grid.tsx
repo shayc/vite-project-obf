@@ -1,4 +1,5 @@
 import { useArrowNavigationGroup } from "@fluentui/react-tabster";
+import clsx from "clsx";
 import classes from "./Grid.module.css";
 import { GridItem, GridOrder, useGrid } from "./useGrid";
 
@@ -67,7 +68,7 @@ export function Grid<T extends GridItem>(props: GridProps<T>) {
     "--gap": `${gap}px`,
   } as React.CSSProperties;
 
-  const className = [classes.grid, classNameProp].filter(Boolean).join(" ");
+  const className = clsx(classes.grid, classNameProp);
 
   return (
     <div
