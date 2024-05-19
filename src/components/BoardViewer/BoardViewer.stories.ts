@@ -17,6 +17,7 @@ export const Primary: Story = {
   args: {
     board: {
       id: "1",
+      name: "Example Board",
       buttons: [
         {
           id: "1",
