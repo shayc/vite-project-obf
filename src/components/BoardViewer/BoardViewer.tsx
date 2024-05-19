@@ -3,6 +3,7 @@ import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
 import { NavButtons } from "./NavButtons/NavButtons";
 import { Pictogram } from "./Pictogram/Pictogram";
+import { SentenceBox } from "./SentenceBox/SentenceBox";
 import type { Board, BoardButton } from "./types";
 
 export interface BoardViewerProps {
@@ -33,6 +34,8 @@ export const BoardViewer = (props: BoardViewerProps) => {
 
   return (
     <div className={className}>
+      <SentenceBox value={[]} />
+      
       <NavButtons
         backDisabled={true}
         forwardDisabled={true}
