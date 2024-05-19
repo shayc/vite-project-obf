@@ -15,15 +15,15 @@ export const TitleBar = (props: TitleBarProps) => {
 
   return (
     <div className={className}>
-      <div className={classes.titleBarStart}>
-        <nav>
+      <div className={classes.start}>
+        <nav aria-label="Board navigation">
           <BackButton disabled={true} />
           <ForwardButton disabled={true} />
           <HomeButton disabled={true} />
         </nav>
       </div>
-      <div className={classes.titleBarCenter}></div>
-      <div className={classes.titleBarEnd}></div>
+      <div className={classes.center}></div>
+      <div className={classes.end}></div>
     </div>
   );
 };
