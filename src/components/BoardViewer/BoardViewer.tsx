@@ -2,6 +2,7 @@ import clsx from "clsx";
 import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
+import { NavButtons } from "./NavButtons/NavButtons";
 import { Pictogram } from "./Pictogram/Pictogram";
 import { SentenceBox } from "./SentenceBox/SentenceBox";
 import { TitleBar } from "./TitleBar/TitleBar";
@@ -37,7 +38,7 @@ export const BoardViewer = (props: BoardViewerProps) => {
     <div className={className}>
       <SentenceBox value={[]} />
 
-      <TitleBar />
+      <TitleBar start={<NavButtons />} center={board?.name} />
 
       <Grid
         rows={board?.grid?.rows}

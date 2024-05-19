@@ -1,6 +1,18 @@
 .sentenceBox {
   display: flex;
+  min-height: 72px;
+  border-radius: 16px;
+  background: rgba(125, 125, 125, 0.1);
+}
+
+.sentence {
+  flex: 1;
 }
 
 .value {
+}
+
+.actions {
+  display: flex;
+  align-self: center;
 }

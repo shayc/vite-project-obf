@@ -1,15 +1,12 @@
 .titleBar {
-
+  display: flex;
 }
 
 .start {
-
 }
 
 .center {
-
 }
 
 .end {
-
 }

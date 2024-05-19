@@ -16,12 +16,15 @@ export const SentenceBox = (props: SentenceBoxProps) => {
 
   return (
     <div className={className} aria-label="Sentence box">
-      {value?.map((item, index) => (
-        <div className={classes.value} key={index}>
-          <Pictogram label={item.label} src={item.src} />
-        </div>
-      ))}
-      <div>
+      <div className={classes.sentence}>
+        {value?.map((item, index) => (
+          <div className={classes.value} key={index}>
+            <Pictogram label={item.label} src={item.src} />
+          </div>
+        ))}
+      </div>
+
+      <div className={classes.actions}>
         <Button
           title="Backspace"
           aria-label="Backspace"
