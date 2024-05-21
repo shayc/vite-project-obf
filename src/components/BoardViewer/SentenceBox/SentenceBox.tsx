@@ -1,8 +1,30 @@
-import { Button } from "@fluentui/react-components";
+import { Button, makeStyles, tokens } from "@fluentui/react-components";
 import { BackspaceFilled, DeleteFilled } from "@fluentui/react-icons";
 import clsx from "clsx";
 import { Pictogram } from "../Pictogram/Pictogram";
-import classes from "./SentenceBox.module.css";
+
+const useStyles = makeStyles({
+  sentenceBox: {
+    display: "flex",
+    minHeight: "112px",
+    padding: "0 16px",
+    margin: "16px",
+    borderRadius: "16px",
+    background: tokens.colorNeutralBackground6,
+  },
+  sentence: {
+    flex: 1,
+    display: "flex",
+  },
+  value: {
+    display: "flex",
+  },
+  actions: {
+    display: "flex",
+    alignSelf: "center",
+    gap: "8px",
+  },
+});
 
 interface SentenceBoxProps {
   className?: string;
@@ -12,6 +34,7 @@ interface SentenceBoxProps {
 export const SentenceBox = (props: SentenceBoxProps) => {
   const { value, className: classNameProp } = props;
 
+  const classes = useStyles();
   const className = clsx(classes.sentenceBox, classNameProp);
 
   return (

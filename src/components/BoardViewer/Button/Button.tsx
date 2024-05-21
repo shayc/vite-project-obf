@@ -1,6 +1,36 @@
+import { makeStyles, shorthands, tokens } from "@fluentui/react-components";
 import clsx from "clsx";
 import { getAccessibleTextColor } from "../../../utils/color-utils";
-import classes from "./Button.module.css";
+
+const useStyles = makeStyles({
+  button: {
+    "--border-width": "3px",
+
+    position: "relative",
+    padding: "0",
+    border: "var(--border-width) solid",
+    borderRadius: "16px",
+    color: "var(--color, inherit)",
+    backgroundColor: "var(--background-color, transparent)",
+    outlineOffset: "var(--border-width)",
+    boxShadow: tokens.shadow2,
+    overflow: "hidden",
+    cursor: "pointer",
+    ...shorthands.borderColor("var(--border-color, transparent)"),
+  },
+  "button:disabled": {
+    cursor: "default",
+  },
+  "button:not(:disabled):active::after": {
+    content: "",
+    position: "absolute",
+    top: "0",
+    left: "0",
+    right: "0",
+    bottom: "0",
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+  },
+});
 
 export interface ButtonProps {
   /**
@@ -51,6 +81,7 @@ export const Button = (props: ButtonProps) => {
     ...restProps
   } = props;
 
+  const classes = useStyles();
   const color = getAccessibleTextColor(backgroundColor);
 
   const style = {

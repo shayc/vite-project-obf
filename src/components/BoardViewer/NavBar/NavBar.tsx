@@ -1,8 +1,24 @@
+import { makeStyles } from "@fluentui/react-components";
 import clsx from "clsx";
 import { BackButton } from "./BackButton";
 import { BoardMenu } from "./BoardMenu";
 import { ForwardButton } from "./ForwardButton";
-import classes from "./NavBar.module.css";
+
+const useStyles = makeStyles({
+  navBar: {
+    flexShrink: "0",
+    height: "48px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  start: {
+    display: "flex",
+  },
+  end: {
+    display: "flex",
+  },
+});
 
 interface NavBarProps {
   actions?: React.ReactNode;
@@ -12,7 +28,7 @@ interface NavBarProps {
 
 export const NavBar = (props: NavBarProps) => {
   const { className: classNameProp, title, actions } = props;
-
+  const classes = useStyles();
   const className = clsx(classes.navBar, classNameProp);
 
   return (

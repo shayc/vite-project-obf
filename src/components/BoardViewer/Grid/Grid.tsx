@@ -1,9 +1,21 @@
+import { makeStyles } from "@fluentui/react-components";
 import { useArrowNavigationGroup } from "@fluentui/react-tabster";
 import clsx from "clsx";
 import { Cell } from "./Cell/Cell";
-import classes from "./Grid.module.css";
 import { Row } from "./Row/Row";
 import { GridItem, GridOrder, useGrid } from "./useGrid";
+
+const useStyles = makeStyles({
+  grid: {
+    width: "100%",
+    height: "100%",
+    padding: "var(--gap)",
+    display: "flex",
+    gap: "var(--gap)",
+    flexDirection: "column",
+    boxSizing: "border-box",
+  },
+});
 
 /**
  * Props for the Grid component.
@@ -61,7 +73,7 @@ export function Grid<T extends GridItem>(props: GridProps<T>) {
     className: classNameProp,
     style: styleProp,
   } = props;
-
+  const classes = useStyles();
   const attrs = useArrowNavigationGroup({ axis: "grid" });
   const grid = useGrid(items, { columns, rows, order });
 

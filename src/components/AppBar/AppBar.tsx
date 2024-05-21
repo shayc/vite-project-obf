@@ -1,5 +1,15 @@
-import { Title3 } from "@fluentui/react-components";
-import classes from "./AppBar.module.css";
+import { Title3, makeStyles, tokens } from "@fluentui/react-components";
+
+const useStyles = makeStyles({
+  root: {
+    height: "48px",
+    paddingInline: "16px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: tokens.colorNeutralBackground4,
+  },
+});
 
 interface AppBarProps {
   title?: string;
@@ -7,8 +17,10 @@ interface AppBarProps {
 }
 
 export function AppBar({ title, actions }: AppBarProps) {
+  const classes = useStyles();
+
   return (
-    <div className={classes.appBar}>
+    <div className={classes.root}>
       <div>{title && <Title3 as="h2">{title}</Title3>}</div>
       <div>{actions}</div>
     </div>
