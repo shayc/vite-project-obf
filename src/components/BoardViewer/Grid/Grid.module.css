@@ -8,20 +8,3 @@
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.15);
 }
-
-.row {
-  flex: 1;
-  display: flex;
-  gap: var(--gap);
-}
-
-.cell {
-  flex: 1;
-  min-width: 0;
-  border-radius: 16px;
-  background-color: rgba(128, 128, 128, 0.1);
-}
-
-.cell:not(:empty) {
-  background-color: transparent;
-}

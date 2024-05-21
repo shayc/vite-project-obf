@@ -1,12 +1,10 @@
-import { Subtitle2 } from "@fluentui/react-components";
 import clsx from "clsx";
 import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
 import { Grid } from "./Grid/Grid";
-import { NavButtons } from "./NavButtons/NavButtons";
+import { NavBar } from "./NavBar/NavBar";
 import { Pictogram } from "./Pictogram/Pictogram";
 import { SentenceBox } from "./SentenceBox/SentenceBox";
-import { TitleBar } from "./TitleBar/TitleBar";
 import type { Board, BoardButton } from "./types";
 
 export interface BoardViewerProps {
@@ -39,10 +37,7 @@ export const BoardViewer = (props: BoardViewerProps) => {
     <div className={className}>
       <SentenceBox value={[]} />
 
-      <TitleBar
-        start={<NavButtons />}
-        center={<Subtitle2>{board?.name}</Subtitle2>}
-      />
+      <NavBar title={board?.name} />
 
       <Grid
         rows={board?.grid?.rows}

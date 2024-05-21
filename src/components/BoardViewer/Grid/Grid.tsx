@@ -1,6 +1,8 @@
 import { useArrowNavigationGroup } from "@fluentui/react-tabster";
 import clsx from "clsx";
+import { Cell } from "./Cell/Cell";
 import classes from "./Grid.module.css";
+import { Row } from "./Row/Row";
 import { GridItem, GridOrder, useGrid } from "./useGrid";
 
 /**
@@ -79,13 +81,11 @@ export function Grid<T extends GridItem>(props: GridProps<T>) {
       {...attrs}
     >
       {grid.map((row, rowIndex) => (
-        <div className={classes.row} key={rowIndex}>
+        <Row key={rowIndex}>
           {row.map((item, cellIndex) => (
-            <div className={classes.cell} key={cellIndex}>
-              {item && renderItem?.(item)}
-            </div>
+            <Cell key={cellIndex}>{item && renderItem?.(item)}</Cell>
           ))}
-        </div>
+        </Row>
       ))}
     </div>
   );
