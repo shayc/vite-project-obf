@@ -18,18 +18,20 @@ const tempList = [
   },
 ];
 
-interface BoardMenuProps {
+interface BoardMenuButtonProps {
   className?: string;
   title?: string;
 }
 
-export const BoardMenu = (props: BoardMenuProps) => {
+export const BoardMenuButton = (props: BoardMenuButtonProps) => {
   const { title } = props;
 
   return (
     <Menu>
       <MenuTrigger disableButtonEnhancement>
-        <MenuButton size="large" appearance="transparent">{title}</MenuButton>
+        <MenuButton size="large" appearance="transparent">
+          {title}
+        </MenuButton>
       </MenuTrigger>
 
       <MenuPopover>
