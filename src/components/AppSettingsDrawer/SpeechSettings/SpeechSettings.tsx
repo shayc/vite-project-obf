@@ -4,6 +4,8 @@ import {
   Select,
   Slider,
   Subtitle2,
+  makeStyles,
+  tokens,
   useId,
 } from "@fluentui/react-components";
 import {
@@ -15,7 +17,14 @@ import {
   MIN_VOLUME,
 } from "../../../hooks/speech/async-speech";
 import { useSpeech } from "../../../hooks/speech/use-speech";
-import classes from "./SpeechSettings.module.css";
+
+const useStyles = makeStyles({
+  setting: {
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: tokens.spacingVerticalL,
+  },
+});
 
 export function SpeechSettings() {
   const {
@@ -29,6 +38,8 @@ export function SpeechSettings() {
     setPitch,
     speak,
   } = useSpeech();
+
+  const classes = useStyles();
 
   const volumeId = useId();
   const rateId = useId();

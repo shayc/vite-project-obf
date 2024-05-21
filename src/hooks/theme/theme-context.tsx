@@ -34,13 +34,18 @@ const ThemeContext = createContext<
 function ThemeProvider({ children, theme: themeProp }: ThemeProviderProps) {
   const { prefersDarkColorScheme } = useUserPreferences();
   const [isDarkMode, setIsDarkMode] = useState(prefersDarkColorScheme);
+  
+  // TODO: Add RTL support
+  const [dir] = useState<"ltr" | "rtl">("ltr");
 
   const theme = themeProp ?? (isDarkMode ? webDarkTheme : webLightTheme);
   const value = { isDarkMode, setIsDarkMode };
 
   return (
     <ThemeContext.Provider value={value}>
-      <FluentProvider theme={theme}>{children}</FluentProvider>
+      <FluentProvider theme={theme} dir={dir}>
+        {children}
+      </FluentProvider>
     </ThemeContext.Provider>
   );
 }
@@ -56,4 +61,3 @@ function useTheme() {
 }
 
 export { ThemeProvider, Themes, useTheme };
-

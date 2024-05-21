@@ -3,14 +3,25 @@ import {
   Subtitle2,
   Switch,
   SwitchOnChangeData,
+  makeStyles,
+  tokens,
   useId,
 } from "@fluentui/react-components";
 import { useTheme } from "../../../hooks/theme/theme-context";
-import classes from "./ThemeSettings.module.css";
+
+const useStyles = makeStyles({
+  setting: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: tokens.spacingVerticalL,
+  },
+});
 
 export function ThemeSettings() {
   const themeId = useId();
   const { isDarkMode, setIsDarkMode } = useTheme();
+  const classes = useStyles();
 
   function handleThemeChange(
     _ev: React.ChangeEvent<HTMLInputElement>,
