@@ -1,6 +1,14 @@
+import { makeStyles } from "@fluentui/react-components";
 import clsx from "clsx";
 import React from "react";
-import classes from "./Row.module.css";
+
+const useStyles = makeStyles({
+  row: {
+    flex: "1",
+    display: "flex",
+    gap: "var(--gap)",
+  },
+});
 
 interface RowProps {
   children: React.ReactNode;
@@ -10,6 +18,7 @@ interface RowProps {
 export function Row(props: RowProps) {
   const { children, className: classNameProp } = props;
 
+  const classes = useStyles();
   const className = clsx(classes.row, classNameProp);
 
   return (

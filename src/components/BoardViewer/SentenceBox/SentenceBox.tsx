@@ -9,8 +9,8 @@ const useStyles = makeStyles({
     minHeight: "112px",
     padding: "0 16px",
     margin: "16px",
-    borderRadius: "16px",
-    background: tokens.colorNeutralBackground6,
+    borderRadius: tokens.borderRadiusXLarge,
+    background: tokens.colorNeutralBackground2,
   },
   sentence: {
     flex: 1,

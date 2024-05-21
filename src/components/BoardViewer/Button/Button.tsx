@@ -4,12 +4,12 @@ import { getAccessibleTextColor } from "../../../utils/color-utils";
 
 const useStyles = makeStyles({
   button: {
-    "--border-width": "3px",
+    "--border-width": tokens.strokeWidthThick,
 
     position: "relative",
     padding: "0",
     border: "var(--border-width) solid",
-    borderRadius: "16px",
+    borderRadius: tokens.borderRadiusXLarge,
     color: "var(--color, inherit)",
     backgroundColor: "var(--background-color, transparent)",
     outlineOffset: "var(--border-width)",

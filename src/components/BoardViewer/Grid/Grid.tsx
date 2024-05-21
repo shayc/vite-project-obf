@@ -73,7 +73,7 @@ export function Grid<T extends GridItem>(props: GridProps<T>) {
     className: classNameProp,
     style: styleProp,
   } = props;
-  const classes = useStyles();
+
   const attrs = useArrowNavigationGroup({ axis: "grid" });
   const grid = useGrid(items, { columns, rows, order });
 
@@ -82,6 +82,7 @@ export function Grid<T extends GridItem>(props: GridProps<T>) {
     "--gap": `${gap}px`,
   } as React.CSSProperties;
 
+  const classes = useStyles();
   const className = clsx(classes.grid, classNameProp);
 
   return (

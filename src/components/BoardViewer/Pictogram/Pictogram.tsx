@@ -1,5 +1,34 @@
+import { makeStyles } from "@fluentui/react-components";
 import clsx from "clsx";
-import classes from "./Pictogram.module.css";
+
+const useStyles = makeStyles({
+  pictogram: {
+    display: "flex",
+    flexDirection: "var(--flex-direction)" as "column" | "column-reverse",
+    gap: "0.5rem",
+    padding: "0.5rem",
+    boxSizing: "border-box",
+  },
+  imgContainer: {
+    flex: "1",
+    position: "relative",
+  },
+  img: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+  },
+  label: {
+    fontSize: "14px",
+    textAlign: "center",
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+  },
+});
 
 /**
  * Props for the Pictogram component.
@@ -40,13 +69,14 @@ export const Pictogram = (props: PictogramProps) => {
     style: styleProp,
   } = props;
 
+  const classes = useStyles();
+  const className = clsx(classes.pictogram, classNameProp);
+
   const style = {
     ...styleProp,
     "--flex-direction":
       labelPosition === "bottom" ? "column" : "column-reverse",
   } as React.CSSProperties;
-
-  const className = clsx(classes.pictogram, classNameProp);
 
   return (
     <div className={className} style={style}>
