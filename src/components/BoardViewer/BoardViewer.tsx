@@ -1,4 +1,4 @@
-import { Body1Stronger } from "@fluentui/react-components";
+import { Subtitle2 } from "@fluentui/react-components";
 import clsx from "clsx";
 import classes from "./BoardViewer.module.css";
 import { Button } from "./Button/Button";
@@ -41,7 +41,7 @@ export const BoardViewer = (props: BoardViewerProps) => {
 
       <TitleBar
         start={<NavButtons />}
-        center={<Body1Stronger>{board?.name}</Body1Stronger>}
+        center={<Subtitle2>{board?.name}</Subtitle2>}
       />
 
       <Grid

@@ -17,7 +17,7 @@ export const NavButtons = (props: NavButtonsProps) => {
     <nav className={className} aria-label="Board navigation">
       <BackButton disabled={true} />
       <ForwardButton disabled={true} />
-      <HomeButton disabled={true} />
+      <HomeButton disabled={false} />
     </nav>
   );
 };

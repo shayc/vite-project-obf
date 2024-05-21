@@ -1,6 +1,8 @@
 .sentenceBox {
   display: flex;
-  min-height: 72px;
+  min-height: 112px;
+  padding: 0 16px;
+  margin: 16px;
   border-radius: 16px;
   background: rgba(125, 125, 125, 0.1);
 }
@@ -17,4 +19,5 @@
 .actions {
   display: flex;
   align-self: center;
+  gap: 8px;
 }

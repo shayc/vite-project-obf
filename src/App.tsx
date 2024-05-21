@@ -1,5 +1,5 @@
 import { Button } from "@fluentui/react-components";
-import { SettingsRegular } from "@fluentui/react-icons";
+import { SettingsFilled } from "@fluentui/react-icons";
 import { useState } from "react";
 import classes from "./App.module.css";
 import { AppBar } from "./components/AppBar/AppBar";
@@ -16,14 +16,14 @@ function App() {
       title="Settings"
       aria-label="Settings"
       appearance="subtle"
-      icon={<SettingsRegular />}
+      icon={<SettingsFilled />}
       onClick={() => setIsSettingsOpen(true)}
     />
   );
 
   return (
     <div className={classes.app}>
-      <AppBar title={board?.name} actions={appActions} />
+      <AppBar actions={appActions} />
 
       <AppSettingsDrawer
         isOpen={isSettingsOpen}

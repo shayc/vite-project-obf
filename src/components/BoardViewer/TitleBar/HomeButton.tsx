@@ -1,5 +1,5 @@
 import { Button } from "@fluentui/react-components";
-import { HomeRegular } from "@fluentui/react-icons";
+import { HomeFilled } from "@fluentui/react-icons";
 
 export interface HomeButtonProps {
   className?: string;
@@ -16,7 +16,7 @@ export const HomeButton = (props: HomeButtonProps) => {
       size="large"
       appearance="subtle"
       disabled={disabled}
-      icon={<HomeRegular />}
+      icon={<HomeFilled />}
     />
   );
 };

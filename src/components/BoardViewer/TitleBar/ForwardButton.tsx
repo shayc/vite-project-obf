@@ -1,5 +1,5 @@
 import { Button } from "@fluentui/react-components";
-import { ArrowRightRegular } from "@fluentui/react-icons";
+import { ArrowRightFilled } from "@fluentui/react-icons";
 
 export interface ForwardButtonProps {
   className?: string;
@@ -16,7 +16,7 @@ export const ForwardButton = (props: ForwardButtonProps) => {
       size="large"
       appearance="subtle"
       disabled={disabled}
-      icon={<ArrowRightRegular />}
+      icon={<ArrowRightFilled />}
     />
   );
 };

@@ -5,7 +5,7 @@ import {
   DrawerHeader,
   DrawerHeaderTitle,
 } from "@fluentui/react-components";
-import { Dismiss24Regular } from "@fluentui/react-icons";
+import { Dismiss24Filled } from "@fluentui/react-icons";
 import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
 import { ThemeSettings } from "./ThemeSettings/ThemeSettings";
 
@@ -32,7 +32,7 @@ export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
               title="Close"
               aria-label="Close"
               appearance="subtle"
-              icon={<Dismiss24Regular />}
+              icon={<Dismiss24Filled />}
               onClick={onClose}
             />
           }

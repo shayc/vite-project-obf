@@ -9,8 +9,7 @@ interface AppBarProps {
 export function AppBar({ title, actions }: AppBarProps) {
   return (
     <div className={classes.appBar}>
-      <Title3 as="h2">{title}</Title3>
-
+      <div>{title && <Title3 as="h2">{title}</Title3>}</div>
       <div>{actions}</div>
     </div>
   );

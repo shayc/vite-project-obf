@@ -1,5 +1,5 @@
 import { Button } from "@fluentui/react-components";
-import { ArrowLeftRegular } from "@fluentui/react-icons";
+import { ArrowLeftFilled } from "@fluentui/react-icons";
 
 export interface BackButtonProps {
   className?: string;
@@ -16,7 +16,7 @@ export const BackButton = (props: BackButtonProps) => {
       size="large"
       appearance="subtle"
       disabled={disabled}
-      icon={<ArrowLeftRegular />}
+      icon={<ArrowLeftFilled />}
     />
   );
 };

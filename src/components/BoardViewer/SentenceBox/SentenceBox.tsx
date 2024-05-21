@@ -1,5 +1,5 @@
 import { Button } from "@fluentui/react-components";
-import { BackspaceRegular, DeleteRegular } from "@fluentui/react-icons";
+import { BackspaceFilled, DeleteFilled } from "@fluentui/react-icons";
 import clsx from "clsx";
 import { Pictogram } from "../Pictogram/Pictogram";
 import classes from "./SentenceBox.module.css";
@@ -30,7 +30,7 @@ export const SentenceBox = (props: SentenceBoxProps) => {
           aria-label="Backspace"
           size="large"
           appearance="subtle"
-          icon={<BackspaceRegular />}
+          icon={<BackspaceFilled />}
         />
 
         <Button
@@ -38,7 +38,7 @@ export const SentenceBox = (props: SentenceBoxProps) => {
           aria-label="Clear"
           size="large"
           appearance="subtle"
-          icon={<DeleteRegular />}
+          icon={<DeleteFilled />}
         />
       </div>
     </div>
