@@ -1,4 +1,9 @@
-import { Button, makeStyles, tokens } from "@fluentui/react-components";
+import {
+  Button,
+  makeStyles,
+  tokens,
+  useArrowNavigationGroup,
+} from "@fluentui/react-components";
 import { BackspaceFilled, DeleteFilled } from "@fluentui/react-icons";
 import clsx from "clsx";
 import { Pictogram } from "../Pictogram/Pictogram";
@@ -34,6 +39,7 @@ interface SentenceBoxProps {
 export const SentenceBox = (props: SentenceBoxProps) => {
   const { value, className: classNameProp } = props;
 
+  const attrs = useArrowNavigationGroup({ axis: "horizontal" });
   const classes = useStyles();
   const className = clsx(classes.sentenceBox, classNameProp);
 
@@ -47,7 +53,7 @@ export const SentenceBox = (props: SentenceBoxProps) => {
         ))}
       </div>
 
-      <div className={classes.actions}>
+      <div className={classes.actions} {...attrs}>
         <Button
           title="Backspace"
           aria-label="Backspace"

@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   navBar: {
     flexShrink: "0",
     height: "48px",
+    padding: "0 16px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
