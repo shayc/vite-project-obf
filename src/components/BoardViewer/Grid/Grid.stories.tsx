@@ -16,6 +16,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ width: '640px', height: '480px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     columns: 3,
     rows: 3,
