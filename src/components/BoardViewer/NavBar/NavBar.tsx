@@ -29,6 +29,7 @@ interface NavBarProps {
 
 export const NavBar = (props: NavBarProps) => {
   const { className: classNameProp, title, actions } = props;
+
   const classes = useStyles();
   const className = clsx(classes.navBar, classNameProp);
 
