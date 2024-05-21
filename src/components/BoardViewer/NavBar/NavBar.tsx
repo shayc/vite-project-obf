@@ -38,7 +38,7 @@ export const NavBar = (props: NavBarProps) => {
       <div className={classes.start}>
         <BackButton disabled={true} />
         <ForwardButton disabled={true} />
-        <BoardMenuButton title={title} />
+        <BoardMenuButton>{title}</BoardMenuButton>
       </div>
 
       <div className={classes.end}>{actions}</div>

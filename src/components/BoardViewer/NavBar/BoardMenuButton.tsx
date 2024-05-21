@@ -19,18 +19,18 @@ const tempList = [
 ];
 
 interface BoardMenuButtonProps {
+  children?: React.ReactNode;
   className?: string;
-  title?: string;
 }
 
 export const BoardMenuButton = (props: BoardMenuButtonProps) => {
-  const { title } = props;
+  const { children } = props;
 
   return (
     <Menu>
       <MenuTrigger disableButtonEnhancement>
         <MenuButton size="large" appearance="transparent">
-          {title}
+          {children}
         </MenuButton>
       </MenuTrigger>
 
