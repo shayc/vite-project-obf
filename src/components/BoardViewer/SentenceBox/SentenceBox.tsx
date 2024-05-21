@@ -12,13 +12,13 @@ const useStyles = makeStyles({
   sentenceBox: {
     display: "flex",
     minHeight: "112px",
-    padding: "0 16px",
-    margin: "16px",
+    padding: tokens.spacingHorizontalL,
+    margin: `${tokens.spacingVerticalL} ${tokens.spacingHorizontalL}`,
     borderRadius: tokens.borderRadiusXLarge,
     background: tokens.colorNeutralBackground2,
   },
   sentence: {
-    flex: 1,
+    flex: "1",
     display: "flex",
   },
   value: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   actions: {
     display: "flex",
     alignSelf: "center",
-    gap: "8px",
+    gap: tokens.spacingHorizontalS,
   },
 });
 

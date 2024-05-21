@@ -1,4 +1,4 @@
-import { makeStyles } from "@fluentui/react-components";
+import { makeStyles, tokens } from "@fluentui/react-components";
 import clsx from "clsx";
 import { BackButton } from "./BackButton";
 import { BoardMenu } from "./BoardMenu";
@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   navBar: {
     flexShrink: "0",
     height: "48px",
-    padding: "0 16px",
+    paddingInline: tokens.spacingHorizontalL,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",

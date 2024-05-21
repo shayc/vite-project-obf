@@ -17,18 +17,20 @@ const useStyles = makeStyles({
     overflow: "hidden",
     cursor: "pointer",
     ...shorthands.borderColor("var(--border-color, transparent)"),
-  },
-  "button:disabled": {
-    cursor: "default",
-  },
-  "button:not(:disabled):active::after": {
-    content: "",
-    position: "absolute",
-    top: "0",
-    left: "0",
-    right: "0",
-    bottom: "0",
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
+
+    ":disabled": {
+      cursor: "default",
+    },
+
+    ":not(:disabled):active::after": {
+      content: "' '",
+      position: "absolute",
+      top: "0",
+      left: "0",
+      right: "0",
+      bottom: "0",
+      backgroundColor: "rgba(0, 0, 0, 0.3)",
+    },
   },
 });
 

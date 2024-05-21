@@ -1,12 +1,12 @@
-import { makeStyles } from "@fluentui/react-components";
+import { makeStyles, tokens } from "@fluentui/react-components";
 import clsx from "clsx";
 
 const useStyles = makeStyles({
   pictogram: {
     display: "flex",
     flexDirection: "var(--flex-direction)" as "column" | "column-reverse",
-    gap: "0.5rem",
-    padding: "0.5rem",
+    gap: tokens.spacingHorizontalS,
+    padding: tokens.spacingHorizontalS,
     boxSizing: "border-box",
   },
   imgContainer: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     objectFit: "contain",
   },
   label: {
-    fontSize: "14px",
+    fontSize: tokens.fontSizeBase300,
     textAlign: "center",
     textOverflow: "ellipsis",
     overflow: "hidden",

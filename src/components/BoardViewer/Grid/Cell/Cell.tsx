@@ -8,9 +8,10 @@ const useStyles = makeStyles({
     minWidth: "0",
     borderRadius: tokens.borderRadiusXLarge,
     backgroundColor: tokens.colorNeutralStencil1Alpha,
-  },
-  "cell:not(:empty)": {
-    backgroundColor: "transparent",
+
+    ":not(:empty)": {
+      backgroundColor: "transparent",
+    },
   },
 });
 
@@ -21,7 +22,7 @@ interface CellProps {
 
 export function Cell(props: CellProps) {
   const { children, className: classNameProp } = props;
-  
+
   const classes = useStyles();
   const className = clsx(classes.cell, classNameProp);
 
