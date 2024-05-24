@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   decorators: [
     (Story) => (
-      <div style={{ width: '640px' }}>
+      <div style={{ width: '640px', overflow: "hidden" }}>
         <Story />
       </div>
     ),
