@@ -10,6 +10,7 @@ import { Pictogram } from "../Pictogram/Pictogram";
 
 const useStyles = makeStyles({
   sentenceBox: {
+    boxSizing: "border-box",
     display: "flex",
     minHeight: "112px",
     padding: tokens.spacingHorizontalL,
