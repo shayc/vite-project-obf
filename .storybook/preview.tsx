@@ -14,6 +14,7 @@ const preview: Preview = {
       );
     },
   ],
+
   parameters: {
     controls: {
       matchers: {
@@ -22,6 +23,7 @@ const preview: Preview = {
       },
     },
   },
+
   globalTypes: {
     theme: {
       description: "Global theme for components",
@@ -34,6 +36,8 @@ const preview: Preview = {
       },
     },
   },
+
+  tags: ["autodocs"]
 };
 
 export default preview;
