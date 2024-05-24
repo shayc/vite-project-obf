@@ -26,5 +26,5 @@ export function Cell(props: CellProps) {
   const classes = useStyles();
   const className = clsx(classes.cell, classNameProp);
 
-  return <div className={className}>{children}</div>;
+  return <div className={className} role="gridcell">{children}</div>;
 }

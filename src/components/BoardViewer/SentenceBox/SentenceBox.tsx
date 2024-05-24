@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     padding: tokens.spacingHorizontalL,
     margin: `${tokens.spacingVerticalL} ${tokens.spacingHorizontalL}`,
     borderRadius: tokens.borderRadiusXLarge,
-    background: tokens.colorNeutralBackground2,
+    background: tokens.colorNeutralBackground6,
   },
   sentence: {
     flex: "1",
