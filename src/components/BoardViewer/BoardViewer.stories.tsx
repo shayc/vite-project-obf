@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   decorators: [
     (Story) => (
-      <div style={{ width: '640px', height: '480px' }}>
+      <div style={{ width: "640px", height: "480px" }}>
         <Story />
       </div>
     ),
@@ -29,13 +29,13 @@ export const Primary: Story = {
         {
           id: "1",
           label: "Button 1",
-          backgroundColor: "#FF0000",
+          backgroundColor: "rgb(255, 182, 193)",
           borderColor: "#000000",
         },
         {
           id: "2",
           label: "Button 2",
-          backgroundColor: "#00FF00",
+          backgroundColor: "rgb(173, 216, 230)",
           borderColor: "#000000",
         },
         {
@@ -47,13 +47,13 @@ export const Primary: Story = {
         {
           id: "4",
           label: "Button 4",
-          backgroundColor: "#FFFF00",
+          backgroundColor: "rgb(255, 255, 224)",
           borderColor: "#000000",
         },
         {
           id: "5",
           label: "Button 5",
-          backgroundColor: "#00FFFF",
+          backgroundColor: "rgb(152, 251, 152)",
           borderColor: "#000000",
         },
         {
