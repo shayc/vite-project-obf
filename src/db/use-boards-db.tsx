@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Board, BoardButton } from "../../components/BoardViewer/types";
-import lotsOfStuffOBF from "../../open-board-format/examples/lots_of_stuff.json";
-import * as OBF from "../../open-board-format/obf";
+import { Board, BoardButton } from "../components/BoardViewer/types";
+import lotsOfStuffOBF from "../open-board-format/examples/lots_of_stuff.json";
+import * as OBF from "../open-board-format/obf";
 import * as boardsDB from "./boards-db";
 
 export function useBoardsDB() {

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AppBar } from "./components/AppBar/AppBar";
 import { AppSettingsDrawer } from "./components/AppSettingsDrawer/AppSettingsDrawer.tsx";
 import { BoardViewer } from "./components/BoardViewer/BoardViewer";
-import { useBoardsDB } from "./hooks/boards-db/use-boards-db.tsx";
+import { useBoardsDB } from "./db/use-boards-db.tsx";
 
 const useStyles = makeStyles({
   app: {
