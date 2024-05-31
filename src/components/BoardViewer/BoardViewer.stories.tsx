@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import lotsOfStuffBoard from "../../open-board-format/examples/lots_of_stuff.json";
 import { BoardViewer } from "./BoardViewer";
 
 const meta = {
@@ -22,69 +23,6 @@ export const Primary: Story = {
     ),
   ],
   args: {
-    board: {
-      id: "1",
-      name: "Example Board",
-      buttons: [
-        {
-          id: "1",
-          label: "Button 1",
-          backgroundColor: "rgb(255, 182, 193)",
-          borderColor: "#000000",
-        },
-        {
-          id: "2",
-          label: "Button 2",
-          backgroundColor: "rgb(173, 216, 230)",
-          borderColor: "#000000",
-        },
-        {
-          id: "3",
-          label: "Button 3",
-          backgroundColor: "#0000FF",
-          borderColor: "#000000",
-        },
-        {
-          id: "4",
-          label: "Button 4",
-          backgroundColor: "rgb(255, 255, 224)",
-          borderColor: "#000000",
-        },
-        {
-          id: "5",
-          label: "Button 5",
-          backgroundColor: "rgb(152, 251, 152)",
-          borderColor: "#000000",
-        },
-        {
-          id: "6",
-          label: "Button 6",
-          backgroundColor: "#FF00FF",
-          borderColor: "#000000",
-        },
-        {
-          id: "7",
-          label: "Button 7",
-          backgroundColor: "#FFFFFF",
-          borderColor: "#000000",
-        },
-        {
-          id: "8",
-          label: "Button 8",
-          backgroundColor: "#000000",
-          borderColor: "#FFFFFF",
-        },
-        {
-          id: "9",
-          label: "Button 9",
-          backgroundColor: "#FFFFFF",
-          borderColor: "#000000",
-        },
-      ],
-      grid: {
-        rows: 3,
-        columns: 3,
-      },
-    },
+    board: lotsOfStuffBoard,
   },
 };
