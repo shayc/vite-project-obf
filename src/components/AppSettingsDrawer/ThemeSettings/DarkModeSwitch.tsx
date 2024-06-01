@@ -1,0 +1,43 @@
+import {
+  Label,
+  Switch,
+  SwitchOnChangeData,
+  makeStyles,
+  tokens,
+  useId,
+} from "@fluentui/react-components";
+import { useTheme } from "../../../hooks/theme/theme-context";
+
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: tokens.spacingVerticalL,
+  },
+});
+
+export function DarkModeSwitch() {
+  const classes = useStyles();
+
+  const { isDarkMode, setIsDarkMode } = useTheme();
+  const darkModeSwitchId = useId();
+
+  function handleThemeChange(
+    _ev: React.ChangeEvent<HTMLInputElement>,
+    data: SwitchOnChangeData,
+  ) {
+    setIsDarkMode(data.checked);
+  }
+
+  return (
+    <div className={classes.root}>
+      <Label htmlFor={darkModeSwitchId}>Dark mode</Label>
+      <Switch
+        id={darkModeSwitchId}
+        checked={isDarkMode}
+        onChange={handleThemeChange}
+      />
+    </div>
+  );
+}
