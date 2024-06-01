@@ -2,7 +2,7 @@ import { Button, Subtitle2 } from "@fluentui/react-components";
 import { useSpeech } from "../../../hooks/speech/use-speech";
 import { PitchSlider } from "./PitchSlider";
 import { RateSlider } from "./RateSlider";
-import { VoiceSelect } from "./VoiceSelect";
+import { VoiceDropdown } from "./VoiceDropdown";
 import { VolumeSlider } from "./VolumeSlider";
 
 const PREVIEW_TEXT = "Hi, this is my voice";
@@ -18,7 +18,7 @@ export function SpeechSettings() {
     <div>
       <Subtitle2>Speech</Subtitle2>
 
-      <VoiceSelect />
+      <VoiceDropdown />
       <VolumeSlider />
       <RateSlider />
       <PitchSlider />

@@ -1,6 +1,8 @@
 import {
+  Dropdown,
   Label,
-  Select,
+  Option,
+  OptionGroup,
   makeStyles,
   tokens,
   useId,
@@ -15,23 +17,24 @@ const useStyles = makeStyles({
   },
 });
 
-export function VoiceSelect() {
+export function VoiceDropdown() {
   const classes = useStyles();
 
-  const { voices, setSelectedVoiceURI } = useSpeech();
+  const { groupedVoices, setSelectedVoiceURI } = useSpeech();
   const voiceId = useId();
 
   return (
     <div className={classes.root}>
       <Label htmlFor={voiceId}>Voice</Label>
-      <Select
-        id={voiceId}
-        onChange={(_ev, data) => setSelectedVoiceURI(data.value)}
-      >
-        {voices.map((voice) => (
-          <option key={voice.voiceURI}>{voice.name}</option>
+      <Dropdown id={voiceId} placeholder="Select a voice">
+        {Object.entries(groupedVoices).map(([lang, voices]) => (
+          <OptionGroup key={lang} label={lang}>
+            {voices?.map((voice) => (
+              <Option key={voice.name}>{voice.name}</Option>
+            ))}
+          </OptionGroup>
         ))}
-      </Select>
+      </Dropdown>
     </div>
   );
 }

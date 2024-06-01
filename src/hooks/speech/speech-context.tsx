@@ -10,12 +10,14 @@ interface SpeechProviderProps {
   children: React.ReactNode;
 }
 
+type GroupedVoices = Record<string, SpeechSynthesisVoice[]>;
+
 interface ContextValue {
   isSpeaking: boolean;
   volume: number;
   rate: number;
   pitch: number;
-  voices: SpeechSynthesisVoice[];
+  groupedVoices: GroupedVoices;
   selectedVoiceURI: string;
   speak: (text: string) => Promise<void>;
   setVolume: (volume: number) => void;
@@ -30,12 +32,14 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   const [volume, setVolume] = useState(DEFAULT_VOLUME);
   const [rate, setRate] = useState(DEFAULT_RATE);
   const [pitch, setPitch] = useState(DEFAULT_PITCH);
-  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [groupedVoices, setGroupedVoices] = useState<GroupedVoices>({});
   const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>("");
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   async function speak(text: string) {
-    const voice = voices.filter((v) => v.voiceURI === selectedVoiceURI)[0];
+    const voice = groupedVoices["en-US"].find(
+      (v) => v.voiceURI === selectedVoiceURI,
+    );
 
     return asyncSpeechSynthesis.speak(text, {
       volume,
@@ -55,7 +59,7 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
     volume,
     rate,
     pitch,
-    voices,
+    groupedVoices,
     selectedVoiceURI,
     speak,
     setVolume,
@@ -67,7 +71,8 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   useEffect(() => {
     async function initSpeech() {
       const voices = await asyncSpeechSynthesis.getVoices();
-      setVoices(voices);
+      const groupedVoices = groupVoicesByLang(voices);
+      setGroupedVoices(groupedVoices);
     }
 
     void initSpeech();
@@ -76,4 +81,18 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   return (
     <SpeechContext.Provider value={value}>{children}</SpeechContext.Provider>
   );
+}
+
+function groupVoicesByLang(voices: SpeechSynthesisVoice[]): GroupedVoices {
+  return voices.reduce((acc, voice) => {
+    const lang = voice.lang;
+
+    if (!acc[lang]) {
+      acc[lang] = [];
+    }
+
+    acc[lang].push(voice);
+
+    return acc;
+  }, {} as GroupedVoices);
 }
