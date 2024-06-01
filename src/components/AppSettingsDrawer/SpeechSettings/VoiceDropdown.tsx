@@ -40,15 +40,17 @@ export function VoiceDropdown() {
         placeholder="Select a voice"
         onOptionSelect={handleVoiceSelect}
       >
-        {Object.entries(groupedVoices).map(([lang, voices]) => (
-          <OptionGroup key={lang} label={lang}>
-            {voices.map(({ name, voiceURI }) => (
-              <Option key={voiceURI} value={voiceURI}>
-                {`${name}`}
-              </Option>
-            ))}
-          </OptionGroup>
-        ))}
+        {Object.entries(groupedVoices).map(
+          ([langCode, { language, voices }]) => (
+            <OptionGroup key={langCode} label={language}>
+              {voices.map(({ name, voiceURI }) => (
+                <Option key={voiceURI} value={voiceURI}>
+                  {`${name}`}
+                </Option>
+              ))}
+            </OptionGroup>
+          ),
+        )}
       </Dropdown>
     </div>
   );
