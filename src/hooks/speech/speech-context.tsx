@@ -9,8 +9,8 @@ import {
 interface SpeechProviderProps {
   children: React.ReactNode;
 }
-
-type GroupedVoices = Record<string, SpeechSynthesisVoice[]>;
+type LangCode = string;
+type GroupedVoices = Record<LangCode, SpeechSynthesisVoice[]>;
 
 interface ContextValue {
   isSpeaking: boolean;
@@ -37,9 +37,7 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   async function speak(text: string) {
-    const voice = groupedVoices["en-US"].find(
-      (v) => v.voiceURI === selectedVoiceURI,
-    );
+    const voice = findVoiceInGroupedVoices(groupedVoices, selectedVoiceURI);
 
     return asyncSpeechSynthesis.speak(text, {
       volume,
@@ -95,4 +93,19 @@ function groupVoicesByLang(voices: SpeechSynthesisVoice[]): GroupedVoices {
 
     return acc;
   }, {} as GroupedVoices);
+}
+
+function findVoiceInGroupedVoices(
+  groupedVoices: GroupedVoices,
+  uri: string,
+): SpeechSynthesisVoice | undefined {
+  for (const lang in groupedVoices) {
+    const voices = groupedVoices[lang];
+    const foundVoice = voices.find((voice) => voice.voiceURI === uri);
+    if (foundVoice) {
+      return foundVoice;
+    }
+  }
+
+  return;
 }
