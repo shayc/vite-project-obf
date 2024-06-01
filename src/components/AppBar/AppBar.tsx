@@ -3,7 +3,7 @@ import { Title3, makeStyles, tokens } from "@fluentui/react-components";
 const useStyles = makeStyles({
   root: {
     height: "48px",
-    paddingInline: "16px",
+    paddingInline: tokens.spacingHorizontalL,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -12,8 +12,15 @@ const useStyles = makeStyles({
 });
 
 interface AppBarProps {
-  title?: string;
+  /**
+   * The actions to be displayed in the AppBar.
+   */
   actions?: React.ReactNode;
+
+  /**
+   * The title of the AppBar.
+   */
+  title?: string;
 }
 
 export function AppBar({ title, actions }: AppBarProps) {
