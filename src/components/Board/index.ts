@@ -1,5 +1,5 @@
-export { BoardViewer as Board } from "./BoardViewer";
-export { Button } from "./Button/Button";
+export { BoardButton } from "./BoardButton/BoardButton";
+export { Board } from "./Board";
 export { Grid } from "./Grid/Grid";
 export { NavBar } from "./NavBar/NavBar";
 export { Pictogram } from "./Pictogram/Pictogram";

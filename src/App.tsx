@@ -3,7 +3,7 @@ import { SettingsFilled } from "@fluentui/react-icons";
 import { useState } from "react";
 import { AppBar } from "./components/AppBar/AppBar";
 import { AppSettingsDrawer } from "./components/AppSettingsDrawer/AppSettingsDrawer.tsx";
-import { BoardViewer } from "./components/BoardViewer/BoardViewer";
+import { Board } from "./components/Board/Board.tsx";
 import { useBoardsDB } from "./db/use-boards-db.tsx";
 
 const useStyles = makeStyles({
@@ -41,7 +41,7 @@ function App() {
         onClose={() => setIsSettingsOpen(false)}
       />
 
-      <BoardViewer className={classes.board} board={board} />
+      <Board className={classes.board} board={board} />
     </div>
   );
 }

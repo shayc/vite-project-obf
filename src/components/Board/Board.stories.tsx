@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import lotsOfStuffBoard from "../../open-board-format/examples/lots_of_stuff.json";
-import { BoardViewer } from "./BoardViewer";
+import { Board } from "./Board";
 
 const meta = {
-  title: "Design System/Components/BoardViewer",
-  component: BoardViewer,
+  title: "Design System/Components/Board",
+  component: Board,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof BoardViewer>;
+} satisfies Meta<typeof Board>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

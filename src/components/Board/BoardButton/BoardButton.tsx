@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   },
 });
 
-export interface ButtonProps {
+export interface BoardButtonProps {
   /**
    * The background color of the button.
    */
@@ -71,7 +71,7 @@ export interface ButtonProps {
   style?: React.CSSProperties;
 }
 
-export const Button = (props: ButtonProps) => {
+export const BoardButton = (props: BoardButtonProps) => {
   const {
     backgroundColor = "#fff",
     borderColor,

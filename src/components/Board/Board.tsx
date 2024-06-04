@@ -1,11 +1,11 @@
 import { makeStyles } from "@fluentui/react-components";
 import clsx from "clsx";
-import { Button } from "./Button/Button";
+import { BoardButton } from "./BoardButton/BoardButton";
 import { Grid } from "./Grid/Grid";
 import { NavBar } from "./NavBar/NavBar";
 import { Pictogram } from "./Pictogram/Pictogram";
 import { SentenceBox } from "./SentenceBox/SentenceBox";
-import type { Board, BoardButton } from "./types";
+import type * as BoardTypes from "./types";
 
 const useStyles = makeStyles({
   boardViewer: {
@@ -22,44 +22,43 @@ const useStyles = makeStyles({
   },
 });
 
-export interface BoardViewerProps {
-  board: Board | null;
-  onButtonClick?: (button: BoardButton) => void;
+export interface BoardProps {
+  board: BoardTypes.Board | null;
+  onButtonClick?: (button: BoardTypes.BoardButton) => void;
   className?: string;
 }
 
-export const BoardViewer = (props: BoardViewerProps) => {
+export const Board = (props: BoardProps) => {
   const { board, onButtonClick, className: classNameProp } = props;
 
   const classes = useStyles();
   const className = clsx(classes.boardViewer, classNameProp);
 
-  function renderButton(button: BoardButton) {
+  function renderBoardButton(button: BoardTypes.BoardButton) {
     const { backgroundColor, borderColor, label, imageSrc } = button;
 
     return (
-      <Button
+      <BoardButton
         className={classes.button}
         backgroundColor={backgroundColor}
         borderColor={borderColor}
         onClick={() => onButtonClick?.(button)}
       >
         <Pictogram className={classes.pictogram} label={label} src={imageSrc} />
-      </Button>
+      </BoardButton>
     );
   }
 
   return (
     <div className={className}>
       <SentenceBox value={[]} />
-
       <NavBar title={board?.name} />
 
       <Grid
         rows={board?.grid?.rows}
         columns={board?.grid?.columns}
         items={board?.buttons}
-        renderItem={renderButton}
+        renderItem={renderBoardButton}
       />
     </div>
   );

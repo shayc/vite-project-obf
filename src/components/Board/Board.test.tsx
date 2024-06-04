@@ -1,8 +1,8 @@
 import { render, screen } from "../../utils/test-utils";
-import { BoardViewer } from "./BoardViewer";
+import { Board } from "./Board";
 
 it("Should render", () => {
-  render(<BoardViewer board={{ id: "", name: "Board" }} />);
+  render(<Board board={{ id: "", name: "Board" }} />);
 
   const nav = screen.getByRole("navigation", { name: "Board navigation" });
   const grid = screen.getByRole("grid", { name: "Board grid" });
