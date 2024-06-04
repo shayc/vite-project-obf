@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Board, BoardButton } from "../components/Board/types";
+import type * as BoardType from "../components/Board/types";
 import lotsOfStuffOBF from "../open-board-format/examples/lots_of_stuff.json";
 import * as OBF from "../open-board-format/obf";
 import * as boardsDB from "./boards-db";
 
 export function useBoardsDB() {
-  const [board, setBoard] = useState<Board | null>(null);
+  const [board, setBoard] = useState<BoardType.Board | null>(null);
 
   useEffect(() => {
     void boardsDB.getRootBoard().then((obf) => {
@@ -17,7 +17,7 @@ export function useBoardsDB() {
   return { board };
 }
 
-function mapOBFToBoard(obf: OBF.Board): Board {
+export function mapOBFToBoard(obf: OBF.Board): BoardType.Board {
   return {
     id: obf.id,
     name: obf.name,
@@ -35,7 +35,7 @@ function mapOBFToBoard(obf: OBF.Board): Board {
         const image = obf.images?.find(({ id }) => id === image_id);
         const sound = obf.sounds?.find(({ id }) => id === sound_id);
 
-        const button: BoardButton = {
+        const button: BoardType.BoardButton = {
           id: id,
           label: label,
           vocalization: vocalization,

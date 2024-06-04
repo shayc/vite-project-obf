@@ -24,8 +24,8 @@ const useStyles = makeStyles({
 
 export interface BoardProps {
   board: BoardTypes.Board | null;
-  onButtonClick?: (button: BoardTypes.BoardButton) => void;
   className?: string;
+  onButtonClick?: (button: BoardTypes.BoardButton) => void;
 }
 
 export const Board = (props: BoardProps) => {
