@@ -1,46 +1,32 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   DEFAULT_PITCH,
   DEFAULT_RATE,
   DEFAULT_VOLUME,
   asyncSpeechSynthesis,
 } from "./async-speech";
+import {
+  SpeechContext,
+  SpeechContextValue,
+  groupVoicesByLang
+} from "./use-speech";
 
 interface SpeechProviderProps {
   children: React.ReactNode;
 }
-type Lang = string;
-type GroupedVoices = Record<
-  Lang,
-  { language: string; voices: SpeechSynthesisVoice[] }
->;
-
-interface ContextValue {
-  isSpeaking: boolean;
-  volume: number;
-  rate: number;
-  pitch: number;
-  groupedVoices: GroupedVoices;
-  selectedVoiceURI: string;
-  speak: (text: string) => Promise<void>;
-  setVolume: (volume: number) => void;
-  setRate: (rate: number) => void;
-  setPitch: (pitch: number) => void;
-  setSelectedVoiceURI: (voiceURI: string) => void;
-}
-
-export const SpeechContext = createContext<ContextValue | undefined>(undefined);
 
 export function SpeechProvider({ children }: SpeechProviderProps) {
   const [volume, setVolume] = useState(DEFAULT_VOLUME);
   const [rate, setRate] = useState(DEFAULT_RATE);
   const [pitch, setPitch] = useState(DEFAULT_PITCH);
-  const [groupedVoices, setGroupedVoices] = useState<GroupedVoices>({});
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>("");
   const [isSpeaking, setIsSpeaking] = useState(false);
 
+  const groupedVoices = groupVoicesByLang(voices);
+
   async function speak(text: string) {
-    const voice = findVoiceInGroupedVoices(groupedVoices, selectedVoiceURI);
+    const voice = voices.find((voice) => voice.voiceURI === selectedVoiceURI);
 
     return asyncSpeechSynthesis.speak(text, {
       volume,
@@ -55,11 +41,12 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
     });
   }
 
-  const value: ContextValue = {
+  const value: SpeechContextValue = {
     isSpeaking,
     volume,
     rate,
     pitch,
+    voices,
     groupedVoices,
     selectedVoiceURI,
     speak,
@@ -72,8 +59,7 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   useEffect(() => {
     async function initSpeech() {
       const voices = await asyncSpeechSynthesis.getVoices();
-      const groupedVoices = groupVoicesByLang(voices);
-      setGroupedVoices(groupedVoices);
+      setVoices(voices);
     }
 
     void initSpeech();
@@ -82,39 +68,4 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   return (
     <SpeechContext.Provider value={value}>{children}</SpeechContext.Provider>
   );
-}
-
-function groupVoicesByLang(voices: SpeechSynthesisVoice[]): GroupedVoices {
-  const displayNames = new Intl.DisplayNames(["en"], { type: "language" });
-
-  return voices.reduce((acc, voice) => {
-    const lang = voice.lang;
-
-    if (!acc[lang]) {
-      acc[lang] = {
-        language: displayNames.of(voice.lang) ?? voice.lang,
-        voices: [],
-      };
-    }
-
-    acc[lang].voices.push(voice);
-
-    return acc;
-  }, {} as GroupedVoices);
-}
-
-function findVoiceInGroupedVoices(
-  groupedVoices: GroupedVoices,
-  uri: string,
-): SpeechSynthesisVoice | undefined {
-  for (const lang in groupedVoices) {
-    const { voices } = groupedVoices[lang];
-    const foundVoice = voices.find((voice) => voice.voiceURI === uri);
-
-    if (foundVoice) {
-      return foundVoice;
-    }
-  }
-
-  return;
 }
