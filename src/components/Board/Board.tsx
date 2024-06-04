@@ -8,7 +8,7 @@ import { SentenceBox } from "./SentenceBox/SentenceBox";
 import type * as BoardTypes from "./types";
 
 const useStyles = makeStyles({
-  boardViewer: {
+  board: {
     display: "flex",
     flexDirection: "column",
     height: "100%",
@@ -32,7 +32,7 @@ export const Board = (props: BoardProps) => {
   const { board, onButtonClick, className: classNameProp } = props;
 
   const classes = useStyles();
-  const className = clsx(classes.boardViewer, classNameProp);
+  const className = clsx(classes.board, classNameProp);
 
   function renderBoardButton(button: BoardTypes.BoardButton) {
     const { backgroundColor, borderColor, label, imageSrc } = button;
