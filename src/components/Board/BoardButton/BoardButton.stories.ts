@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Button } from "./BoardButton";
+import { BoardButton } from "./BoardButton";
 
 const meta = {
-  title: "Design System/Components/Button",
-  component: Button,
+  title: "Design System/Components/BoardButton",
+  component: BoardButton,
   parameters: {
     layout: "centered",
   },
@@ -14,7 +14,7 @@ const meta = {
     borderColor: { control: "color" },
   },
   args: { onClick: fn() },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof BoardButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

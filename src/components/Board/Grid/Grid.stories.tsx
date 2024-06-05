@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import * as OBF from "../../../open-board-format/obf";
-import { Button } from "../BoardButton/BoardButton";
+import { BoardButton } from "../BoardButton/BoardButton";
 import { Grid } from "./Grid";
 
 const meta = {
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   decorators: [
     (Story) => (
-      <div style={{ width: '640px', height: '480px' }}>
+      <div style={{ width: "640px", height: "480px" }}>
         <Story />
       </div>
     ),
@@ -38,7 +38,9 @@ export const Primary: Story = {
       { id: "9", label: "Nine" },
     ],
     renderItem: (item) => (
-      <Button style={{ width: "100%", height: "100%" }}>{item.label}</Button>
+      <BoardButton style={{ width: "100%", height: "100%" }}>
+        {item.label}
+      </BoardButton>
     ),
   },
 };
