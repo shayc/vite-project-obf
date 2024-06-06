@@ -29,7 +29,7 @@ export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
         <DrawerHeaderTitle
           action={
             <Button
-              title="Close settings"
+              title="Close"
               aria-label="Close settings"
               appearance="subtle"
               icon={<Dismiss24Filled />}
