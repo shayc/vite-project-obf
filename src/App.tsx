@@ -1,6 +1,7 @@
 import { Button, makeStyles } from "@fluentui/react-components";
 import { SettingsFilled } from "@fluentui/react-icons";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { AppBar } from "./components/AppBar/AppBar";
 import { AppSettingsDrawer } from "./components/AppSettingsDrawer/AppSettingsDrawer.tsx";
 import { Board } from "./components/Board/Board.tsx";
@@ -20,6 +21,7 @@ const useStyles = makeStyles({
 function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const { board } = useBoardsDB();
+  const { t } = useTranslation();
   const classes = useStyles();
 
   const appActions = (
@@ -34,7 +36,7 @@ function App() {
 
   return (
     <div className={classes.app}>
-      <AppBar actions={appActions} />
+      <AppBar title={t("app_title")} actions={appActions} />
 
       <AppSettingsDrawer
         isOpen={isSettingsOpen}

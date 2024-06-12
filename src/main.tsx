@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { SpeechProvider } from "./hooks/speech/speech-context.tsx";
 import { ThemeProvider } from "./hooks/theme/theme-context.tsx";
+import "./i18n";
 import "./index.css";
 
 async function enableMocking() {
