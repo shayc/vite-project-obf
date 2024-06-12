@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 export function VoiceDropdown() {
   const { t } = useTranslation();
   const classes = useStyles();
-  const { groupedVoices, setSelectedVoiceURI } = useSpeech();
+  const { voicesByLang, setSelectedVoiceURI } = useSpeech();
   const voiceId = useId();
 
   function handleVoiceSelect(
@@ -41,17 +41,15 @@ export function VoiceDropdown() {
         placeholder={t("settings.selectAVoice")}
         onOptionSelect={handleVoiceSelect}
       >
-        {Object.entries(groupedVoices).map(
-          ([langCode, { language, voices }]) => (
-            <OptionGroup key={langCode} label={language}>
-              {voices.map(({ name, voiceURI }) => (
-                <Option key={voiceURI} value={voiceURI}>
-                  {`${name}`}
-                </Option>
-              ))}
-            </OptionGroup>
-          ),
-        )}
+        {Object.entries(voicesByLang).map(([lang, { language, voices }]) => (
+          <OptionGroup key={lang} label={language}>
+            {voices.map(({ name, voiceURI }) => (
+              <Option key={voiceURI} value={voiceURI}>
+                {`${name}`}
+              </Option>
+            ))}
+          </OptionGroup>
+        ))}
       </Dropdown>
     </div>
   );

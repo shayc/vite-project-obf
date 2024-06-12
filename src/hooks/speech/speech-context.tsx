@@ -47,7 +47,7 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
     rate,
     pitch,
     voices,
-    groupedVoices,
+    voicesByLang,
     selectedVoiceURI,
     speak,
     setVolume,

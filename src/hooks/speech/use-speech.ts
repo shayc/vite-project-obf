@@ -1,13 +1,15 @@
 import { createContext, useContext } from "react";
 
-export type GroupedVoices = Record<
-  string,
+type Lang = string;
+
+export type VoicesByLang = Record<
+  Lang,
   { language: string; voices: SpeechSynthesisVoice[] }
 >;
 
 export function groupVoicesByLang(
   voices: SpeechSynthesisVoice[],
-): GroupedVoices {
+): VoicesByLang {
   const displayNames = new Intl.DisplayNames(["en"], { type: "language" });
 
   return voices.reduce((acc, voice) => {
@@ -23,7 +25,7 @@ export function groupVoicesByLang(
     acc[lang].voices.push(voice);
 
     return acc;
-  }, {} as GroupedVoices);
+  }, {} as VoicesByLang);
 }
 
 export const SpeechContext = createContext<SpeechContextValue | undefined>(
@@ -36,7 +38,7 @@ export interface SpeechContextValue {
   rate: number;
   pitch: number;
   voices: SpeechSynthesisVoice[];
-  groupedVoices: GroupedVoices;
+  voicesByLang: VoicesByLang;
   selectedVoiceURI: string;
   speak: (text: string) => Promise<void>;
   setVolume: (volume: number) => void;
