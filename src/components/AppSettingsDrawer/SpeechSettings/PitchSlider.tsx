@@ -5,10 +5,8 @@ import {
   tokens,
   useId,
 } from "@fluentui/react-components";
-import {
-  MAX_PITCH,
-  MIN_PITCH
-} from "../../../hooks/speech/async-speech";
+import { useTranslation } from "react-i18next";
+import { MAX_PITCH, MIN_PITCH } from "../../../hooks/speech/async-speech";
 import { useSpeech } from "../../../hooks/speech/use-speech";
 
 const useStyles = makeStyles({
@@ -20,14 +18,14 @@ const useStyles = makeStyles({
 });
 
 export function PitchSlider() {
+  const { t } = useTranslation();
   const classes = useStyles();
-
   const { pitch, setPitch } = useSpeech();
   const pitchId = useId();
 
   return (
     <div className={classes.root}>
-      <Label htmlFor={pitchId}>Pitch</Label>
+      <Label htmlFor={pitchId}>{t("settings.pitch")}</Label>
       <Slider
         value={pitch}
         min={MIN_PITCH}

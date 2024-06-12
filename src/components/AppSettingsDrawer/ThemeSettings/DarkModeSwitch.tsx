@@ -7,6 +7,7 @@ import {
   useId,
 } from "@fluentui/react-components";
 import { useTheme } from "../../../hooks/theme/theme-context";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   root: {
@@ -18,8 +19,8 @@ const useStyles = makeStyles({
 });
 
 export function DarkModeSwitch() {
+  const { t } = useTranslation();
   const classes = useStyles();
-
   const { isDarkMode, setIsDarkMode } = useTheme();
   const darkModeSwitchId = useId();
 
@@ -32,7 +33,7 @@ export function DarkModeSwitch() {
 
   return (
     <div className={classes.root}>
-      <Label htmlFor={darkModeSwitchId}>Dark mode</Label>
+      <Label htmlFor={darkModeSwitchId}>{t("settings.darkMode")}</Label>
       <Switch
         id={darkModeSwitchId}
         checked={isDarkMode}

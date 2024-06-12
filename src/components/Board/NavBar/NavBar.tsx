@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { BackButton } from "./BackButton";
 import { BoardMenuButton } from "./BoardMenuButton";
 import { ForwardButton } from "./ForwardButton";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   navBar: {
@@ -30,11 +31,12 @@ interface NavBarProps {
 export const NavBar = (props: NavBarProps) => {
   const { className: classNameProp, title, actions } = props;
 
+  const { t } = useTranslation();
   const classes = useStyles();
   const className = clsx(classes.navBar, classNameProp);
 
   return (
-    <nav className={className} aria-label="Board navigation">
+    <nav className={className} aria-label={t("board.boardNavigation")}>
       <div className={classes.start}>
         <BackButton disabled={true} />
         <ForwardButton disabled={true} />

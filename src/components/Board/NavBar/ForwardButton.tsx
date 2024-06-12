@@ -1,5 +1,6 @@
 import { Button } from "@fluentui/react-components";
 import { ArrowRightFilled } from "@fluentui/react-icons";
+import { useTranslation } from "react-i18next";
 
 export interface ForwardButtonProps {
   className?: string;
@@ -9,10 +10,12 @@ export interface ForwardButtonProps {
 export const ForwardButton = (props: ForwardButtonProps) => {
   const { disabled } = props;
 
+  const { t } = useTranslation();
+
   return (
     <Button
-      title="Go Forward"
-      aria-label="Forward"
+      title={t("board.goForward")}
+      aria-label={t("board.goForward")}
       size="large"
       appearance="subtle"
       disabled={disabled}

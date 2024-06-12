@@ -1,5 +1,6 @@
 import { Button } from "@fluentui/react-components";
 import { ArrowLeftFilled } from "@fluentui/react-icons";
+import { useTranslation } from "react-i18next";
 
 export interface BackButtonProps {
   className?: string;
@@ -9,10 +10,12 @@ export interface BackButtonProps {
 export const BackButton = (props: BackButtonProps) => {
   const { disabled } = props;
 
+  const { t } = useTranslation();
+
   return (
     <Button
-      title="Go Back"
-      aria-label="Back"
+      title={t("board.goBack")}
+      aria-label={t("board.goBack")}
       size="large"
       appearance="subtle"
       disabled={disabled}

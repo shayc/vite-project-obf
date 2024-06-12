@@ -9,6 +9,7 @@ import {
   tokens,
   useId,
 } from "@fluentui/react-components";
+import { useTranslation } from "react-i18next";
 import { useSpeech } from "../../../hooks/speech/use-speech";
 
 const useStyles = makeStyles({
@@ -20,8 +21,8 @@ const useStyles = makeStyles({
 });
 
 export function VoiceDropdown() {
+  const { t } = useTranslation();
   const classes = useStyles();
-
   const { groupedVoices, setSelectedVoiceURI } = useSpeech();
   const voiceId = useId();
 
@@ -34,10 +35,10 @@ export function VoiceDropdown() {
 
   return (
     <div className={classes.root}>
-      <Label htmlFor={voiceId}>Voice</Label>
+      <Label htmlFor={voiceId}>{t("settings.voice")}</Label>
       <Dropdown
         id={voiceId}
-        placeholder="Select a voice"
+        placeholder={t("settings.selectAVoice")}
         onOptionSelect={handleVoiceSelect}
       >
         {Object.entries(groupedVoices).map(

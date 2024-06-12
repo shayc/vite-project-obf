@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 });
 
 export function LanguageDropdown() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   const languageId = useId();
 
@@ -37,10 +37,10 @@ export function LanguageDropdown() {
 
   return (
     <div className={classes.root}>
-      <Label htmlFor={languageId}>Language</Label>
+      <Label htmlFor={languageId}>{t("settings.language")}</Label>
       <Dropdown
         id={languageId}
-        placeholder="Select language"
+        placeholder={t("settings.selectALanguage")}
         onOptionSelect={handleLanguageChange}
       >
         {languages.map(({ name, langCode }) => (

@@ -1,6 +1,7 @@
 import { makeStyles } from "@fluentui/react-components";
 import { useArrowNavigationGroup } from "@fluentui/react-tabster";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { Cell } from "./Cell/Cell";
 import { Row } from "./Row/Row";
 import { GridItem, GridOrder, useGrid } from "./useGrid";
@@ -74,6 +75,9 @@ export function Grid<T extends GridItem>(props: GridProps<T>) {
     style: styleProp,
   } = props;
 
+  const { t } = useTranslation();
+  const classes = useStyles();
+  const className = clsx(classes.grid, classNameProp);
   const attrs = useArrowNavigationGroup({ axis: "grid" });
   const grid = useGrid(items, { columns, rows, order });
 
@@ -82,15 +86,12 @@ export function Grid<T extends GridItem>(props: GridProps<T>) {
     "--gap": `${gap}px`,
   } as React.CSSProperties;
 
-  const classes = useStyles();
-  const className = clsx(classes.grid, classNameProp);
-
   return (
     <div
       className={className}
       style={style}
       role="grid"
-      aria-label="Board grid"
+      aria-label={t("board.boardGrid")}
       {...attrs}
     >
       {grid.map((row, rowIndex) => (
