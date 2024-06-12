@@ -7,8 +7,7 @@ import i18n from "../src/i18n";
 const preview: Preview = {
   decorators: [
     (Story, context) => {
-      const theme = Themes[context.globals.theme];
-      const { locale } = context.globals;
+      const { locale, theme } = context.globals;
 
       useEffect(() => {
         i18n.changeLanguage(locale);
@@ -16,7 +15,7 @@ const preview: Preview = {
 
       return (
         <I18nextProvider i18n={i18n}>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider theme={Themes[theme]}>
             <Story />
           </ThemeProvider>
         </I18nextProvider>
