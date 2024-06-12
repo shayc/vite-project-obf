@@ -19,10 +19,10 @@ const useStyles = makeStyles({
 });
 
 export function App() {
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const { board } = useBoardsDB();
   const { t } = useTranslation();
   const classes = useStyles();
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const { board } = useBoardsDB();
 
   const appActions = (
     <Button

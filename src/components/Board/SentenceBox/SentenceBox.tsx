@@ -42,9 +42,9 @@ export const SentenceBox = (props: SentenceBoxProps) => {
   const { value, className: classNameProp } = props;
 
   const { t } = useTranslation();
-  const attrs = useArrowNavigationGroup({ axis: "horizontal" });
   const classes = useStyles();
   const className = clsx(classes.sentenceBox, classNameProp);
+  const attrs = useArrowNavigationGroup({ axis: "horizontal" });
 
   return (
     <div className={className} aria-label={t("board.sentenceBox")}>
