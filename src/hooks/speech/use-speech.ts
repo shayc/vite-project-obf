@@ -15,7 +15,7 @@ export function groupVoicesByLang(
 
     if (!acc[lang]) {
       acc[lang] = {
-        language: displayNames.of(voice.lang) ?? voice.lang,
+        language: displayNames.of(lang) ?? lang,
         voices: [],
       };
     }
