@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className={classes.app}>
-      <AppBar title={t("app_title")} actions={appActions} />
+      <AppBar title={t("title")} actions={appActions} />
 
       <AppSettingsDrawer
         isOpen={isSettingsOpen}

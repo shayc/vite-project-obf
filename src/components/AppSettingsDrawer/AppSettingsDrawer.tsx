@@ -6,6 +6,7 @@ import {
   DrawerHeaderTitle,
 } from "@fluentui/react-components";
 import { Dismiss24Filled } from "@fluentui/react-icons";
+import { LanguageSettings } from "./LanguageSettings/LanguageSettings";
 import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
 import { ThemeSettings } from "./ThemeSettings/ThemeSettings";
 
@@ -43,6 +44,7 @@ export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
 
       <DrawerBody>
         <ThemeSettings />
+        <LanguageSettings />
         <SpeechSettings />
       </DrawerBody>
     </Drawer>
