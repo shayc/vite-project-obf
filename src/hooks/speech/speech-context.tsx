@@ -8,7 +8,7 @@ import {
 import {
   SpeechContext,
   SpeechContextValue,
-  groupVoicesByLang
+  groupVoicesByLang,
 } from "./use-speech";
 
 interface SpeechProviderProps {
@@ -23,7 +23,7 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>("");
   const [isSpeaking, setIsSpeaking] = useState(false);
 
-  const groupedVoices = groupVoicesByLang(voices);
+  const voicesByLang = groupVoicesByLang(voices);
 
   async function speak(text: string) {
     const voice = voices.find((voice) => voice.voiceURI === selectedVoiceURI);
