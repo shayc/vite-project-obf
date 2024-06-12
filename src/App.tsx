@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-function App() {
+export function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const { board } = useBoardsDB();
   const { t } = useTranslation();
@@ -47,5 +47,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

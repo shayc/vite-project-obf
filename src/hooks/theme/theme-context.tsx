@@ -15,6 +15,7 @@ import useUserPreferences from "../user-preferences/use-user-preferences";
 
 interface ThemeProviderProps {
   children: ReactNode;
+  dir?: "ltr" | "rtl";
   theme?: unknown;
 }
 
@@ -31,15 +32,16 @@ const ThemeContext = createContext<
   | undefined
 >(undefined);
 
-function ThemeProvider({ children, theme: themeProp }: ThemeProviderProps) {
+function ThemeProvider({
+  children,
+  dir = "ltr",
+  theme: themeProp,
+}: ThemeProviderProps) {
   const { prefersDarkColorScheme } = useUserPreferences();
   const [isDarkMode, setIsDarkMode] = useState(prefersDarkColorScheme);
-  
-  // TODO: Add RTL support
-  const [dir] = useState<"ltr" | "rtl">("ltr");
 
-  const theme = themeProp ?? (isDarkMode ? webDarkTheme : webLightTheme);
   const value = { isDarkMode, setIsDarkMode };
+  const theme = themeProp ?? (isDarkMode ? webDarkTheme : webLightTheme);
 
   return (
     <ThemeContext.Provider value={value}>
