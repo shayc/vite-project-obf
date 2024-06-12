@@ -6,14 +6,12 @@ import { RateSlider } from "./RateSlider";
 import { VoiceDropdown } from "./VoiceDropdown";
 import { VolumeSlider } from "./VolumeSlider";
 
-const PREVIEW_TEXT = "Hi, this is my voice";
-
 export function SpeechSettings() {
   const { t } = useTranslation();
   const { speak } = useSpeech();
 
   function handlePreviewButtonClick() {
-    void speak(PREVIEW_TEXT);
+    void speak(t("settings.previewText"));
   }
 
   return (
@@ -25,7 +23,9 @@ export function SpeechSettings() {
       <RateSlider />
       <PitchSlider />
 
-      <Button onClick={handlePreviewButtonClick}>Preview</Button>
+      <Button onClick={handlePreviewButtonClick}>
+        {t("settings.preview")}
+      </Button>
     </div>
   );
 }
