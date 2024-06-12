@@ -1,3 +1,8 @@
 {
-  "title": "Open board"
+  "title": "Open board",
+  "board": {
+    "sentenceBox": "Sentence box",
+    "backspace": "Backspace",
+    "clear": "Clear"
+  }
 }

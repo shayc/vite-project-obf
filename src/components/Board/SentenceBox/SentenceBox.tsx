@@ -6,6 +6,7 @@ import {
 } from "@fluentui/react-components";
 import { BackspaceFilled, DeleteFilled } from "@fluentui/react-icons";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { Pictogram } from "../Pictogram/Pictogram";
 
 const useStyles = makeStyles({
@@ -40,12 +41,13 @@ interface SentenceBoxProps {
 export const SentenceBox = (props: SentenceBoxProps) => {
   const { value, className: classNameProp } = props;
 
+  const { t } = useTranslation();
   const attrs = useArrowNavigationGroup({ axis: "horizontal" });
   const classes = useStyles();
   const className = clsx(classes.sentenceBox, classNameProp);
 
   return (
-    <div className={className} aria-label="Sentence box">
+    <div className={className} aria-label={t("board.sentenceBox")}>
       <div className={classes.sentence}>
         {value?.map((item, index) => (
           <div className={classes.value} key={index}>
@@ -56,16 +58,16 @@ export const SentenceBox = (props: SentenceBoxProps) => {
 
       <div className={classes.actions} {...attrs}>
         <Button
-          title="Backspace"
-          aria-label="Backspace"
+          title={t("board.backspace")}
+          aria-label={t("board.backspace")}
           size="large"
           appearance="subtle"
           icon={<BackspaceFilled />}
         />
 
         <Button
-          title="Clear"
-          aria-label="Clear"
+          title={t("board.clear")}
+          aria-label={t("board.clear")}
           size="large"
           appearance="subtle"
           icon={<DeleteFilled />}
