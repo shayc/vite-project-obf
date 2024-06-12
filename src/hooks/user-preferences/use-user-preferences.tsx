@@ -2,31 +2,17 @@ import { useEffect, useState } from "react";
 
 interface UserPreferences {
   prefersDarkColorScheme: boolean;
-  prefersReducedMotion: boolean;
   prefersMoreContrast: boolean;
+  prefersReducedMotion: boolean;
 }
 
 function useUserPreferences(): UserPreferences {
-  const [preferences, setPreferences] = useState<UserPreferences>({
-    prefersDarkColorScheme: window.matchMedia("(prefers-color-scheme: dark)")
-      .matches,
-    prefersReducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)")
-      .matches,
-    prefersMoreContrast: window.matchMedia("(prefers-contrast: more)").matches,
-  });
+  const [preferences, setPreferences] =
+    useState<UserPreferences>(getUserPreferences());
 
   useEffect(() => {
     const handleMediaChange = () => {
-      setPreferences({
-        prefersDarkColorScheme: window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches,
-        prefersReducedMotion: window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches,
-        prefersMoreContrast: window.matchMedia("(prefers-contrast: more)")
-          .matches,
-      });
+      setPreferences(getUserPreferences());
     };
 
     const mediaQueries = [
@@ -50,3 +36,13 @@ function useUserPreferences(): UserPreferences {
 }
 
 export default useUserPreferences;
+
+function getUserPreferences(): UserPreferences {
+  return {
+    prefersDarkColorScheme: window.matchMedia("(prefers-color-scheme: dark)")
+      .matches,
+    prefersReducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)")
+      .matches,
+    prefersMoreContrast: window.matchMedia("(prefers-contrast: more)").matches,
+  };
+}
