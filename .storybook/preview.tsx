@@ -36,7 +36,7 @@ const preview: Preview = {
   globalTypes: {
     theme: {
       description: "Global theme for components",
-      defaultValue: "light",
+      defaultValue: "dark",
       toolbar: {
         title: "Theme",
         icon: "circlehollow",
@@ -45,15 +45,14 @@ const preview: Preview = {
       },
     },
     locale: {
-      name: "Locale",
       description: "Internationalization locale",
       toolbar: {
+        title: "Locale",
         icon: "globe",
         items: [
           { value: "en", title: "English" },
           { value: "he", title: "Hebrew" },
         ],
-        showName: true,
       },
     },
   },
