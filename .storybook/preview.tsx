@@ -39,12 +39,16 @@ const preview: Preview = {
       toolbar: {
         title: "Theme",
         icon: "circlehollow",
-        items: ["light", "dark"],
+        items: [
+          { value: "light", title: "Light", icon: "sun" },
+          { value: "dark", title: "Dark", icon: "moon" },
+        ],
         dynamicTitle: true,
       },
     },
     locale: {
       description: "Internationalization locale",
+      defaultValue: "en",
       toolbar: {
         title: "Locale",
         icon: "globe",
@@ -52,6 +56,7 @@ const preview: Preview = {
           { value: "en", title: "English" },
           { value: "he", title: "Hebrew" },
         ],
+        dynamicTitle: true,
       },
     },
   },
