@@ -1,9 +1,7 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+import { AppProviders } from "./AppProviders.tsx";
 import { App } from "./App.tsx";
-import { SpeechProvider } from "./hooks/speech/speech-context.tsx";
-import { ThemeProvider } from "./hooks/theme/theme-context.tsx";
-import "./i18n";
 import "./index.css";
 
 async function enableMocking() {
@@ -21,11 +19,9 @@ async function enableMocking() {
 void enableMocking().then(() => {
   ReactDOM.createRoot(document.getElementById("root")!).render(
     <StrictMode>
-      <ThemeProvider>
-        <SpeechProvider>
-          <App />
-        </SpeechProvider>
-      </ThemeProvider>
+      <AppProviders>
+        <App />
+      </AppProviders>
     </StrictMode>,
   );
 });
