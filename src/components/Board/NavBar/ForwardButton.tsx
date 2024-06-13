@@ -10,7 +10,10 @@ export interface ForwardButtonProps {
 export const ForwardButton = (props: ForwardButtonProps) => {
   const { disabled } = props;
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const scaleX = i18n.dir() === "ltr" ? 1 : -1;
+  const iconStyle = { transform: `scaleX(${scaleX})` };
 
   return (
     <Button
@@ -19,7 +22,7 @@ export const ForwardButton = (props: ForwardButtonProps) => {
       size="large"
       appearance="subtle"
       disabled={disabled}
-      icon={<ArrowRightFilled />}
+      icon={<ArrowRightFilled style={iconStyle} />}
     />
   );
 };

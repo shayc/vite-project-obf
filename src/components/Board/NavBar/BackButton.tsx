@@ -10,7 +10,10 @@ export interface BackButtonProps {
 export const BackButton = (props: BackButtonProps) => {
   const { disabled } = props;
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const scaleX = i18n.dir() === "ltr" ? 1 : -1;
+  const iconStyle = { transform: `scaleX(${scaleX})` };
 
   return (
     <Button
@@ -19,7 +22,7 @@ export const BackButton = (props: BackButtonProps) => {
       size="large"
       appearance="subtle"
       disabled={disabled}
-      icon={<ArrowLeftFilled />}
+      icon={<ArrowLeftFilled style={iconStyle} />}
     />
   );
 };
