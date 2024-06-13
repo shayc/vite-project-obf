@@ -1,6 +1,6 @@
 import { Button, Subtitle2 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { useSpeech } from "../../../hooks/speech/use-speech";
+import { useSpeech } from "../../../../hooks/speech/use-speech";
 import { PitchSlider } from "./PitchSlider";
 import { RateSlider } from "./RateSlider";
 import { VoiceDropdown } from "./VoiceDropdown";

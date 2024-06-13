@@ -7,17 +7,15 @@ import {
 } from "@fluentui/react-components";
 import { Dismiss24Filled } from "@fluentui/react-icons";
 import { useTranslation } from "react-i18next";
-import { LanguageSettings } from "./LanguageSettings/LanguageSettings";
-import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
-import { ThemeSettings } from "./ThemeSettings/ThemeSettings";
 
-interface AppSettingsDrawerProps {
+interface AppDrawerProps {
+  children: React.ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
-  const { isOpen, onClose } = props;
+export function AppDrawer(props: AppDrawerProps) {
+  const { children, isOpen, onClose } = props;
 
   const { t } = useTranslation();
 
@@ -33,8 +31,8 @@ export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
         <DrawerHeaderTitle
           action={
             <Button
-              title={t("settings.closeSettings")}
-              aria-label={t("settings.closeSettings")}
+              title={t("settings.close")}
+              aria-label={t("settings.close")}
               appearance="subtle"
               icon={<Dismiss24Filled />}
               onClick={onClose}
@@ -45,11 +43,7 @@ export function AppSettingsDrawer(props: AppSettingsDrawerProps) {
         </DrawerHeaderTitle>
       </DrawerHeader>
 
-      <DrawerBody>
-        <ThemeSettings />
-        <LanguageSettings />
-        <SpeechSettings />
-      </DrawerBody>
+      <DrawerBody>{children}</DrawerBody>
     </Drawer>
   );
 }
