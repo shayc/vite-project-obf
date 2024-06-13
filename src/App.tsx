@@ -26,8 +26,8 @@ export function App() {
 
   const appActions = (
     <Button
-      title="Settings"
-      aria-label="Settings"
+      title={t("settings.settings")}
+      aria-label={t("settings.settings")}
       appearance="subtle"
       icon={<SettingsFilled />}
       onClick={() => setIsSettingsOpen(true)}

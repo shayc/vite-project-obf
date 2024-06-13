@@ -1,7 +1,9 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import { AppProviders } from "./AppProviders.tsx";
+import { I18nextProvider } from "react-i18next";
 import { App } from "./App.tsx";
+import { AppProviders } from "./AppProviders.tsx";
+import { i18n } from "./i18n.ts";
 import "./index.css";
 
 async function enableMocking() {
@@ -19,9 +21,11 @@ async function enableMocking() {
 void enableMocking().then(() => {
   ReactDOM.createRoot(document.getElementById("root")!).render(
     <StrictMode>
-      <AppProviders>
-        <App />
-      </AppProviders>
+      <I18nextProvider i18n={i18n}>
+        <AppProviders>
+          <App />
+        </AppProviders>
+      </I18nextProvider>
     </StrictMode>,
   );
 });
