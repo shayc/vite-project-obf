@@ -2,9 +2,9 @@ import { Button, makeStyles } from "@fluentui/react-components";
 import { SettingsFilled } from "@fluentui/react-icons";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { AppBar } from "./AppBar/AppBar";
-import { AppDrawer } from "./AppDrawer/AppDrawer";
-import { AppSettings } from "./AppSettings/AppSettings";
+import { AppBar } from "../AppBar/AppBar";
+import { AppDrawer } from "../AppDrawer/AppDrawer";
+import { AppSettings } from "../AppSettings/AppSettings";
 
 const useStyles = makeStyles({
   root: {
