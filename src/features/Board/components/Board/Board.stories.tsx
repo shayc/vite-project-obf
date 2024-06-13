@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { mapOBFToBoard } from "../../db/use-boards-db";
-import lotsOfStuffBoard from "../../open-board-format/examples/lots_of_stuff.json";
-import * as OBF from "../../open-board-format/obf";
+import { mapOBFToBoard } from "../../../../db/use-boards-db";
+import lotsOfStuffBoard from "../../../../open-board-format/examples/lots_of_stuff.json";
+import * as OBF from "../../../../open-board-format/obf";
 import { Board } from "./Board";
 
 const board = mapOBFToBoard(lotsOfStuffBoard as OBF.Board);

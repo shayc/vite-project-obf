@@ -7,7 +7,7 @@ import {
 import { BackspaceFilled, DeleteFilled } from "@fluentui/react-icons";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
-import { withRTL } from "../../../utils/withRTL";
+import { withRTL } from "../../../../utils/withRTL";
 import { Pictogram } from "../Pictogram/Pictogram";
 
 const BackspaceFilledWithRTL = withRTL(BackspaceFilled);

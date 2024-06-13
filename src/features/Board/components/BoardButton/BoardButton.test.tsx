@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from "../../../utils/test-utils";
+import { render, screen, userEvent } from "../../../../utils/test-utils";
 import { BoardButton } from "./BoardButton";
 
 it("Should return posts when clicking fetch button", async () => {

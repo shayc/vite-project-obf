@@ -1,7 +1,7 @@
 import { Button } from "@fluentui/react-components";
 import { ArrowLeftFilled } from "@fluentui/react-icons";
 import { useTranslation } from "react-i18next";
-import { withRTL } from "../../../utils/withRTL";
+import { withRTL } from "../../../../utils/withRTL";
 
 const ArrowLeftFilledWithRTL = withRTL(ArrowLeftFilled);
 

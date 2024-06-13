@@ -1,6 +1,6 @@
 import { makeStyles, shorthands, tokens } from "@fluentui/react-components";
 import clsx from "clsx";
-import { getAccessibleTextColor } from "../../../utils/color-utils";
+import { getAccessibleTextColor } from "../../../../utils/color-utils";
 
 const useStyles = makeStyles({
   button: {

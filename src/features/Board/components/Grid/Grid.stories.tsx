@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import * as OBF from "../../../open-board-format/obf";
+import * as OBF from "../../../../open-board-format/obf";
 import { BoardButton } from "../BoardButton/BoardButton";
 import { Grid } from "./Grid";
 

@@ -1,11 +1,11 @@
 import { makeStyles } from "@fluentui/react-components";
 import clsx from "clsx";
-import { BoardButton } from "./BoardButton/BoardButton";
-import { Grid } from "./Grid/Grid";
-import { NavBar } from "./NavBar/NavBar";
-import { Pictogram } from "./Pictogram/Pictogram";
-import { SentenceBox } from "./SentenceBox/SentenceBox";
-import type * as BoardTypes from "./types";
+import type * as BoardTypes from "../../types";
+import { BoardButton } from "../BoardButton/BoardButton";
+import { Grid } from "../Grid/Grid";
+import { NavBar } from "../NavBar/NavBar";
+import { Pictogram } from "../Pictogram/Pictogram";
+import { SentenceBox } from "../SentenceBox/SentenceBox";
 
 const useStyles = makeStyles({
   board: {
