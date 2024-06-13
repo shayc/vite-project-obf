@@ -7,7 +7,10 @@ import {
 import { BackspaceFilled, DeleteFilled } from "@fluentui/react-icons";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
+import { withRTL } from "../../../utils/withRTL";
 import { Pictogram } from "../Pictogram/Pictogram";
+
+const BackspaceFilledWithRTL = withRTL(BackspaceFilled);
 
 const useStyles = makeStyles({
   sentenceBox: {
@@ -41,13 +44,10 @@ interface SentenceBoxProps {
 export const SentenceBox = (props: SentenceBoxProps) => {
   const { value, className: classNameProp } = props;
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   const className = clsx(classes.sentenceBox, classNameProp);
   const attrs = useArrowNavigationGroup({ axis: "horizontal" });
-
-  const scaleX = i18n.dir() === "ltr" ? 1 : -1;
-  const iconStyle = { transform: `scaleX(${scaleX})` };
 
   return (
     <div className={className} aria-label={t("board.sentenceBox")}>
@@ -65,7 +65,7 @@ export const SentenceBox = (props: SentenceBoxProps) => {
           aria-label={t("board.backspace")}
           size="large"
           appearance="subtle"
-          icon={<BackspaceFilled style={iconStyle} />}
+          icon={<BackspaceFilledWithRTL />}
         />
 
         <Button

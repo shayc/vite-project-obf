@@ -1,6 +1,9 @@
 import { Button } from "@fluentui/react-components";
 import { ArrowRightFilled } from "@fluentui/react-icons";
 import { useTranslation } from "react-i18next";
+import { withRTL } from "../../../utils/withRTL";
+
+const ArrowRightFilledWithRTL = withRTL(ArrowRightFilled);
 
 export interface ForwardButtonProps {
   className?: string;
@@ -10,10 +13,7 @@ export interface ForwardButtonProps {
 export const ForwardButton = (props: ForwardButtonProps) => {
   const { disabled } = props;
 
-  const { t, i18n } = useTranslation();
-
-  const scaleX = i18n.dir() === "ltr" ? 1 : -1;
-  const iconStyle = { transform: `scaleX(${scaleX})` };
+  const { t } = useTranslation();
 
   return (
     <Button
@@ -22,7 +22,7 @@ export const ForwardButton = (props: ForwardButtonProps) => {
       size="large"
       appearance="subtle"
       disabled={disabled}
-      icon={<ArrowRightFilled style={iconStyle} />}
+      icon={<ArrowRightFilledWithRTL />}
     />
   );
 };
