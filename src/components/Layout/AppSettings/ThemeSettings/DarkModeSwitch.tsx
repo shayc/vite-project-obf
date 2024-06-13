@@ -6,8 +6,8 @@ import {
   tokens,
   useId,
 } from "@fluentui/react-components";
-import { useTheme } from "../../../../hooks/theme/theme-context";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../../../hooks/theme/theme-context";
 
 const useStyles = makeStyles({
   root: {
