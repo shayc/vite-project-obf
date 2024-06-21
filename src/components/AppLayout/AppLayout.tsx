@@ -18,11 +18,11 @@ const useStyles = makeStyles({
   },
 });
 
-interface LayoutProps {
+interface AppLayoutProps {
   children: React.ReactNode;
 }
 
-export function Layout(props: LayoutProps) {
+export function AppLayout(props: AppLayoutProps) {
   const { children } = props;
 
   const { t } = useTranslation();

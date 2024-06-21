@@ -1,13 +1,13 @@
-import { Board } from "./features/Board";
-import { Layout } from "./components/Layout/Layout.tsx";
+import { AppLayout } from "./components/AppLayout/AppLayout.tsx";
 import { useBoardsDB } from "./db/use-boards-db.tsx";
+import { Board } from "./features/Board";
 
 export function App() {
   const { board } = useBoardsDB();
 
   return (
-    <Layout>
+    <AppLayout>
       <Board board={board} />
-    </Layout>
+    </AppLayout>
   );
 }
