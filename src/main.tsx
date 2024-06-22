@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { I18nextProvider } from "react-i18next";
 import { App } from "./App.tsx";
 import { AppProviders } from "./AppProviders.tsx";
-import { i18n } from "./i18n.ts";
+import { i18n } from "./i18n/i18n.ts";
 import "./index.css";
 
 async function enableMocking() {
