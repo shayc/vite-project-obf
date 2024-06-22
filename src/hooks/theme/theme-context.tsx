@@ -41,11 +41,11 @@ function ThemeProvider({
   const [isDarkMode, setIsDarkMode] = useState(prefersDarkColorScheme);
 
   const value = { isDarkMode, setIsDarkMode };
-  const theme = themeProp ?? (isDarkMode ? webDarkTheme : webLightTheme);
+  const theme = isDarkMode ? webDarkTheme : webLightTheme;
 
   return (
     <ThemeContext.Provider value={value}>
-      <FluentProvider theme={theme} dir={dir}>
+      <FluentProvider theme={themeProp ?? theme} dir={dir}>
         {children}
       </FluentProvider>
     </ThemeContext.Provider>

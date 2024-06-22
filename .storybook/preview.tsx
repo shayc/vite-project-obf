@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 import React, { Suspense, useEffect } from "react";
 import { I18nextProvider } from "react-i18next";
+import { SpeechProvider } from "../src/hooks/speech/speech-context";
 import { ThemeProvider, Themes } from "../src/hooks/theme/theme-context";
 import { i18n } from "../src/i18n/i18n";
 
@@ -18,7 +19,9 @@ const preview: Preview = {
         <Suspense fallback={<div>Loading translations...</div>}>
           <I18nextProvider i18n={i18n}>
             <ThemeProvider theme={Themes[theme]} dir={dir}>
-              <Story />
+              <SpeechProvider>
+                <Story />
+              </SpeechProvider>
             </ThemeProvider>
           </I18nextProvider>
         </Suspense>
