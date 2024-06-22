@@ -1,4 +1,4 @@
-import App from "./App";
+import { App } from "./App";
 import { posts } from "./mocks/handlers";
 import { render, screen, userEvent } from "./utils/test-utils";
 
