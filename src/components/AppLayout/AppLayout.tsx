@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { AppBar } from "../AppBar/AppBar";
 import { AppDrawer } from "../AppDrawer/AppDrawer";
 import { AppSettings } from "../AppSettings/AppSettings";
+import { FileUploadButton } from "../FileUploadButton/FileUploadButton";
 
 const useStyles = makeStyles({
   root: {
@@ -30,13 +31,17 @@ export function AppLayout(props: AppLayoutProps) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const appActions = (
-    <Button
-      title={t("settings.settings")}
-      aria-label={t("settings.settings")}
-      appearance="subtle"
-      icon={<SettingsFilled />}
-      onClick={() => setIsSettingsOpen(true)}
-    />
+    <>
+      <FileUploadButton />
+
+      <Button
+        title={t("settings.settings")}
+        aria-label={t("settings.settings")}
+        appearance="subtle"
+        icon={<SettingsFilled />}
+        onClick={() => setIsSettingsOpen(true)}
+      />
+    </>
   );
 
   return (
