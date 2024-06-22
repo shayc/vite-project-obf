@@ -15,7 +15,7 @@ const preview: Preview = {
       }, [locale]);
 
       return (
-        <Suspense fallback={<div>loading translations...</div>}>
+        <Suspense fallback={<div>Loading translations...</div>}>
           <I18nextProvider i18n={i18n}>
             <ThemeProvider theme={Themes[theme]} dir={dir}>
               <Story />
