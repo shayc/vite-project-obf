@@ -4,7 +4,7 @@ A web application for playing [Open Board Format](https://www.openboardformat.or
 
 - UI Library - [`fluent-ui`](https://react.fluentui.dev/)
 - Tests - [`testing-library`](https://testing-library.com/)
-- Mock - [`msw`](https://mswjs.io/)
+- Mocks - [`msw`](https://mswjs.io/)
 - Internationalization (I18N) - [`i18next`](https://www.i18next.com/)
 
 ## Table of Contents
