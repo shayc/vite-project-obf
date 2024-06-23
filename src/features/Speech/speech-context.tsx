@@ -4,7 +4,7 @@ import {
   DEFAULT_RATE,
   DEFAULT_VOLUME,
   asyncSpeechSynthesis,
-} from "./async-speech";
+} from "./async-speech-synthesis";
 import {
   SpeechContext,
   SpeechContextValue,

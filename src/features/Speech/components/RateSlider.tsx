@@ -6,8 +6,8 @@ import {
   useId,
 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { MAX_PITCH, MIN_PITCH } from "../../../hooks/speech/async-speech";
-import { useSpeech } from "../../../hooks/speech/use-speech";
+import { MAX_RATE, MIN_RATE } from "../async-speech-synthesis";
+import { useSpeech } from "../../../features/Speech/use-speech";
 
 const useStyles = makeStyles({
   root: {
@@ -17,22 +17,22 @@ const useStyles = makeStyles({
   },
 });
 
-export function PitchSlider() {
+export function RateSlider() {
   const { t } = useTranslation();
   const classes = useStyles();
-  const { pitch, setPitch } = useSpeech();
-  const pitchId = useId();
+  const { rate, setRate } = useSpeech();
+  const rateId = useId();
 
   return (
     <div className={classes.root}>
-      <Label htmlFor={pitchId}>{t("settings.pitch")}</Label>
+      <Label htmlFor={rateId}>{t("settings.rate")}</Label>
       <Slider
-        value={pitch}
-        min={MIN_PITCH}
-        max={MAX_PITCH}
+        value={rate}
+        min={MIN_RATE}
+        max={MAX_RATE}
         step={0.2}
-        id={pitchId}
-        onChange={(_ev, data) => setPitch(data.value)}
+        id={rateId}
+        onChange={(_ev, data) => setRate(data.value)}
       />
     </div>
   );

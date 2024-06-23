@@ -6,8 +6,8 @@ import {
   useId,
 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { MAX_VOLUME, MIN_VOLUME } from "../../../hooks/speech/async-speech";
-import { useSpeech } from "../../../hooks/speech/use-speech";
+import { MAX_VOLUME, MIN_VOLUME } from "../async-speech-synthesis";
+import { useSpeech } from "../../../features/Speech/use-speech";
 
 const useStyles = makeStyles({
   root: {

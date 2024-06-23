@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { SpeechProvider } from "./hooks/speech/speech-context";
+import { SpeechProvider } from "./features/Speech/speech-context";
 import { ThemeProvider } from "./hooks/theme/theme-context";
 
 interface AppProvidersProps {
