@@ -11,7 +11,7 @@ import {
   useContext,
   useState,
 } from "react";
-import useUserPreferences from "../user-preferences/use-user-preferences";
+import useUserPreferences from "../../hooks/use-user-preferences";
 
 interface ThemeProviderProps {
   children: ReactNode;
