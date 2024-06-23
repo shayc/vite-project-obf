@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { SpeechProvider } from "./features/Speech/speech-context";
-import { ThemeProvider } from "./features/Theme/theme-context";
+import { SpeechProvider } from "./features/speech/speech-context";
+import { ThemeProvider } from "./features/theme/theme-context";
 
 interface AppProvidersProps {
   children: React.ReactNode;

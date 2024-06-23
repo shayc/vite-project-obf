@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type * as BoardType from "../features/Board/types";
+import type * as BoardType from "../features/board/types";
 import lotsOfStuffOBF from "../open-board-format/examples/lots_of_stuff.json";
 import * as OBF from "../open-board-format/obf";
 import * as boardsDB from "./boards-db";

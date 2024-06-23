@@ -7,7 +7,7 @@ import {
   useId,
 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "./theme-context";
+import { useTheme } from "../theme-context";
 
 const useStyles = makeStyles({
   root: {
