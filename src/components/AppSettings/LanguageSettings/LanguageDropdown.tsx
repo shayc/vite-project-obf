@@ -9,11 +9,7 @@ import {
   useId,
 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-
-const languages = [
-  { name: "English", langCode: "en" },
-  { name: "Hebrew", langCode: "he" },
-];
+import { languages } from "../../../i18n/i18n";
 
 const useStyles = makeStyles({
   root: {
@@ -43,8 +39,8 @@ export function LanguageDropdown() {
         placeholder={t("settings.selectALanguage")}
         onOptionSelect={handleLanguageChange}
       >
-        {languages.map(({ name, langCode }) => (
-          <Option key={langCode} value={langCode}>
+        {languages.map(({ name, lang }) => (
+          <Option key={lang} value={lang}>
             {`${name}`}
           </Option>
         ))}
