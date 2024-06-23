@@ -41,9 +41,10 @@ interface SentenceBoxProps {
   value?: { label: string; src: string }[];
 }
 
-export const SentenceBox = (props: SentenceBoxProps) => {
-  const { value, className: classNameProp } = props;
-
+export const SentenceBox = ({
+  value,
+  className: classNameProp,
+}: SentenceBoxProps) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const className = clsx(classes.sentenceBox, classNameProp);

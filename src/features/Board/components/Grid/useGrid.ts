@@ -12,8 +12,10 @@ export interface GridOptions {
   order?: GridOrder;
 }
 
-export function useGrid<T extends GridItem>(items: T[], options: GridOptions) {
-  const { columns = 0, rows = 0 } = options;
+export function useGrid<T extends GridItem>(
+  items: T[],
+  { columns = 0, rows = 0 }: GridOptions,
+) {
   const grid: Grid<T> = [];
 
   for (let rowIndex = 0; rowIndex < rows; rowIndex++) {

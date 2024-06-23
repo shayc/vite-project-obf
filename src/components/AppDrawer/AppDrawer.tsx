@@ -14,9 +14,7 @@ interface AppDrawerProps {
   onClose: () => void;
 }
 
-export function AppDrawer(props: AppDrawerProps) {
-  const { children, isOpen, onClose } = props;
-
+export function AppDrawer({ children, isOpen, onClose }: AppDrawerProps) {
   const { t } = useTranslation();
 
   return (

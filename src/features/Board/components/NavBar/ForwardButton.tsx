@@ -10,9 +10,7 @@ export interface ForwardButtonProps {
   disabled?: boolean;
 }
 
-export const ForwardButton = (props: ForwardButtonProps) => {
-  const { disabled } = props;
-
+export const ForwardButton = ({ disabled }: ForwardButtonProps) => {
   const { t } = useTranslation();
 
   return (

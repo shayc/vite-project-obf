@@ -28,9 +28,11 @@ interface NavBarProps {
   title?: string;
 }
 
-export const NavBar = (props: NavBarProps) => {
-  const { className: classNameProp, title, actions } = props;
-
+export const NavBar = ({
+  className: classNameProp,
+  title,
+  actions,
+}: NavBarProps) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const className = clsx(classes.navBar, classNameProp);

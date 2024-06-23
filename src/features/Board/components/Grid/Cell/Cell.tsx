@@ -20,11 +20,13 @@ interface CellProps {
   className?: string;
 }
 
-export function Cell(props: CellProps) {
-  const { children, className: classNameProp } = props;
-
+export function Cell({ children, className: classNameProp }: CellProps) {
   const classes = useStyles();
   const className = clsx(classes.cell, classNameProp);
 
-  return <div className={className} role="gridcell">{children}</div>;
+  return (
+    <div className={className} role="gridcell">
+      {children}
+    </div>
+  );
 }

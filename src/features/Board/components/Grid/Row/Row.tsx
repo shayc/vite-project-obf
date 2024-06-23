@@ -15,9 +15,7 @@ interface RowProps {
   className?: string;
 }
 
-export function Row(props: RowProps) {
-  const { children, className: classNameProp } = props;
-
+export function Row({ children, className: classNameProp }: RowProps) {
   const classes = useStyles();
   const className = clsx(classes.row, classNameProp);
 

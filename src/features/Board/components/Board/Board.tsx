@@ -21,9 +21,11 @@ export interface BoardProps {
   onButtonClick?: (button: BoardTypes.BoardButton) => void;
 }
 
-export const Board = (props: BoardProps) => {
-  const { board, onButtonClick, className: classNameProp } = props;
-
+export const Board = ({
+  board,
+  onButtonClick,
+  className: classNameProp,
+}: BoardProps) => {
   const classes = useStyles();
   const className = clsx(classes.board, classNameProp);
 

@@ -23,9 +23,7 @@ interface BoardMenuButtonProps {
   className?: string;
 }
 
-export const BoardMenuButton = (props: BoardMenuButtonProps) => {
-  const { children } = props;
-
+export const BoardMenuButton = ({ children }: BoardMenuButtonProps) => {
   return (
     <Menu>
       <MenuTrigger disableButtonEnhancement>

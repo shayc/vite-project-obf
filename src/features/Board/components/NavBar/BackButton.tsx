@@ -10,9 +10,7 @@ export interface BackButtonProps {
   disabled?: boolean;
 }
 
-export const BackButton = (props: BackButtonProps) => {
-  const { disabled } = props;
-
+export const BackButton = ({ disabled }: BackButtonProps) => {
   const { t } = useTranslation();
 
   return (

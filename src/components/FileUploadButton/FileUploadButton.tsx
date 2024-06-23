@@ -7,9 +7,9 @@ interface FileUploadButtonProps {
   accept?: string;
 }
 
-export function FileUploadButton(props: FileUploadButtonProps) {
-  const { accept = ".obf, .obz" } = props;
-
+export function FileUploadButton({
+  accept = ".obf, .obz",
+}: FileUploadButtonProps) {
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 

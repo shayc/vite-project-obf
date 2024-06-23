@@ -68,18 +68,16 @@ export interface BoardButtonProps {
   style?: React.CSSProperties;
 }
 
-export const BoardButton = (props: BoardButtonProps) => {
-  const {
-    backgroundColor = "#fff",
-    borderColor,
-    disabled,
-    className: classNameProp,
-    style: styleProp,
-    children,
-    onClick,
-    ...restProps
-  } = props;
-
+export const BoardButton = ({
+  backgroundColor = "#fff",
+  borderColor,
+  disabled,
+  className: classNameProp,
+  style: styleProp,
+  children,
+  onClick,
+  ...restProps
+}: BoardButtonProps) => {
   const classes = useStyles();
   const color = getAccessibleTextColor(backgroundColor);
 

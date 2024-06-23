@@ -60,18 +60,16 @@ interface GridProps<T extends GridItem> {
   style?: React.CSSProperties;
 }
 
-export function Grid<T extends GridItem>(props: GridProps<T>) {
-  const {
-    columns,
-    rows,
-    order,
-    gap = 16,
-    items = [],
-    renderItem,
-    className: classNameProp,
-    style: styleProp,
-  } = props;
-
+export function Grid<T extends GridItem>({
+  columns,
+  rows,
+  order,
+  gap = 16,
+  items = [],
+  renderItem,
+  className: classNameProp,
+  style: styleProp,
+}: GridProps<T>) {
   const { t } = useTranslation();
   const classes = useStyles();
   const className = clsx(classes.grid, classNameProp);

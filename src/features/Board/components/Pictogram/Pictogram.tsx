@@ -58,15 +58,13 @@ interface PictogramProps {
   style?: React.CSSProperties;
 }
 
-export const Pictogram = (props: PictogramProps) => {
-  const {
-    src,
-    label,
-    labelPosition = "bottom",
-    className: classNameProp,
-    style: styleProp,
-  } = props;
-
+export const Pictogram = ({
+  src,
+  label,
+  labelPosition = "bottom",
+  className: classNameProp,
+  style: styleProp,
+}: PictogramProps) => {
   const classes = useStyles();
   const className = clsx(classes.pictogram, classNameProp);
 
