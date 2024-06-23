@@ -23,12 +23,13 @@ interface AppLayoutProps {
   children: React.ReactNode;
 }
 
-export function AppLayout(props: AppLayoutProps) {
-  const { children } = props;
-
+export function AppLayout({ children }: AppLayoutProps) {
   const { t } = useTranslation();
   const classes = useStyles();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+  const handleSettingsOpen = () => setIsSettingsOpen(true);
+  const handleSettingsClose = () => setIsSettingsOpen(false);
 
   const appActions = (
     <>
@@ -39,7 +40,7 @@ export function AppLayout(props: AppLayoutProps) {
         aria-label={t("settings.settings")}
         appearance="subtle"
         icon={<SettingsFilled />}
-        onClick={() => setIsSettingsOpen(true)}
+        onClick={handleSettingsOpen}
       />
     </>
   );
@@ -48,10 +49,7 @@ export function AppLayout(props: AppLayoutProps) {
     <div className={classes.root}>
       <AppBar title={t("title")} actions={appActions} />
 
-      <AppDrawer
-        isOpen={isSettingsOpen}
-        onClose={() => setIsSettingsOpen(false)}
-      >
+      <AppDrawer isOpen={isSettingsOpen} onClose={handleSettingsClose}>
         <AppSettings />
       </AppDrawer>
 
