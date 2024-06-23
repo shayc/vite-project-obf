@@ -1,10 +1,12 @@
 import { Button, Subtitle2 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { PitchSlider } from "../../../features/speech/components/PitchSlider";
-import { RateSlider } from "../../../features/speech/components/RateSlider";
-import { VoiceDropdown } from "../../../features/speech/components/VoiceDropdown";
-import { VolumeSlider } from "../../../features/speech/components/VolumeSlider";
-import { useSpeech } from "../../../features/speech/speech-context";
+import {
+  PitchSlider,
+  RateSlider,
+  VoiceDropdown,
+  VolumeSlider,
+  useSpeech,
+} from "../../../features/speech/";
 
 export function SpeechSettings() {
   const { t } = useTranslation();

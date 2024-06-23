@@ -19,7 +19,7 @@ interface ThemeProviderProps {
   theme?: unknown;
 }
 
-const Themes = {
+export const Themes = {
   light: webLightTheme,
   dark: webDarkTheme,
 };
@@ -32,7 +32,7 @@ const ThemeContext = createContext<
   | undefined
 >(undefined);
 
-function ThemeProvider({
+export function ThemeProvider({
   children,
   dir = "ltr",
   theme: themeProp,
@@ -52,7 +52,7 @@ function ThemeProvider({
   );
 }
 
-function useTheme() {
+export function useTheme() {
   const context = useContext(ThemeContext);
 
   if (context === undefined) {
@@ -61,5 +61,3 @@ function useTheme() {
 
   return context;
 }
-
-export { ThemeProvider, Themes, useTheme };
