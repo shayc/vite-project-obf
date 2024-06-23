@@ -75,8 +75,6 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
     async function initSpeech() {
       const voices = await asyncSpeechSynthesis.getVoices();
       setVoices(voices);
-      const languages = asyncSpeechSynthesis.getLanguages(voices);
-      console.log("languages", languages);
     }
 
     void initSpeech();
