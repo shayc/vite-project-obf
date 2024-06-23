@@ -13,14 +13,11 @@ const useStyles = makeStyles({
     height: "100%",
     padding: "var(--gap)",
     display: "flex",
-    gap: "var(--gap)",
     flexDirection: "column",
+    gap: "var(--gap)",
   },
 });
 
-/**
- * Props for the Grid component.
- */
 interface GridProps<T extends GridItem> {
   /**
    * The class name of the grid.

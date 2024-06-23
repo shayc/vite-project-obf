@@ -11,9 +11,9 @@ const useStyles = makeStyles({
     gap: tokens.spacingHorizontalS,
   },
   imgContainer: {
-    marginBlockStart: tokens.spacingHorizontalS,
     flex: "1",
     position: "relative",
+    marginBlockStart: tokens.spacingHorizontalS,
   },
   img: {
     position: "absolute",
@@ -33,9 +33,6 @@ const useStyles = makeStyles({
   },
 });
 
-/**
- * Props for the Pictogram component.
- */
 interface PictogramProps {
   /**
    * The class name of the pictogram.
