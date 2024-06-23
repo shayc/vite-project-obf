@@ -8,13 +8,13 @@ import { GridItem, GridOrder, useGrid } from "./useGrid";
 
 const useStyles = makeStyles({
   grid: {
+    boxSizing: "border-box",
     width: "100%",
     height: "100%",
     padding: "var(--gap)",
     display: "flex",
     gap: "var(--gap)",
     flexDirection: "column",
-    boxSizing: "border-box",
   },
 });
 

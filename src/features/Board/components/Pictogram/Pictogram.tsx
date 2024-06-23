@@ -3,11 +3,11 @@ import clsx from "clsx";
 
 const useStyles = makeStyles({
   pictogram: {
+    boxSizing: "border-box",
     display: "flex",
     flexDirection: "var(--flex-direction)" as "column" | "column-reverse",
     gap: tokens.spacingHorizontalS,
     padding: tokens.spacingHorizontalS,
-    boxSizing: "border-box",
   },
   imgContainer: {
     flex: "1",

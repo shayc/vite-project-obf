@@ -20,6 +20,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ width: "64px", height: "64px" }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     children: "Hello",
   },

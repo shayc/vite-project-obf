@@ -13,10 +13,6 @@ const useStyles = makeStyles({
     flexDirection: "column",
     height: "100%",
   },
-  button: {
-    width: "100%",
-    height: "100%",
-  },
   pictogram: {
     height: "100%",
   },
@@ -39,7 +35,6 @@ export const Board = (props: BoardProps) => {
 
     return (
       <BoardButton
-        className={classes.button}
         backgroundColor={backgroundColor}
         borderColor={borderColor}
         onClick={() => onButtonClick?.(button)}

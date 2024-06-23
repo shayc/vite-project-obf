@@ -5,8 +5,11 @@ import { getAccessibleTextColor } from "../../../../utils/color-utils";
 const useStyles = makeStyles({
   button: {
     "--border-width": tokens.strokeWidthThick,
-
+    
     position: "relative",
+    boxSizing: "border-box",
+    height: "100%",
+    width: "100%",
     padding: "0",
     border: "var(--border-width) solid",
     borderRadius: tokens.borderRadiusXLarge,
