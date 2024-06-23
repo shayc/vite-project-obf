@@ -9,7 +9,7 @@ import {
   useId,
 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { languages } from "../../../i18n/i18n";
+import { languages } from "../../i18n/i18n";
 
 const useStyles = makeStyles({
   root: {
