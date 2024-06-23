@@ -10,6 +10,13 @@ export const MIN_PITCH = 0;
 export const MAX_PITCH = 2;
 export const DEFAULT_PITCH = 1;
 
+type Lang = string;
+
+export type VoicesByLang = Record<
+  Lang,
+  { name: string; voices: SpeechSynthesisVoice[] }
+>;
+
 async function speak(
   text: string,
   options: Partial<
@@ -45,7 +52,41 @@ async function getVoices() {
   });
 }
 
+function groupVoicesByLang(voices: SpeechSynthesisVoice[]): VoicesByLang {
+  const displayNames = new Intl.DisplayNames(["en"], { type: "language" });
+
+  return voices.reduce((acc, voice) => {
+    const lang = voice.lang;
+
+    if (!acc[lang]) {
+      acc[lang] = {
+        name: displayNames.of(lang) ?? lang,
+        voices: [],
+      };
+    }
+
+    acc[lang].voices.push(voice);
+
+    return acc;
+  }, {} as VoicesByLang);
+}
+
+function getLanguages(voices: SpeechSynthesisVoice[]) {
+  const langCodes = Array.from(new Set(voices.map((voice) => voice.lang)));
+
+  return langCodes.map((lang) => {
+    const name = new Intl.DisplayNames([lang], { type: "language" }).of(lang);
+
+    return {
+      lang,
+      name: name ?? lang,
+    };
+  });
+}
+
 export const asyncSpeechSynthesis = {
-  speak,
+  getLanguages,
   getVoices,
+  groupVoicesByLang,
+  speak,
 };

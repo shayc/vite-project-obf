@@ -7,7 +7,7 @@ import {
 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
 import { MAX_RATE, MIN_RATE } from "../async-speech-synthesis";
-import { useSpeech } from "../../../features/Speech/use-speech";
+import { useSpeech } from "../use-speech";
 
 const useStyles = makeStyles({
   root: {

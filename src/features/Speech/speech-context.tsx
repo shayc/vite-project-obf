@@ -5,11 +5,7 @@ import {
   DEFAULT_VOLUME,
   asyncSpeechSynthesis,
 } from "./async-speech-synthesis";
-import {
-  SpeechContext,
-  SpeechContextValue,
-  groupVoicesByLang,
-} from "./use-speech";
+import { SpeechContext, SpeechContextValue } from "./use-speech";
 
 interface SpeechProviderProps {
   children: React.ReactNode;
@@ -23,7 +19,7 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>("");
   const [isSpeaking, setIsSpeaking] = useState(false);
 
-  const voicesByLang = groupVoicesByLang(voices);
+  const voicesByLang = asyncSpeechSynthesis.groupVoicesByLang(voices);
 
   async function speak(text: string) {
     const voice = voices.find((voice) => voice.voiceURI === selectedVoiceURI);

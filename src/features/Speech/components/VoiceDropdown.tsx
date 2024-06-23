@@ -10,7 +10,7 @@ import {
   useId,
 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { useSpeech } from "../../../features/Speech/use-speech";
+import { useSpeech } from "../use-speech";
 
 const useStyles = makeStyles({
   root: {
@@ -41,15 +41,17 @@ export function VoiceDropdown() {
         placeholder={t("settings.selectAVoice")}
         onOptionSelect={handleVoiceSelect}
       >
-        {Object.entries(voicesByLang).map(([lang, { language, voices }]) => (
-          <OptionGroup key={lang} label={language}>
-            {voices.map(({ name, voiceURI }) => (
-              <Option key={voiceURI} value={voiceURI}>
-                {`${name}`}
-              </Option>
-            ))}
-          </OptionGroup>
-        ))}
+        {Object.entries(voicesByLang).map(
+          ([lang, { name: langName, voices }]) => (
+            <OptionGroup key={lang} label={langName}>
+              {voices.map(({ name, voiceURI }) => (
+                <Option key={voiceURI} value={voiceURI}>
+                  {`${name}`}
+                </Option>
+              ))}
+            </OptionGroup>
+          ),
+        )}
       </Dropdown>
     </div>
   );

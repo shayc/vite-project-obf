@@ -1,32 +1,5 @@
 import { createContext, useContext } from "react";
-
-type Lang = string;
-
-export type VoicesByLang = Record<
-  Lang,
-  { language: string; voices: SpeechSynthesisVoice[] }
->;
-
-export function groupVoicesByLang(
-  voices: SpeechSynthesisVoice[],
-): VoicesByLang {
-  const displayNames = new Intl.DisplayNames(["en"], { type: "language" });
-
-  return voices.reduce((acc, voice) => {
-    const lang = voice.lang;
-
-    if (!acc[lang]) {
-      acc[lang] = {
-        language: displayNames.of(lang) ?? lang,
-        voices: [],
-      };
-    }
-
-    acc[lang].voices.push(voice);
-
-    return acc;
-  }, {} as VoicesByLang);
-}
+import { VoicesByLang } from "./async-speech-synthesis";
 
 export const SpeechContext = createContext<SpeechContextValue | undefined>(
   undefined,
