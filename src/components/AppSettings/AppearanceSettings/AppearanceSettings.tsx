@@ -2,7 +2,7 @@ import { Subtitle2 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 
-export function ThemeSettings() {
+export function AppearanceSettings() {
   const { t } = useTranslation();
 
   return (

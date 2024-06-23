@@ -1,11 +1,11 @@
+import { AppearanceSettings } from "./AppearanceSettings/AppearanceSettings";
 import { LanguageSettings } from "./LanguageSettings/LanguageSettings";
 import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
-import { ThemeSettings } from "./ThemeSettings/ThemeSettings";
 
 export function AppSettings() {
   return (
     <>
-      <ThemeSettings />
+      <AppearanceSettings />
       <LanguageSettings />
       <SpeechSettings />
     </>
