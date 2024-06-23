@@ -13,7 +13,6 @@ const useStyles = makeStyles({
   imgContainer: {
     flex: "1",
     position: "relative",
-    marginBlockStart: tokens.spacingHorizontalS,
   },
   img: {
     position: "absolute",
