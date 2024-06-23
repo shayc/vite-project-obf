@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Pictogram } from "./Pictogram";
 
 const meta = {
-  title: "Design System/Components/Pictogram",
+  title: "Design System/Board/Pictogram",
   component: Pictogram,
   parameters: {
     layout: "centered",

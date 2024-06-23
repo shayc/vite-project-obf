@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 import { BoardButton } from "./BoardButton";
 
 const meta = {
-  title: "Design System/Components/BoardButton",
+  title: "Design System/Board/BoardButton",
   component: BoardButton,
   parameters: {
     layout: "centered",

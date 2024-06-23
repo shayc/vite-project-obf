@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SentenceBox } from "./SentenceBox";
 
 const meta = {
-  title: "Design System/Components/SentenceBox",
+  title: "Design System/Board/SentenceBox",
   component: SentenceBox,
   parameters: {
     layout: "centered",

@@ -4,7 +4,7 @@ import { BoardButton } from "../BoardButton/BoardButton";
 import { Grid } from "./Grid";
 
 const meta = {
-  title: "Design System/Components/Grid",
+  title: "Design System/Board/Grid",
   component: Grid<OBF.Button>,
   parameters: {
     layout: "centered",

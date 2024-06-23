@@ -7,7 +7,7 @@ import { Board } from "./Board";
 const board = mapOBFToBoard(lotsOfStuffBoard as OBF.Board);
 
 const meta = {
-  title: "Design System/Components/Board",
+  title: "Design System/Board/Board",
   component: Board,
   parameters: {
     layout: "centered",
