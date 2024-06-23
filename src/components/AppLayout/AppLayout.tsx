@@ -3,7 +3,7 @@ import { SettingsFilled } from "@fluentui/react-icons";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AppBar } from "../AppBar/AppBar";
-import { AppDrawer } from "../AppDrawer/AppDrawer";
+import { AppSettingsDrawer } from "../AppSettingsDrawer/AppSettingsDrawer";
 import { FileUploadButton } from "../FileUploadButton/FileUploadButton";
 
 const useStyles = makeStyles({
@@ -47,7 +47,10 @@ export function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className={classes.root}>
       <AppBar title={t("title")} actions={appActions} />
-      <AppDrawer isOpen={isSettingsOpen} onClose={handleSettingsClose} />
+      <AppSettingsDrawer
+        isOpen={isSettingsOpen}
+        onClose={handleSettingsClose}
+      />
 
       <main className={classes.main}>{children}</main>
     </div>

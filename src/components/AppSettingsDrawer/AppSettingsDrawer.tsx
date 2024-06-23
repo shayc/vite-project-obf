@@ -11,12 +11,12 @@ import { AppearanceSettings } from "./components/AppearanceSettings";
 import { LanguageSettings } from "./components/LanguageSettings";
 import { SpeechSettings } from "./components/SpeechSettings";
 
-interface AppDrawerProps {
+interface AppSettingsDrawerProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function AppDrawer({ isOpen, onClose }: AppDrawerProps) {
+export function AppSettingsDrawer({ isOpen, onClose }: AppSettingsDrawerProps) {
   const { t } = useTranslation();
 
   return (

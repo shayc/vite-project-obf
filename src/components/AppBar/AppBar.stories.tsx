@@ -1,5 +1,5 @@
 import { Button } from "@fluentui/react-components";
-import { PersonCircleFilled, SettingsFilled } from "@fluentui/react-icons";
+import { SettingsFilled } from "@fluentui/react-icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { AppBar } from "./AppBar";
 
@@ -16,19 +16,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  decorators: [(Story) => <Story />],
+  decorators: [
+    (Story) => (
+      <div style={{ width: "640px" }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
-    title: "Open Board Player",
+    title: "Open Board",
     actions: (
       <>
-        <Button
-          title={"Account"}
-          aria-label={"Account"}
-          appearance="subtle"
-          icon={<PersonCircleFilled />}
-          onClick={() => console.log("Account clicked")}
-        />
-
         <Button
           title={"Settings"}
           aria-label={"Settings"}
