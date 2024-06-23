@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 interface FileUploadButtonProps {
-  accept: string;
+  accept?: string;
 }
 
 export function FileUploadButton(props: FileUploadButtonProps) {
