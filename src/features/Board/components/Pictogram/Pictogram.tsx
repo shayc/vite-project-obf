@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     objectFit: "contain",
   },
   label: {
-    paddingInline: tokens.spacingHorizontalS,
     fontSize: tokens.fontSizeBase300,
     textAlign: "center",
     textOverflow: "ellipsis",
