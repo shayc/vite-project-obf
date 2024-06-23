@@ -4,12 +4,14 @@ import clsx from "clsx";
 const useStyles = makeStyles({
   pictogram: {
     boxSizing: "border-box",
+    height: "100%",
+    width: "100%",
     display: "flex",
     flexDirection: "var(--flex-direction)" as "column" | "column-reverse",
     gap: tokens.spacingHorizontalS,
-    padding: tokens.spacingHorizontalS,
   },
   imgContainer: {
+    marginBlockStart: tokens.spacingHorizontalS,
     flex: "1",
     position: "relative",
   },
@@ -22,6 +24,7 @@ const useStyles = makeStyles({
     objectFit: "contain",
   },
   label: {
+    paddingInline: tokens.spacingHorizontalS,
     fontSize: tokens.fontSizeBase300,
     textAlign: "center",
     textOverflow: "ellipsis",

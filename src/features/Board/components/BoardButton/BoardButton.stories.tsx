@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   decorators: [
     (Story) => (
-      <div style={{ width: "64px", height: "64px" }}>
+      <div style={{ width: "128px", height: "128px" }}>
         <Story />
       </div>
     ),

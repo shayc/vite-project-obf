@@ -18,8 +18,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ width: "128px", height: "128px" }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     src: "https://via.placeholder.com/150",
-    label: "Placeholder",
+    label: "Label",
   },
 };

@@ -9,12 +9,9 @@ import { SentenceBox } from "../SentenceBox/SentenceBox";
 
 const useStyles = makeStyles({
   board: {
+    height: "100%",
     display: "flex",
     flexDirection: "column",
-    height: "100%",
-  },
-  pictogram: {
-    height: "100%",
   },
 });
 
@@ -39,7 +36,7 @@ export const Board = (props: BoardProps) => {
         borderColor={borderColor}
         onClick={() => onButtonClick?.(button)}
       >
-        <Pictogram className={classes.pictogram} label={label} src={imageSrc} />
+        <Pictogram label={label} src={imageSrc} />
       </BoardButton>
     );
   }
