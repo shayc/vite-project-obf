@@ -10,7 +10,7 @@ import {
   useId,
 } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { useSpeech } from "../use-speech";
+import { useSpeech } from "../speech-context";
 
 const useStyles = makeStyles({
   root: {

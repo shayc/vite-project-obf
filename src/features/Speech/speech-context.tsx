@@ -1,11 +1,30 @@
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
   DEFAULT_PITCH,
   DEFAULT_RATE,
   DEFAULT_VOLUME,
+  VoicesByLang,
   asyncSpeechSynthesis,
 } from "./async-speech-synthesis";
-import { SpeechContext, SpeechContextValue } from "./use-speech";
+
+export interface SpeechContextValue {
+  isSpeaking: boolean;
+  volume: number;
+  rate: number;
+  pitch: number;
+  voices: SpeechSynthesisVoice[];
+  voicesByLang: VoicesByLang;
+  selectedVoiceURI: string;
+  speak: (text: string) => Promise<void>;
+  setVolume: (volume: number) => void;
+  setRate: (rate: number) => void;
+  setPitch: (pitch: number) => void;
+  setSelectedVoiceURI: (voiceURI: string) => void;
+}
+
+export const SpeechContext = createContext<SpeechContextValue | undefined>(
+  undefined,
+);
 
 interface SpeechProviderProps {
   children: React.ReactNode;
@@ -56,6 +75,8 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
     async function initSpeech() {
       const voices = await asyncSpeechSynthesis.getVoices();
       setVoices(voices);
+      const languages = asyncSpeechSynthesis.getLanguages(voices);
+      console.log("languages", languages);
     }
 
     void initSpeech();
@@ -64,4 +85,13 @@ export function SpeechProvider({ children }: SpeechProviderProps) {
   return (
     <SpeechContext.Provider value={value}>{children}</SpeechContext.Provider>
   );
+}
+
+export function useSpeech() {
+  const context = useContext(SpeechContext);
+
+  if (context === undefined) {
+    throw new Error("useSpeech must be used within a SpeechProvider");
+  }
+  return context;
 }

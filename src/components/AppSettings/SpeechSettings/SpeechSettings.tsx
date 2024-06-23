@@ -4,7 +4,7 @@ import { PitchSlider } from "../../../features/Speech/components/PitchSlider";
 import { RateSlider } from "../../../features/Speech/components/RateSlider";
 import { VoiceDropdown } from "../../../features/Speech/components/VoiceDropdown";
 import { VolumeSlider } from "../../../features/Speech/components/VolumeSlider";
-import { useSpeech } from "../../../features/Speech/use-speech";
+import { useSpeech } from "../../../features/Speech/speech-context";
 
 export function SpeechSettings() {
   const { t } = useTranslation();
