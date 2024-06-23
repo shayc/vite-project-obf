@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { AppSettings } from "./AppSettings";
 
 const meta = {
-  title: "Design System/Components/AppSettings",
+  title: "Design System/App/AppSettings",
   component: AppSettings,
   parameters: {
     layout: "centered",

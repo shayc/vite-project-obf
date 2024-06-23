@@ -1,6 +1,6 @@
-import { AppearanceSettings } from "./AppearanceSettings/AppearanceSettings";
-import { LanguageSettings } from "./LanguageSettings/LanguageSettings";
-import { SpeechSettings } from "./SpeechSettings/SpeechSettings";
+import { AppearanceSettings } from "./components/AppearanceSettings";
+import { LanguageSettings } from "./components/LanguageSettings";
+import { SpeechSettings } from "./components/SpeechSettings";
 
 export function AppSettings() {
   return (
