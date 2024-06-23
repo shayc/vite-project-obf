@@ -3,7 +3,13 @@ import { ArrowImportFilled } from "@fluentui/react-icons";
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-export function FileUploadButton() {
+interface FileUploadButtonProps {
+  accept: string;
+}
+
+export function FileUploadButton(props: FileUploadButtonProps) {
+  const { accept = ".obf, .obz" } = props;
+
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -32,6 +38,7 @@ export function FileUploadButton() {
 
       <input
         type="file"
+        accept={accept}
         ref={fileInputRef}
         style={{ display: "none" }}
         onChange={handleFileChange}
