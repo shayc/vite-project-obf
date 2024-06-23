@@ -1,3 +1,5 @@
+import { Button } from "@fluentui/react-components";
+import { SettingsFilled } from "@fluentui/react-icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { AppBar } from "./AppBar";
 
@@ -15,5 +17,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   decorators: [(Story) => <Story />],
-  args: {},
+  args: {
+    title: "Open Board Player",
+    actions: (
+      <>
+        <Button
+          title={"Settings"}
+          aria-label={"Settings"}
+          appearance="subtle"
+          icon={<SettingsFilled />}
+          onClick={() => console.log("Settings clicked")}
+        />
+      </>
+    ),
+  },
 };
