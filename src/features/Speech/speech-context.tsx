@@ -7,7 +7,7 @@ import {
   asyncSpeechSynthesis,
 } from "./async-speech-synthesis";
 
-export interface SpeechContextValue {
+interface SpeechContextValue {
   isSpeaking: boolean;
   volume: number;
   rate: number;
@@ -22,7 +22,7 @@ export interface SpeechContextValue {
   setSelectedVoiceURI: (voiceURI: string) => void;
 }
 
-export const SpeechContext = createContext<SpeechContextValue | undefined>(
+const SpeechContext = createContext<SpeechContextValue | undefined>(
   undefined,
 );
 

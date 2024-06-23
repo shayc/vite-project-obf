@@ -1,8 +1,8 @@
 import type { Preview } from "@storybook/react";
 import React, { Suspense, useEffect } from "react";
 import { I18nextProvider } from "react-i18next";
-import { SpeechProvider } from "../src/features/Speech/speech-context";
-import { ThemeProvider, Themes } from "../src/hooks/theme/theme-context";
+import { SpeechProvider } from "../src/features/speech";
+import { ThemeProvider, Themes } from "../src/features/theme";
 import { i18n } from "../src/i18n/i18n";
 
 const preview: Preview = {
