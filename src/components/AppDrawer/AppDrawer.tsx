@@ -7,14 +7,16 @@ import {
 } from "@fluentui/react-components";
 import { Dismiss24Filled } from "@fluentui/react-icons";
 import { useTranslation } from "react-i18next";
+import { AppearanceSettings } from "./components/AppearanceSettings";
+import { LanguageSettings } from "./components/LanguageSettings";
+import { SpeechSettings } from "./components/SpeechSettings";
 
 interface AppDrawerProps {
-  children: React.ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function AppDrawer({ children, isOpen, onClose }: AppDrawerProps) {
+export function AppDrawer({ isOpen, onClose }: AppDrawerProps) {
   const { t } = useTranslation();
 
   return (
@@ -41,7 +43,11 @@ export function AppDrawer({ children, isOpen, onClose }: AppDrawerProps) {
         </DrawerHeaderTitle>
       </DrawerHeader>
 
-      <DrawerBody>{children}</DrawerBody>
+      <DrawerBody>
+        <AppearanceSettings />
+        <LanguageSettings />
+        <SpeechSettings />
+      </DrawerBody>
     </Drawer>
   );
 }

@@ -6,7 +6,7 @@ import {
   VoiceDropdown,
   VolumeSlider,
   useSpeech,
-} from "../../../features/speech/";
+} from "../../../features/speech";
 
 export function SpeechSettings() {
   const { t } = useTranslation();
