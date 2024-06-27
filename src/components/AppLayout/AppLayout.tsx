@@ -47,6 +47,7 @@ export function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className={classes.root}>
       <AppBar title={t("title")} actions={appActions} />
+
       <AppSettingsDrawer
         isOpen={isSettingsOpen}
         onClose={handleSettingsClose}
