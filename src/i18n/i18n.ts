@@ -19,7 +19,7 @@ await i18n
   .init({
     resources,
     fallbackLng: "en",
-    debug: true,
+    debug: false,
 
     interpolation: {
       // Not needed for React as it escapes by default
