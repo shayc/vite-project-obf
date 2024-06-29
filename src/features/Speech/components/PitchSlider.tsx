@@ -27,11 +27,11 @@ export function PitchSlider() {
     <div className={classes.root}>
       <Label htmlFor={pitchId}>{t("settings.pitch")}</Label>
       <Slider
+        id={pitchId}
         value={pitch}
         min={MIN_PITCH}
         max={MAX_PITCH}
         step={0.2}
-        id={pitchId}
         onChange={(_ev, data) => setPitch(data.value)}
       />
     </div>

@@ -27,11 +27,11 @@ export function RateSlider() {
     <div className={classes.root}>
       <Label htmlFor={rateId}>{t("settings.rate")}</Label>
       <Slider
+        id={rateId}
         value={rate}
         min={MIN_RATE}
         max={MAX_RATE}
         step={0.2}
-        id={rateId}
         onChange={(_ev, data) => setRate(data.value)}
       />
     </div>
