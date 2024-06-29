@@ -23,7 +23,7 @@ interface BoardMenuButtonProps {
   className?: string;
 }
 
-export const BoardMenuButton = ({ children }: BoardMenuButtonProps) => {
+export function BoardMenuButton({ children }: BoardMenuButtonProps) {
   return (
     <Menu>
       <MenuTrigger disableButtonEnhancement>
@@ -41,4 +41,4 @@ export const BoardMenuButton = ({ children }: BoardMenuButtonProps) => {
       </MenuPopover>
     </Menu>
   );
-};
+}

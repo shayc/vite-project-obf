@@ -41,10 +41,10 @@ interface SentenceBoxProps {
   value?: { label: string; src: string }[];
 }
 
-export const SentenceBox = ({
+export function SentenceBox({
   value,
   className: classNameProp,
-}: SentenceBoxProps) => {
+}: SentenceBoxProps) {
   const { t } = useTranslation();
   const classes = useStyles();
   const className = clsx(classes.sentenceBox, classNameProp);
@@ -79,4 +79,4 @@ export const SentenceBox = ({
       </div>
     </div>
   );
-};
+}

@@ -10,7 +10,7 @@ export interface ForwardButtonProps {
   disabled?: boolean;
 }
 
-export const ForwardButton = ({ disabled }: ForwardButtonProps) => {
+export function ForwardButton({ disabled }: ForwardButtonProps) {
   const { t } = useTranslation();
 
   return (
@@ -23,4 +23,4 @@ export const ForwardButton = ({ disabled }: ForwardButtonProps) => {
       icon={<ArrowRightFilledWithRTL />}
     />
   );
-};
+}

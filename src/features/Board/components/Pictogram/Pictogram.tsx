@@ -58,13 +58,13 @@ interface PictogramProps {
   style?: React.CSSProperties;
 }
 
-export const Pictogram = ({
+export function Pictogram({
   src,
   label,
   labelPosition = "bottom",
   className: classNameProp,
   style: styleProp,
-}: PictogramProps) => {
+}: PictogramProps) {
   const classes = useStyles();
   const className = clsx(classes.pictogram, classNameProp);
 
@@ -83,4 +83,4 @@ export const Pictogram = ({
       {label && <div className={classes.label}>{label}</div>}
     </div>
   );
-};
+}

@@ -68,7 +68,7 @@ export interface BoardButtonProps {
   style?: React.CSSProperties;
 }
 
-export const BoardButton = ({
+export function BoardButton({
   backgroundColor = "#fff",
   borderColor,
   disabled,
@@ -77,7 +77,7 @@ export const BoardButton = ({
   children,
   onClick,
   ...restProps
-}: BoardButtonProps) => {
+}: BoardButtonProps) {
   const classes = useStyles();
   const color = getAccessibleTextColor(backgroundColor);
 
@@ -102,4 +102,4 @@ export const BoardButton = ({
       {children}
     </button>
   );
-};
+}

@@ -1,9 +1,9 @@
 import { makeStyles, tokens } from "@fluentui/react-components";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { BackButton } from "./BackButton";
 import { BoardMenuButton } from "./BoardMenuButton";
 import { ForwardButton } from "./ForwardButton";
-import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   navBar: {
@@ -28,11 +28,11 @@ interface NavBarProps {
   title?: string;
 }
 
-export const NavBar = ({
+export function NavBar({
   className: classNameProp,
   title,
   actions,
-}: NavBarProps) => {
+}: NavBarProps) {
   const { t } = useTranslation();
   const classes = useStyles();
   const className = clsx(classes.navBar, classNameProp);
@@ -48,4 +48,4 @@ export const NavBar = ({
       <div className={classes.end}>{actions}</div>
     </nav>
   );
-};
+}

@@ -10,7 +10,7 @@ export interface BackButtonProps {
   disabled?: boolean;
 }
 
-export const BackButton = ({ disabled }: BackButtonProps) => {
+export function BackButton({ disabled }: BackButtonProps) {
   const { t } = useTranslation();
 
   return (
@@ -23,4 +23,4 @@ export const BackButton = ({ disabled }: BackButtonProps) => {
       icon={<ArrowLeftFilledWithRTL />}
     />
   );
-};
+}
