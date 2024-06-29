@@ -2,8 +2,8 @@ import { makeStyles, tokens } from "@fluentui/react-components";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { BackButton } from "./BackButton";
-import { BoardMenuButton } from "./BoardMenuButton";
 import { ForwardButton } from "./ForwardButton";
+import { HistoryMenuButton } from "./HistoryMenuButton";
 
 const useStyles = makeStyles({
   navBar: {
@@ -42,7 +42,7 @@ export function NavBar({
       <div className={classes.start}>
         <BackButton disabled={true} />
         <ForwardButton disabled={true} />
-        <BoardMenuButton>{title}</BoardMenuButton>
+        <HistoryMenuButton>{title}</HistoryMenuButton>
       </div>
 
       <div className={classes.end}>{actions}</div>

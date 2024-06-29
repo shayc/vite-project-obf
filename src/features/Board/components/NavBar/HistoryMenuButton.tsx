@@ -18,12 +18,12 @@ const tempList = [
   },
 ];
 
-interface BoardMenuButtonProps {
+interface HistoryMenuButtonProps {
   children?: React.ReactNode;
   className?: string;
 }
 
-export function BoardMenuButton({ children }: BoardMenuButtonProps) {
+export function HistoryMenuButton({ children }: HistoryMenuButtonProps) {
   return (
     <Menu>
       <MenuTrigger disableButtonEnhancement>
