@@ -44,8 +44,8 @@ interface SentenceBoxProps {
 }
 
 export function SentenceBox({
-  value,
   className: classNameProp,
+  value,
   onBackspaceClick,
   onClearClick,
 }: SentenceBoxProps) {
