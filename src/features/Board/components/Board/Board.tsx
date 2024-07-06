@@ -50,6 +50,7 @@ export function Board({
         onBackspaceClick={() => null}
         onClearClick={() => null}
       />
+
       <NavBar title={board?.name} />
 
       <Grid
