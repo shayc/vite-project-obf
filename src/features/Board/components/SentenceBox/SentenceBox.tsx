@@ -40,7 +40,7 @@ interface SentenceBoxProps {
   className?: string;
   onBackspaceClick: () => void;
   onClearClick: () => void;
-  value?: { label: string; src: string }[];
+  value: { label: string; src: string }[];
 }
 
 export function SentenceBox({
