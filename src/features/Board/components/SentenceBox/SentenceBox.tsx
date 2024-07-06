@@ -38,12 +38,16 @@ const useStyles = makeStyles({
 
 interface SentenceBoxProps {
   className?: string;
+  onBackspaceClick: () => void;
+  onClearClick: () => void;
   value?: { label: string; src: string }[];
 }
 
 export function SentenceBox({
   value,
   className: classNameProp,
+  onBackspaceClick,
+  onClearClick,
 }: SentenceBoxProps) {
   const { t } = useTranslation();
   const classes = useStyles();
@@ -67,6 +71,7 @@ export function SentenceBox({
           size="large"
           appearance="subtle"
           icon={<BackspaceFilledWithRTL />}
+          onClick={onBackspaceClick}
         />
 
         <Button
@@ -75,6 +80,7 @@ export function SentenceBox({
           size="large"
           appearance="subtle"
           icon={<DeleteFilled />}
+          onClick={onClearClick}
         />
       </div>
     </div>

@@ -45,7 +45,11 @@ export function Board({
 
   return (
     <div className={className}>
-      <SentenceBox value={[]} />
+      <SentenceBox
+        value={[]}
+        onBackspaceClick={() => null}
+        onClearClick={() => null}
+      />
       <NavBar title={board?.name} />
 
       <Grid
