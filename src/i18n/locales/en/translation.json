@@ -1,0 +1,28 @@
+{
+  "title": "Open board",
+  "board": {
+    "sentenceBox": "Sentence box",
+    "backspace": "Backspace",
+    "clear": "Clear",
+    "boardNavigation": "Board navigation",
+    "goBack": "Go back",
+    "goForward": "Go forward",
+    "boardGrid": "Board grid"
+  },
+  "settings": {
+    "settings": "Settings",
+    "close": "Close",
+    "appearance": "Appearance",
+    "darkMode": "Dark mode",
+    "language": "Language",
+    "selectALanguage": "Select a language",
+    "speech": "Speech",
+    "voice": "Voice",
+    "selectAVoice": "Select a voice",
+    "volume": "Volume",
+    "rate": "Rate",
+    "pitch": "Pitch",
+    "preview": "Preview",
+    "previewText": "Hi, this is my voice"
+  }
+}

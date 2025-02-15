@@ -1,0 +1,28 @@
+{
+  "title": "לוח פתוח",
+  "board": {
+    "sentenceBox": "תיבת משפטים",
+    "backspace": "חזור אחורה",
+    "clear": "נקה",
+    "boardNavigation": "ניווט לוח",
+    "goBack": "אחורה",
+    "goForward": "קדימה",
+    "boardGrid": "רשת לוח"
+  },
+  "settings": {
+    "settings": "הגדרות",
+    "close": "סגור",
+    "appearance": "תצוגה",
+    "darkMode": "מצב כהה",
+    "language": "שפה",
+    "selectALanguage": "בחר שפה",
+    "speech": "דיבור",
+    "voice": "קול",
+    "selectAVoice": "בחר קול",
+    "volume": "עוצמת קול",
+    "rate": "קצב",
+    "pitch": "גובה קול",
+    "preview": "תצוגה מקדימה",
+    "previewText": "הי, זה הקול שלי"
+  }
+}
