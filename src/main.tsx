@@ -7,7 +7,7 @@ import { i18n } from "./i18n/i18n.ts";
 import "./index.css";
 
 async function enableMocking() {
-  if (process.env.NODE_ENV !== "development") {
+  if (import.meta.env.MODE !== "development") {
     return;
   }
 
