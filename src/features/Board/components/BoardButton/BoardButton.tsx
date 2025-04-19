@@ -4,7 +4,7 @@ import { getAccessibleTextColor } from "../../../../utils/color-utils";
 
 const useStyles = makeStyles({
   button: {
-    "--border-width": tokens.strokeWidthThick,
+    "--border-width": tokens.strokeWidthThicker,
 
     position: "relative",
     boxSizing: "border-box",

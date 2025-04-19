@@ -24,6 +24,7 @@ const useStyles = makeStyles({
   },
   label: {
     fontSize: tokens.fontSizeBase300,
+    fontWeight: tokens.fontWeightSemibold,
     textAlign: "center",
     textOverflow: "ellipsis",
     overflow: "hidden",
