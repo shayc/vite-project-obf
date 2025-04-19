@@ -32,13 +32,13 @@ async function speak(
 
     Object.assign(utterance, options);
 
-    utterance.addEventListener("end", () => {
+    utterance.onend = () => {
       resolve();
-    });
+    };
 
-    utterance.addEventListener("error", (error) => {
-      reject(error);
-    });
+    utterance.onerror = (event) => {
+      reject(event);
+    };
 
     window.speechSynthesis.speak(utterance);
   });
