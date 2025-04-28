@@ -78,7 +78,9 @@ export function Pictogram({
   return (
     <div className={className} style={style}>
       <div className={classes.imgContainer}>
-        {src && <img className={classes.img} src={src} alt="" />}
+        {src && (
+          <img className={classes.img} src={src} alt="" draggable={false} />
+        )}
       </div>
 
       {label && <div className={classes.label}>{label}</div>}

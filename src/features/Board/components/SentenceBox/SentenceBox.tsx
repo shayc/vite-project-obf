@@ -34,6 +34,15 @@ const useStyles = makeStyles({
     alignSelf: "center",
     gap: tokens.spacingHorizontalS,
   },
+  actionButton: {
+    minWidth: "64px",
+    maxWidth: "64px",
+    height: "64px",
+  },
+  icon: {
+    minWidth: "32px",
+    height: "32px",
+  },
 });
 
 interface SentenceBoxProps {
@@ -66,20 +75,22 @@ export function SentenceBox({
 
       <div className={classes.actions} {...attrs}>
         <Button
+          className={classes.actionButton}
           title={t("board.backspace")}
           aria-label={t("board.backspace")}
           size="large"
           appearance="subtle"
-          icon={<BackspaceFilledWithRTL />}
+          icon={<BackspaceFilledWithRTL className={classes.icon}/>}
           onClick={onBackspaceClick}
         />
 
         <Button
+          className={classes.actionButton}
           title={t("board.clear")}
           aria-label={t("board.clear")}
           size="large"
           appearance="subtle"
-          icon={<DeleteFilled />}
+          icon={<DeleteFilled  className={classes.icon} />}
           onClick={onClearClick}
         />
       </div>
